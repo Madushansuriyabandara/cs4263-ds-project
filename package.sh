@@ -17,15 +17,17 @@ cp -r src/        "$STAGING_DIR/"
 cp -r inputs/     "$STAGING_DIR/"
 cp -r outputs/    "$STAGING_DIR/"
 cp -r diagrams/   "$STAGING_DIR/"
+cp -r visualizer-webapp/ "$STAGING_DIR/"
 cp README.md requirements.txt GUIDELINE.md REPORT_TEMPLATE.md "$STAGING_DIR/"
 
 # If REPORT.pdf exists, include it
 [ -f REPORT.pdf ] && cp REPORT.pdf "$STAGING_DIR/" || echo "⚠️ REPORT.pdf not found yet (export from REPORT_TEMPLATE.md)"
 
-# Strip caches
+# Strip caches and heavy folders
 find "$STAGING_DIR" -name "__pycache__" -type d -exec rm -rf {} +  2>/dev/null || true
 find "$STAGING_DIR" -name "*.pyc" -delete 2>/dev/null || true
 find "$STAGING_DIR" -name ".DS_Store" -delete 2>/dev/null || true
+rm -rf "$STAGING_DIR/visualizer-webapp/node_modules" 2>/dev/null || true
 
 # Build zip
 zip -r "${NAME}.zip" "$STAGING_DIR" >/dev/null

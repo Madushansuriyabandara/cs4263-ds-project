@@ -22,3 +22,6 @@ outputs/*.summary.json
 
 # OS
 Thumbs.db
+
+visualizer-webapp/node_modules/
+visualizer-webapp/dist/
