@@ -7,6 +7,7 @@ import {
   type StepState,
   type NodeState,
 } from './useSimulationData';
+import { usePythonSimulator } from './usePythonSimulator';
 
 // ── Group color palette for border rings ───────────────────────────────────
 const GROUP_COLORS: Record<number, string> = {
@@ -34,6 +35,7 @@ export default function Visualizer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataset, setDataset] = useState<string>('input1');
+  const { runSimulation, isRunning, error: pyodideError } = usePythonSimulator();
 
   // Load from raw strings
   const loadData = useCallback((inputText: string, eventsText: string) => {
@@ -154,8 +156,8 @@ export default function Visualizer() {
   );
 
   const renderError = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 400, color: '#ef4444' }}>
-      <p>{error || 'No simulation data available.'}</p>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 400, color: '#ef4444', flexDirection: 'column' }}>
+      <p>{error || pyodideError || 'No simulation data available.'}</p>
     </div>
   );
 
@@ -185,9 +187,12 @@ export default function Visualizer() {
 
       {/* Header and Dataset Selector */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, width: canvasW }}>
-        <h2 style={{ margin: '0 0 16px 0', fontSize: 22, fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
-          Energy-Aware Bully Algorithm Visualizer
-        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
+          <img src="/eale-viz-logo.png" alt="eale-viz logo" style={{ height: 48 }} />
+          <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
+            Energy-Aware Bully Algorithm Visualizer
+          </h2>
+        </div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#1e293b', padding: '10px 20px', borderRadius: 8, border: '1px solid #334155' }}>
           <label style={{ fontSize: 14, color: '#94a3b8' }}>Dataset:</label>
@@ -207,43 +212,39 @@ export default function Visualizer() {
 
         {dataset === 'custom' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 12, padding: '12px 20px', background: '#1e293b', borderRadius: 8, border: '1px dashed #475569', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
-            <p style={{ margin: 0, color: '#94a3b8' }}>To visualize custom data, run `python -m src.main --input your_input.txt` and upload the files here:</p>
+            <p style={{ margin: 0, color: '#94a3b8' }}>Upload your `input.txt` to run the Python simulation directly in the browser:</p>
             <div style={{ display: 'flex', gap: 20 }}>
               <div>
-                <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>1. input.txt</label>
-                <input type="file" accept=".txt" id="custom-txt" style={{ color: '#94a3b8' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>2. events.jsonl</label>
-                <input type="file" accept=".jsonl" id="custom-jsonl" style={{ color: '#94a3b8' }} />
+                <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>input.txt</label>
+                <input type="file" accept=".txt" id="custom-txt" style={{ color: '#94a3b8' }} disabled={isRunning} />
               </div>
               <button 
+                disabled={isRunning}
                 onClick={async () => {
                   const txtFile = (document.getElementById('custom-txt') as HTMLInputElement).files?.[0];
-                  const jsonlFile = (document.getElementById('custom-jsonl') as HTMLInputElement).files?.[0];
-                  if (!txtFile || !jsonlFile) {
-                    alert('Please select both files!'); return;
+                  if (!txtFile) {
+                    alert('Please select an input.txt file!'); return;
                   }
                   setLoading(true);
                   try {
                     const txt = await txtFile.text();
-                    const jsonl = await jsonlFile.text();
-                    loadData(txt, jsonl);
+                    const eventsJsonl = await runSimulation(txt);
+                    loadData(txt, eventsJsonl);
                   } catch (e: any) {
-                    setError('Error reading files: ' + e.message);
+                    setError('Simulation failed: ' + e.message);
                     setLoading(false);
                   }
                 }}
-                style={{ alignSelf: 'flex-end', background: '#3b82f6', color: 'white', border: 'none', padding: '6px 12px', borderRadius: 4, cursor: 'pointer' }}
+                style={{ alignSelf: 'flex-end', background: isRunning ? '#64748b' : '#3b82f6', color: 'white', border: 'none', padding: '6px 12px', borderRadius: 4, cursor: isRunning ? 'not-allowed' : 'pointer' }}
               >
-                Load Custom
+                {isRunning ? 'Running Pyodide...' : 'Run Simulation'}
               </button>
             </div>
           </div>
         )}
       </div>
 
-      {loading ? renderLoading() : error || !states.length ? renderError() : (
+      {loading || isRunning ? renderLoading() : error || pyodideError || !states.length ? renderError() : (
         <>
           {/* Step label */}
           <p style={{ margin: '0 0 12px', fontSize: 14, color: '#94a3b8' }}>

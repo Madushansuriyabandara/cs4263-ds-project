@@ -1,5 +1,5 @@
 {
-  "name": "visualizer-webapp",
+  "name": "eale-viz",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "lucide-react": "^1.17.0",
+    "pyodide": "^0.29.4",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
