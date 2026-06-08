@@ -35,6 +35,7 @@ export default function Visualizer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataset, setDataset] = useState<string>('input1');
+  const [fastForwardHeartbeats, setFastForwardHeartbeats] = useState(true);
   const { runSimulation, isRunning, error: pyodideError } = usePythonSimulator();
 
   // Load from raw strings
@@ -86,9 +87,9 @@ export default function Visualizer() {
 
   // ── Auto-play timer ──
   useEffect(() => {
-    let timer: ReturnType<typeof setInterval>;
+    let timerId: ReturnType<typeof setTimeout>;
     if (isPlaying && states.length > 0) {
-      timer = setInterval(() => {
+      const runTimer = () => {
         setCurrentStep((prev) => {
           if (prev >= states.length - 1) {
             setIsPlaying(false);
@@ -96,10 +97,22 @@ export default function Visualizer() {
           }
           return prev + 1;
         });
-      }, 600);
+      };
+
+      // Calculate delay based on the CURRENT frame's messages to decide how long to wait before moving to the NEXT frame.
+      let delay = 1500;
+      if (fastForwardHeartbeats && states[currentStep]) {
+        const frameMsgs = states[currentStep].messages;
+        const hasImportant = frameMsgs.some(m => ['ELECTION', 'OK', 'COORDINATOR', 'JOIN', 'ADV'].includes(m.msg_type));
+        if (!hasImportant) {
+          delay = 50;
+        }
+      }
+
+      timerId = setTimeout(runTimer, delay);
     }
-    return () => clearInterval(timer!);
-  }, [isPlaying, states]);
+    return () => clearTimeout(timerId);
+  }, [isPlaying, states, currentStep, fastForwardHeartbeats]);
 
   // ── Keyboard controls ──
   const handleKeyDown = useCallback(
@@ -186,7 +199,7 @@ export default function Visualizer() {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: 'Inter, system-ui, sans-serif', padding: '16px 20px', background: '#0f172a', minHeight: '100vh', color: '#e2e8f0' }}>
 
       {/* Header and Dataset Selector */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, width: canvasW }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, width: '100%', maxWidth: 900 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
           <img src="/eale-viz-logo.png" alt="eale-viz logo" style={{ height: 48 }} />
           <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
@@ -252,8 +265,8 @@ export default function Visualizer() {
           </p>
 
           {/* Main canvas */}
-          <div style={{ position: 'relative', width: canvasW, height: canvasH, border: '1px solid #334155', borderRadius: 12, backgroundColor: '#1e293b', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
-            <svg width={canvasW} height={canvasH}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: 900, aspectRatio: '700 / 550', border: '1px solid #334155', borderRadius: 12, backgroundColor: '#1e293b', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
+            <svg width="100%" height="100%" viewBox={`0 0 ${canvasW} ${canvasH}`}>
               <defs>
                 {/* Arrow markers for each message type */}
                 <marker id="arrow-ELECTION" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -395,26 +408,38 @@ export default function Visualizer() {
           </div>
 
           {/* ── Controls ── */}
-          <div style={{ display: 'flex', gap: 8, marginTop: 16, alignItems: 'center' }}>
-            <button onClick={() => setCurrentStep(0)} style={btnStyle} title="Go to start">
-              <SkipBack size={18} />
-            </button>
-            <button onClick={() => setCurrentStep((p) => Math.max(0, p - 1))} style={btnStyle} title="Previous frame">
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              style={{ ...btnStyle, width: 64, background: isPlaying ? '#dc2626' : '#2563eb' }}
-              title={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-            </button>
-            <button onClick={() => setCurrentStep((p) => Math.min(states.length - 1, p + 1))} style={btnStyle} title="Next frame">
-              <ChevronRight size={18} />
-            </button>
-            <button onClick={() => setCurrentStep(states.length - 1)} style={btnStyle} title="Go to end">
-              <SkipForward size={18} />
-            </button>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 16, alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: 900 }}>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={() => setCurrentStep(0)} style={btnStyle} title="Go to start">
+                <SkipBack size={18} />
+              </button>
+              <button onClick={() => setCurrentStep((p) => Math.max(0, p - 1))} style={btnStyle} title="Previous frame">
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                style={{ ...btnStyle, width: 64, background: isPlaying ? '#dc2626' : '#2563eb' }}
+                title={isPlaying ? 'Pause' : 'Play'}
+              >
+                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+              </button>
+              <button onClick={() => setCurrentStep((p) => Math.min(states.length - 1, p + 1))} style={btnStyle} title="Next frame">
+                <ChevronRight size={18} />
+              </button>
+              <button onClick={() => setCurrentStep(states.length - 1)} style={btnStyle} title="Go to end">
+                <SkipForward size={18} />
+              </button>
+            </div>
+
+            <label style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, color: '#94a3b8', cursor: 'pointer', background: '#1e293b', padding: '6px 12px', borderRadius: 8, border: '1px solid #334155' }}>
+              <input 
+                type="checkbox" 
+                checked={fastForwardHeartbeats} 
+                onChange={(e) => setFastForwardHeartbeats(e.target.checked)} 
+                style={{ accentColor: '#3b82f6' }}
+              />
+              Fast-Forward Heartbeats
+            </label>
           </div>
 
           {/* ── Slider ── */}
@@ -424,11 +449,11 @@ export default function Visualizer() {
             max={states.length - 1}
             value={currentStep}
             onChange={(e) => setCurrentStep(Number(e.target.value))}
-            style={{ width: canvasW - 40, marginTop: 10, accentColor: '#3b82f6' }}
+            style={{ width: '100%', maxWidth: 860, marginTop: 10, accentColor: '#3b82f6' }}
           />
 
           {/* ── Legend ── */}
-          <div style={{ marginTop: 14, display: 'flex', flexWrap: 'wrap', gap: 16, fontSize: 12, color: '#94a3b8' }}>
+          <div style={{ marginTop: 14, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, fontSize: 12, color: '#94a3b8', width: '100%', maxWidth: 900 }}>
             <LegendDot color="#ec4899" label="Leader (Pink)" />
             <LegendDot color="#3b82f6" label="Follower (Blue)" />
             <LegendDot color="#f59e0b" label="Election (Orange)" />
