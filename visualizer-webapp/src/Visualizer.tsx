@@ -216,96 +216,113 @@ export default function Visualizer() {
           </h2>
         </div>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, background: '#1e293b', padding: '10px 20px', borderRadius: 8, border: '1px solid #334155' }}>
-          <label style={{ fontSize: 14, color: '#94a3b8' }}>Dataset:</label>
-          <select 
-            value={dataset} 
-            onChange={(e) => setDataset(e.target.value)}
-            style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #475569', borderRadius: 4, padding: '4px 8px', fontSize: 14 }}
-          >
-            <option value="input1">Default Assignment Input (input1)</option>
-            <option value="input2_single">Single Node (input2)</option>
-            <option value="input3_small">Small Topology (input3)</option>
-            <option value="input4_large">Large Topology 25-node (input4)</option>
-            <option value="input5_stress">Stress Test (input5)</option>
-            <option value="custom">Custom Input...</option>
-          </select>
-        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 12, padding: '16px 20px', background: '#1e293b', borderRadius: 8, border: '1px solid #334155', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
+          
+          {/* Top row: Dataset selector */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <label style={{ fontSize: 14, color: '#94a3b8', fontWeight: 600 }}>Dataset:</label>
+            <select 
+              value={dataset} 
+              onChange={(e) => setDataset(e.target.value)}
+              style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #475569', borderRadius: 4, padding: '6px 8px', fontSize: 14 }}
+            >
+              <option value="input1">Default Assignment Input (input1)</option>
+              <option value="input2_single">Single Node (input2)</option>
+              <option value="input3_small">Small Topology (input3)</option>
+              <option value="input4_large">Large Topology 25-node (input4)</option>
+              <option value="input5_stress">Stress Test (input5)</option>
+              <option value="custom">Custom Input...</option>
+            </select>
+          </div>
 
-        {dataset === 'custom' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 12, padding: '16px 20px', background: '#1e293b', borderRadius: 8, border: '1px dashed #475569', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px 24px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Clustering Algorithm (c)</label>
-                <select value={simConfig.cluster_algo} onChange={e => setSimConfig({...simConfig, cluster_algo: e.target.value})} style={selectStyle}>
-                  <option value="hybrid">Hybrid</option>
-                  <option value="leach">LEACH</option>
-                  <option value="k-medoids">K-Medoids</option>
-                  <option value="set-cover">Set-Cover</option>
-                  <option value="highest-energy">Highest-Energy</option>
-                  <option value="random">Random</option>
-                </select>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Election Algorithm (e)</label>
-                <select value={simConfig.election_algo} onChange={e => setSimConfig({...simConfig, election_algo: e.target.value})} style={selectStyle}>
-                  <option value="backup_first">Backup-First</option>
-                  <option value="bully">Bully</option>
-                  <option value="ring">Ring</option>
-                  <option value="local_score">Local-Score</option>
-                </select>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Aggregation Mode (a)</label>
-                <select value={simConfig.aggregation} onChange={e => setSimConfig({...simConfig, aggregation: e.target.value})} style={selectStyle}>
-                  <option value="full">Full</option>
-                  <option value="partial">Partial-k</option>
-                  <option value="none">None</option>
-                </select>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Data Period (d)</label>
-                <input type="number" min="0" value={simConfig.data_period} onChange={e => setSimConfig({...simConfig, data_period: parseInt(e.target.value) || 0})} style={inputStyle} />
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Heartbeat Period (h)</label>
-                <input type="number" min="0" value={simConfig.heartbeat} onChange={e => setSimConfig({...simConfig, heartbeat: parseInt(e.target.value) || 0})} style={inputStyle} />
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <label style={{ color: '#cbd5e1' }}>Rotation Period (r)</label>
-                <input type="number" min="0" value={simConfig.rotation_period} onChange={e => setSimConfig({...simConfig, rotation_period: parseInt(e.target.value) || 0})} style={inputStyle} />
-              </div>
+          {/* Config Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px 24px', borderTop: '1px solid #334155', paddingTop: 16 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Clustering Algorithm (c)</label>
+              <select value={simConfig.cluster_algo} onChange={e => setSimConfig({...simConfig, cluster_algo: e.target.value})} style={selectStyle}>
+                <option value="hybrid">Hybrid</option>
+                <option value="leach">LEACH</option>
+                <option value="k-medoids">K-Medoids</option>
+                <option value="set-cover">Set-Cover</option>
+                <option value="highest-energy">Highest-Energy</option>
+                <option value="random">Random</option>
+              </select>
             </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #334155', paddingTop: 16 }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>input.txt</label>
-                <input type="file" accept=".txt" id="custom-txt" style={{ color: '#94a3b8' }} disabled={isRunning} />
-              </div>
-              <button 
-                disabled={isRunning}
-                onClick={async () => {
-                  const txtFile = (document.getElementById('custom-txt') as HTMLInputElement).files?.[0];
-                  if (!txtFile) {
-                    alert('Please select an input.txt file!'); return;
-                  }
-                  setLoading(true);
-                  try {
-                    const txt = await txtFile.text();
-                    const eventsJsonl = await runSimulation(txt, simConfig);
-                    loadData(txt, eventsJsonl);
-                  } catch (e: any) {
-                    setError('Simulation failed: ' + e.message);
-                    setLoading(false);
-                  }
-                }}
-                style={{ background: isRunning ? '#64748b' : '#3b82f6', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 4, cursor: isRunning ? 'not-allowed' : 'pointer', fontWeight: 600 }}
-              >
-                {isRunning ? 'Running Pyodide...' : 'Run Simulation'}
-              </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Election Algorithm (e)</label>
+              <select value={simConfig.election_algo} onChange={e => setSimConfig({...simConfig, election_algo: e.target.value})} style={selectStyle}>
+                <option value="backup_first">Backup-First</option>
+                <option value="bully">Bully</option>
+                <option value="ring">Ring</option>
+                <option value="local_score">Local-Score</option>
+              </select>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Aggregation Mode (a)</label>
+              <select value={simConfig.aggregation} onChange={e => setSimConfig({...simConfig, aggregation: e.target.value})} style={selectStyle}>
+                <option value="full">Full</option>
+                <option value="partial">Partial-k</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Data Period (d)</label>
+              <input type="number" min="0" value={simConfig.data_period} onChange={e => setSimConfig({...simConfig, data_period: parseInt(e.target.value) || 0})} style={inputStyle} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Heartbeat Period (h)</label>
+              <input type="number" min="0" value={simConfig.heartbeat} onChange={e => setSimConfig({...simConfig, heartbeat: parseInt(e.target.value) || 0})} style={inputStyle} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <label style={{ color: '#cbd5e1' }}>Rotation Period (r)</label>
+              <input type="number" min="0" value={simConfig.rotation_period} onChange={e => setSimConfig({...simConfig, rotation_period: parseInt(e.target.value) || 0})} style={inputStyle} />
             </div>
           </div>
-        )}
+
+          {/* Bottom row: File input & Run Button */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #334155', paddingTop: 16 }}>
+            <div>
+              {dataset === 'custom' ? (
+                <>
+                  <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>input.txt</label>
+                  <input type="file" accept=".txt" id="custom-txt" style={{ color: '#94a3b8' }} disabled={isRunning} />
+                </>
+              ) : (
+                <div style={{ color: '#94a3b8', fontSize: 13, marginBottom: 4 }}>
+                  Will run Pyodide with pre-defined <b>{dataset}.txt</b>
+                </div>
+              )}
+            </div>
+            <button 
+              disabled={isRunning}
+              onClick={async () => {
+                setLoading(true);
+                try {
+                  let txt = '';
+                  if (dataset === 'custom') {
+                    const txtFile = (document.getElementById('custom-txt') as HTMLInputElement).files?.[0];
+                    if (!txtFile) {
+                      alert('Please select an input.txt file!'); return;
+                    }
+                    txt = await txtFile.text();
+                  } else {
+                    const req = await fetch(`/data/${dataset}.txt`);
+                    if (!req.ok) throw new Error(`Could not find /data/${dataset}.txt`);
+                    txt = await req.text();
+                  }
+                  const eventsJsonl = await runSimulation(txt, simConfig);
+                  loadData(txt, eventsJsonl);
+                } catch (e: any) {
+                  setError('Simulation failed: ' + e.message);
+                  setLoading(false);
+                }
+              }}
+              style={{ background: isRunning ? '#64748b' : '#3b82f6', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 4, cursor: isRunning ? 'not-allowed' : 'pointer', fontWeight: 600 }}
+            >
+              {isRunning ? 'Running Pyodide...' : 'Run Simulation'}
+            </button>
+          </div>
+        </div>
       </div>
 
       {loading || isRunning ? renderLoading() : error || pyodideError || !states.length ? renderError() : (

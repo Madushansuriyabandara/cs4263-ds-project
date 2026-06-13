@@ -115,11 +115,10 @@ if 'src.node' in sys.modules:
 sys.path.append('/')
 
 from src.simulator import Simulator, parse_input_file, SimConfig
-from src.logger import SimulationLogger
+from src.logger import write_outputs
 
 try:
     nodes = parse_input_file('/input.txt')
-    logger = SimulationLogger('/outputs', 'input1')
     
     cfg = SimConfig(
         cluster_algo="${config.cluster_algo}",
@@ -138,13 +137,8 @@ try:
         nodes=nodes,
         config=cfg
     )
-    # Monkey-patch to use the logger correctly since the assignment simulator does it slightly differently
-    sim.logger = logger
-    sim.cfg.output_dir = '/outputs'
-    sim.cfg.base_name = 'input1'
-    sim.run()
-    # Write the events out manually if run() doesn't do it identically
-    logger.export_all_events()
+    res = sim.run()
+    write_outputs('/outputs', 'input1', sim.nodes, res)
 except Exception as e:
     print(f"Error during simulation: {e}")
     raise e
