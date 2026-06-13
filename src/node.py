@@ -1,9 +1,21 @@
-"""Node and Group domain model."""
+"""Node and Group domain model (assignment-compliant).
+
+Energy rule (assignment):
+    * Each alive node loses EXISTENCE_COST = 1 energy per time step.
+    * Each transmitted message costs SEND_COST = 2 energy from the sender.
+    * Receiving is free.
+A node is dead when its energy <= 0.
+"""
 from __future__ import annotations
+
 from dataclasses import dataclass, field
 from enum import Enum
 from math import hypot
 from typing import List, Optional
+
+GROUP_RADIUS: float = 20.0
+EXISTENCE_COST: float = 1.0
+SEND_COST: float = 2.0
 
 
 class NodeStatus(Enum):
@@ -13,15 +25,20 @@ class NodeStatus(Enum):
 
 @dataclass
 class Node:
-    """A node in the distributed simulation."""
     id: int
     x: float
     y: float
     energy: float
+    initial_energy: float = 0.0
     status: NodeStatus = NodeStatus.ACTIVE
     is_leader: bool = False
     group_id: Optional[int] = None
-    messages_sent_this_step: int = 0
+    times_as_leader: int = 0
+    messages_sent: int = 0
+
+    def __post_init__(self) -> None:
+        if self.initial_energy <= 0:
+            self.initial_energy = self.energy
 
     def distance_to(self, other: "Node") -> float:
         return hypot(self.x - other.x, self.y - other.y)
@@ -30,17 +47,17 @@ class Node:
         return self.status == NodeStatus.ACTIVE and self.energy > 0
 
     def __repr__(self) -> str:
-        leader_mark = "⭐" if self.is_leader else ""
-        return f"N{self.id}({self.x},{self.y},E={self.energy:.0f}){leader_mark}"
+        mark = "★" if self.is_leader else "·"
+        return f"N{self.id}{mark}(x={self.x:g},y={self.y:g},E={self.energy:.1f})"
 
 
 @dataclass
 class Group:
-    """A group centered on a leader node."""
     id: int
     leader_id: int
+    backup_id: Optional[int] = None
     member_ids: List[int] = field(default_factory=list)
-    radius: float = 20.0
+    radius: float = GROUP_RADIUS
 
-    def __repr__(self) -> str:
-        return f"G{self.id}(L={self.leader_id}, members={self.member_ids})"
+    def alive_members(self, nodes) -> List[int]:
+        return [m for m in self.member_ids if m in nodes and nodes[m].is_alive()]

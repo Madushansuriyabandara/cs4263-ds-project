@@ -1,91 +1,54 @@
-"""Structured logging: JSONL events + human-readable text + summary JSON."""
+"""Per-run logger: writes log.txt + events.jsonl + summary.json."""
 from __future__ import annotations
 import json
 import os
-from typing import Dict, List
+from typing import Dict
 
-from .node import Node, Group
+from .node import Node
+from .simulator import RunResult
 
 
-class SimulationLogger:
-    def __init__(self, output_dir: str, base_name: str):
-        os.makedirs(output_dir, exist_ok=True)
-        self.txt_path = os.path.join(output_dir, f"{base_name}.log.txt")
-        self.jsonl_path = os.path.join(output_dir, f"{base_name}.events.jsonl")
-        self.summary_path = os.path.join(output_dir, f"{base_name}.summary.json")
+def write_outputs(out_dir: str, base: str,
+                  nodes: Dict[int, Node], result: RunResult) -> Dict[str, str]:
+    os.makedirs(out_dir, exist_ok=True)
+    txt = os.path.join(out_dir, f"{base}.log.txt")
+    jsl = os.path.join(out_dir, f"{base}.events.jsonl")
+    smy = os.path.join(out_dir, f"{base}.summary.json")
 
-        self.txt_file = open(self.txt_path, "w", encoding="utf-8")
-        self.jsonl_file = open(self.jsonl_path, "w", encoding="utf-8")
+    with open(jsl, "w", encoding="utf-8") as f:
+        for ev in result.events:
+            f.write(json.dumps(ev) + "\n")
 
-        self.summary = {
-            "base_name": base_name,
-            "total_steps": 0,
-            "first_death_step": None,
-            "last_alive_step": 0,
-            "total_messages": 0,
-            "total_energy_consumed": 0.0,
-            "leader_changes": 0,
-            "deaths": [],
-            "elections": [],
-        }
+    with open(txt, "w", encoding="utf-8") as f:
+        f.write(f"# Simulation log — {base}\n")
+        f.write(f"# Config: {result.config}\n")
+        f.write(f"# Initial nodes: {result.n_nodes}, "
+                f"initial total energy: {result.initial_total_energy:g}\n\n")
+        for h in result.history:
+            f.write(f"=== STEP {h.step} ===\n")
+            f.write(f"Alive={h.alive}, Groups={h.n_groups}, "
+                    f"TotalEnergy={h.total_energy:.1f}, "
+                    f"Messages={h.messages}\n")
+        f.write("\n# Deaths:\n")
+        for (s, nid, wl) in result.deaths:
+            f.write(f"  step {s}: node {nid} died (was_leader={wl})\n")
 
-    def log_event(self, step: int, event_type: str, **kwargs):
-        evt = {"step": step, "type": event_type, **kwargs}
-        self.jsonl_file.write(json.dumps(evt) + "\n")
-        self.jsonl_file.flush()
+    summary = {
+        "base_name": base,
+        "config": result.config,
+        "n_nodes": result.n_nodes,
+        "initial_total_energy": result.initial_total_energy,
+        "lifetime_T_all": result.t_all_dead,
+        "T_first_death": result.t_first_death,
+        "T_50_percent": result.t_50_percent,
+        "total_messages": result.total_messages,
+        "messages_per_unit_time": result.messages_per_unit_time(),
+        "leader_changes": result.leader_changes,
+        "elections_triggered": result.elections_triggered,
+        "deaths": [{"step": s, "node": n, "was_leader": w}
+                   for (s, n, w) in result.deaths],
+    }
+    with open(smy, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2)
 
-        if event_type == "DEATH":
-            self.summary["deaths"].append({"step": step, "node": kwargs.get("node"),
-                                            "was_leader": kwargs.get("was_leader", False)})
-            if self.summary["first_death_step"] is None:
-                self.summary["first_death_step"] = step
-        elif event_type == "COORDINATOR_ANNOUNCED":
-            self.summary["leader_changes"] += 1
-            self.summary["elections"].append({"step": step, "group": kwargs.get("group"),
-                                               "new_leader": kwargs.get("new_leader")})
-
-    def log_step(
-        self,
-        step: int,
-        nodes: Dict[int, Node],
-        groups: Dict[int, Group],
-        events_this_step: List[str],
-        messages_this_step: int,
-    ):
-        alive = [n for n in nodes.values() if n.is_alive()]
-        dead = [n for n in nodes.values() if not n.is_alive()]
-        total_energy = sum(n.energy for n in alive)
-
-        if alive:
-            self.summary["last_alive_step"] = step
-        self.summary["total_steps"] = step
-        self.summary["total_messages"] += messages_this_step
-
-        # Human-readable
-        self.txt_file.write(f"=== STEP {step} ===\n")
-        self.txt_file.write(f"Alive={len(alive)}, Dead={len(dead)}, "
-                            f"TotalEnergy={total_energy:.0f}, "
-                            f"Messages={messages_this_step}\n")
-        if groups:
-            for g in groups.values():
-                leader = nodes.get(g.leader_id)
-                alive_members = [nodes[m] for m in g.member_ids
-                                 if m in nodes and nodes[m].is_alive()]
-                self.txt_file.write(
-                    f"  Group {g.id}: leader=N{g.leader_id}"
-                    f"(E={leader.energy:.0f}) "
-                    f"members={[m.id for m in alive_members]}\n"
-                )
-        for e in events_this_step:
-            self.txt_file.write(f"  EVENT: {e}\n")
-        self.txt_file.write("\n")
-        self.txt_file.flush()
-
-    def finalize(self, nodes: Dict[int, Node], initial_total_energy: float):
-        final_total = sum(max(n.energy, 0) for n in nodes.values())
-        self.summary["total_energy_consumed"] = initial_total_energy - final_total
-        mean_size = 0
-        with open(self.summary_path, "w", encoding="utf-8") as f:
-            json.dump(self.summary, f, indent=2)
-        self.txt_file.close()
-        self.jsonl_file.close()
+    return {"log": txt, "events": jsl, "summary": smy}
