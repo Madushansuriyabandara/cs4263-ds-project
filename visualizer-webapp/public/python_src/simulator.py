@@ -197,15 +197,11 @@ class Simulator:
                 n.messages_sent += c
         total = len(self.pending)
         for m in self.pending:
-            if m.msg_type in (MessageType.ELECTION, MessageType.OK,
-                              MessageType.COORDINATOR, MessageType.VOTE,
-                              MessageType.TOKEN, MessageType.ADV,
-                              MessageType.JOIN):
-                self.result.events.append({
-                    "step": self.step, "type": "MESSAGE_SENT",
-                    "sender": m.sender_id, "recipients": m.recipient_ids,
-                    "msg_type": m.msg_type.value,
-                })
+            self.result.events.append({
+                "step": self.step, "type": "MESSAGE_SENT",
+                "sender": m.sender_id, "recipients": m.recipient_ids,
+                "msg_type": m.msg_type.value,
+            })
         self.pending = []
         return total
 
