@@ -13,43 +13,60 @@ def select_initial_leaders_and_form_groups(
     radius: float = GROUP_RADIUS,
 ) -> Dict[int, Group]:
     """
-    Energy-aware greedy:
+    Energy-aware greedy + closest-leader tiebreak:
       1. Sort alive nodes by energy DESC (tiebreak by id ASC for determinism).
-      2. While ungrouped nodes remain:
-         a. Pick the highest-energy ungrouped node as a NEW LEADER.
-         b. Find all ungrouped nodes within `radius` of it.
-         c. Resolve conflicts later (here: take all eligible; tiebreak: closest).
-      3. Ensures R4 (single-membership) because once assigned, a node is removed
-         from the ungrouped pool.
+      2. Identify leaders: A node becomes a leader if it is not within `radius`
+         of any already-selected leader.
+      3. Assign followers: Every non-leader node is assigned to the closest 
+         leader within `radius`.
     """
     alive = [n for n in nodes.values() if n.is_alive()]
-    ungrouped = sorted(alive, key=lambda n: (-n.energy, n.id))
+    sorted_nodes = sorted(alive, key=lambda n: (-n.energy, n.id))
 
-    groups: Dict[int, Group] = {}
-    next_group_id = 0
+    leaders = []
+    followers = []
 
     # Reset state
     for n in alive:
         n.is_leader = False
         n.group_id = None
 
-    while ungrouped:
-        leader = ungrouped.pop(0)
-        leader.is_leader = True
-        g = Group(id=next_group_id, leader_id=leader.id, member_ids=[leader.id], radius=radius)
-        leader.group_id = g.id
+    # Step 1: Identify leaders
+    for n in sorted_nodes:
+        is_covered = False
+        for l in leaders:
+            if n.distance_to(l) <= radius:
+                is_covered = True
+                break
+        
+        if not is_covered:
+            leaders.append(n)
+            n.is_leader = True
+        else:
+            followers.append(n)
 
-        # Find candidates within radius of THIS leader
-        new_ungrouped = []
-        for n in ungrouped:
-            if leader.distance_to(n) <= radius:
-                n.group_id = g.id
-                g.member_ids.append(n.id)
-            else:
-                new_ungrouped.append(n)
-        ungrouped = new_ungrouped
+    groups: Dict[int, Group] = {}
+    
+    # Initialize groups
+    for idx, l in enumerate(leaders):
+        g = Group(id=idx, leader_id=l.id, member_ids=[l.id], radius=radius)
+        l.group_id = g.id
         groups[g.id] = g
-        next_group_id += 1
+
+    # Step 2: Assign followers to closest leader
+    for f in followers:
+        best_leader = None
+        best_dist = float("inf")
+        
+        for l in leaders:
+            d = f.distance_to(l)
+            if d <= radius and d < best_dist:
+                best_dist = d
+                best_leader = l
+                
+        if best_leader is not None:
+            f.group_id = best_leader.group_id
+            groups[best_leader.group_id].member_ids.append(f.id)
 
     return groups
 

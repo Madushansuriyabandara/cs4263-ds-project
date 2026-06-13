@@ -66,10 +66,10 @@ We built a beautiful animated React dashboard to visualize the simulation steps,
 ```bash
 # 1. Ensure you have run the python simulator first to generate outputs/input1.events.jsonl
 # 2. Copy the events file to the webapp data folder (if you test a new input)
-cp outputs/input1.events.jsonl visualizer-webapp/public/data/
+cp outputs/input1.events.jsonl eale-viz/public/data/
 
 # 3. Start the visualizer
-cd visualizer-webapp
+cd eale-viz
 npm install
 npm run dev
 ```

@@ -1,17 +1,22 @@
-"""Message types and energy cost model."""
+"""Message types & cost model."""
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
-from typing import List
+from typing import Any, Dict, List
 
 
 class MessageType(Enum):
-    ADV = "ADV"                  # leader advertisement
-    JOIN = "JOIN"                # candidate requests to join
-    HEARTBEAT = "HEARTBEAT"      # leader liveness signal
-    ELECTION = "ELECTION"        # bully election message
-    OK = "OK"                    # bully reply
-    COORDINATOR = "COORDINATOR"  # winner announcement
+    ADV = "ADV"
+    JOIN = "JOIN"
+    HEARTBEAT = "HEARTBEAT"
+    DATA = "DATA"
+    AGG = "AGG"
+    ELECTION = "ELECTION"
+    OK = "OK"
+    COORDINATOR = "COORDINATOR"
+    VOTE = "VOTE"
+    TOKEN = "TOKEN"
+    L2L = "L2L"
 
 
 @dataclass
@@ -20,13 +25,4 @@ class Message:
     recipient_ids: List[int]
     msg_type: MessageType
     step: int
-    payload: dict = None
-
-    def __post_init__(self):
-        if self.payload is None:
-            self.payload = {}
-
-
-# Energy cost per message sent (from assignment)
-SEND_COST = 2
-EXISTENCE_COST = 1
+    payload: Dict[str, Any] = field(default_factory=dict)

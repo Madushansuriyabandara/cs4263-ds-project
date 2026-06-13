@@ -1,22 +1,20 @@
-"""Discrete-event simulation engine."""
+"""Discrete-time simulator."""
 from __future__ import annotations
+
+import random
 import re
-from typing import Dict, List, Tuple
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Tuple
 
-from .node import Node, NodeStatus, Group
-from .messaging import Message, MessageType, EXISTENCE_COST, SEND_COST
-from .group_formation import (
-    select_initial_leaders_and_form_groups,
-    reform_groups_for_orphans,
-    GROUP_RADIUS,
+from .clustering import CLUSTER_ALGORITHMS, reform_for_orphans
+from .election import ELECTION_ALGORITHMS, default_score
+from .messaging import Message, MessageType
+from .node import (EXISTENCE_COST, GROUP_RADIUS, SEND_COST, Group, Node,
+                   NodeStatus)
+
+TRIPLET_RE = re.compile(
+    r"\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)"
 )
-from .leader_election import energy_aware_bully_election
-from .logger import SimulationLogger
-from .visualizer import render_dashboard
-
-
-TRIPLET_RE = re.compile(r"\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)")
-HEARTBEAT_INTERVAL = 5
 
 
 def parse_input_file(path: str) -> Dict[int, Node]:
@@ -25,193 +23,335 @@ def parse_input_file(path: str) -> Dict[int, Node]:
     nodes: Dict[int, Node] = {}
     for idx, m in enumerate(TRIPLET_RE.finditer(text), start=1):
         x, y, e = float(m.group(1)), float(m.group(2)), float(m.group(3))
-        nodes[idx] = Node(id=idx, x=x, y=y, energy=e)
+        nodes[idx] = Node(id=idx, x=x, y=y, energy=e, initial_energy=e)
     if not nodes:
-        raise ValueError(f"No (x,y,energy) triplets found in {path}")
+        raise ValueError(f"No (x,y,E) triplets in {path}")
     return nodes
 
 
+@dataclass
+class SimConfig:
+    cluster_algo: str = "hybrid"
+    election_algo: str = "backup_first"
+    radius: float = GROUP_RADIUS
+    data_period: int = 5
+    heartbeat: int = 10
+    aggregation: str = "full"
+    agg_factor: int = 4
+    rotation_period: int = 0
+    recluster_period: int = 0
+    leader_to_leader: bool = False
+    max_steps: int = 5000
+    seed: int = 0
+
+    def as_dict(self) -> Dict[str, str]:
+        return {k: str(v) for k, v in self.__dict__.items()}
+
+
+@dataclass
+class StepSnapshot:
+    step: int
+    alive: int
+    total_energy: float
+    n_groups: int
+    messages: int
+
+
+@dataclass
+class RunResult:
+    config: Dict[str, str]
+    n_nodes: int
+    initial_total_energy: float
+    t_first_death: Optional[int]
+    t_50_percent: Optional[int]
+    t_all_dead: int
+    total_messages: int
+    leader_changes: int
+    elections_triggered: int
+    history: List[StepSnapshot] = field(default_factory=list)
+    deaths: List[Tuple[int, int, bool]] = field(default_factory=list)
+    events: List[dict] = field(default_factory=list)
+    final_nodes: List[dict] = field(default_factory=list)
+
+    def messages_per_unit_time(self) -> float:
+        return self.total_messages / max(1, self.t_all_dead)
+
+
+def _refresh_backup(group: Group, nodes: Dict[int, Node]) -> None:
+    leader = nodes.get(group.leader_id)
+    if not leader:
+        group.backup_id = None
+        return
+    cands = [nodes[m] for m in group.member_ids
+             if m != group.leader_id and nodes[m].is_alive()]
+    if not cands:
+        group.backup_id = None
+        return
+    e_max = max(c.energy for c in cands) or 1.0
+    d_max = max(c.distance_to(leader) for c in cands) or 1.0
+    best = max(cands,
+               key=lambda c: 0.7 * (c.energy / e_max)
+                            + 0.3 * (1.0 - c.distance_to(leader) / d_max))
+    group.backup_id = best.id
+
+
 class Simulator:
-    def __init__(
-        self,
-        nodes: Dict[int, Node],
-        logger: SimulationLogger,
-        max_steps: int = 1000,
-        radius: float = GROUP_RADIUS,
-        heartbeat_interval: int = HEARTBEAT_INTERVAL,
-        viz_every: int = 50,
-        output_dir: str = "outputs",
-        base_name: str = "sim",
-    ):
+    def __init__(self, nodes, config: SimConfig):
         self.nodes = nodes
-        self.logger = logger
-        self.max_steps = max_steps
-        self.radius = radius
-        self.heartbeat_interval = heartbeat_interval
-        self.viz_every = viz_every
-        self.output_dir = output_dir
-        self.base_name = base_name
-
-        self.initial_total_energy = sum(n.energy for n in nodes.values())
-        self.step = 0
+        self.cfg = config
+        self.rng = random.Random(config.seed)
+        self.cluster_fn = CLUSTER_ALGORITHMS[config.cluster_algo]
+        self.elect_fn = ELECTION_ALGORITHMS[config.election_algo]
+        self.score_fn = default_score
         self.groups: Dict[int, Group] = {}
-        self.pending_messages: List[Message] = []
-        self.history: List[dict] = []
+        self.pending: List[Message] = []
+        self.step = 0
+        self.initial_total = sum(n.energy for n in nodes.values())
+        self.result = RunResult(
+            config=config.as_dict(), n_nodes=len(nodes),
+            initial_total_energy=self.initial_total,
+            t_first_death=None, t_50_percent=None, t_all_dead=0,
+            total_messages=0, leader_changes=0, elections_triggered=0,
+        )
 
-    # ---------- Setup ----------
     def initialize(self):
-        # 1) Form initial groups (energy-aware greedy + closest leader)
-        self.groups = select_initial_leaders_and_form_groups(self.nodes, self.radius)
-
-        # 2) Each new leader broadcasts an ADV; each member sends a JOIN
+        self.groups = self.cluster_fn(self.nodes, radius=self.cfg.radius,
+                                      rng=self.rng)
         for g in self.groups.values():
             leader = self.nodes[g.leader_id]
-            members_excl = [m for m in g.member_ids if m != g.leader_id]
-            if members_excl:
-                self.pending_messages.append(Message(
-                    sender_id=leader.id, recipient_ids=members_excl,
-                    msg_type=MessageType.ADV, step=0,
-                ))
-                for m in members_excl:
-                    self.pending_messages.append(Message(
-                        sender_id=m, recipient_ids=[leader.id],
-                        msg_type=MessageType.JOIN, step=0,
-                    ))
+            others = [m for m in g.member_ids if m != leader.id]
+            if others:
+                self.pending.append(Message(sender_id=leader.id,
+                                            recipient_ids=others,
+                                            msg_type=MessageType.ADV, step=1))
+                for m in others:
+                    self.pending.append(Message(sender_id=m,
+                                                recipient_ids=[leader.id],
+                                                msg_type=MessageType.JOIN, step=1))
+        self.result.events.append({"step": 0, "type": "INIT",
+                                   "leaders": [g.leader_id for g in self.groups.values()],
+                                   "groups": {g.id: list(g.member_ids)
+                                              for g in self.groups.values()}})
+        for g in self.groups.values():
+            if g.backup_id is None:
+                _refresh_backup(g, self.nodes)
+            if g.backup_id is not None:
+                self.result.events.append({"step": 0, "type": "BACKUP_ASSIGNED",
+                                           "group": g.id, "node": g.backup_id})
 
-        self.logger.log_event(0, "INIT",
-                              leaders=[g.leader_id for g in self.groups.values()],
-                              groups={g.id: g.member_ids for g in self.groups.values()})
+    def _emit_data_messages(self):
+        if self.cfg.data_period > 0 and self.step % self.cfg.data_period == 0:
+            for g in self.groups.values():
+                leader = self.nodes.get(g.leader_id)
+                if not leader or not leader.is_alive():
+                    continue
+                alive_members = [m for m in g.member_ids
+                                 if m != leader.id and self.nodes[m].is_alive()]
+                for mid in alive_members:
+                    self.pending.append(Message(sender_id=mid,
+                                                recipient_ids=[leader.id],
+                                                msg_type=MessageType.DATA,
+                                                step=self.step))
+                if alive_members:
+                    if self.cfg.aggregation == "full":
+                        self.pending.append(Message(sender_id=leader.id,
+                                                    recipient_ids=[],
+                                                    msg_type=MessageType.AGG,
+                                                    step=self.step))
+                    elif self.cfg.aggregation == "partial":
+                        k = max(1, self.cfg.agg_factor)
+                        n_out = (len(alive_members) + k - 1) // k
+                        for _ in range(n_out):
+                            self.pending.append(Message(sender_id=leader.id,
+                                                        recipient_ids=[],
+                                                        msg_type=MessageType.AGG,
+                                                        step=self.step))
+                    elif self.cfg.aggregation == "none":
+                        for _ in alive_members:
+                            self.pending.append(Message(sender_id=leader.id,
+                                                        recipient_ids=[],
+                                                        msg_type=MessageType.AGG,
+                                                        step=self.step))
+        if self.cfg.heartbeat > 0 and self.step > 0 \
+                and self.step % self.cfg.heartbeat == 0:
+            for g in self.groups.values():
+                leader = self.nodes.get(g.leader_id)
+                if not leader or not leader.is_alive():
+                    continue
+                others = [m for m in g.member_ids
+                          if m != leader.id and self.nodes[m].is_alive()]
+                if others:
+                    self.pending.append(Message(sender_id=leader.id,
+                                                recipient_ids=others,
+                                                msg_type=MessageType.HEARTBEAT,
+                                                step=self.step))
 
-    # ---------- One step ----------
-    def step_once(self) -> Tuple[int, List[str]]:
-        """Run one simulation step. Returns (messages_sent_this_step, events)."""
-        events: List[str] = []
-
-        # (A) Apply existence cost
-        for n in self.nodes.values():
-            if n.is_alive():
-                n.energy -= EXISTENCE_COST
-
-        # (B) Apply transmission cost from messages SENT this step
-        #     (messages prepared in previous step are delivered now)
-        senders_count: Dict[int, int] = {}
-        for msg in self.pending_messages:
-            senders_count[msg.sender_id] = senders_count.get(msg.sender_id, 0) + 1
-            self.logger.log_event(self.step, "MESSAGE_SENT",
-                                   sender=msg.sender_id,
-                                   recipients=msg.recipient_ids,
-                                   msg_type=msg.msg_type.value)
-        for sender_id, count in senders_count.items():
-            n = self.nodes.get(sender_id)
+    def _charge_messages(self) -> int:
+        counts: Dict[int, int] = {}
+        for m in self.pending:
+            counts[m.sender_id] = counts.get(m.sender_id, 0) + 1
+        for sid, c in counts.items():
+            n = self.nodes.get(sid)
             if n and n.is_alive():
-                n.energy -= SEND_COST * count
-        messages_this_step = len(self.pending_messages)
-        self.pending_messages = []
+                n.energy -= SEND_COST * c
+                n.messages_sent += c
+        total = len(self.pending)
+        for m in self.pending:
+            if m.msg_type in (MessageType.ELECTION, MessageType.OK,
+                              MessageType.COORDINATOR, MessageType.VOTE,
+                              MessageType.TOKEN, MessageType.ADV,
+                              MessageType.JOIN):
+                self.result.events.append({
+                    "step": self.step, "type": "MESSAGE_SENT",
+                    "sender": m.sender_id, "recipients": m.recipient_ids,
+                    "msg_type": m.msg_type.value,
+                })
+        self.pending = []
+        return total
 
-        # (C) Death sweep
-        newly_dead_leader_groups: List[int] = []
-        for n in self.nodes.values():
+    def _death_sweep(self):
+        affected = []
+        for n in list(self.nodes.values()):
             if n.status == NodeStatus.ACTIVE and n.energy <= 0:
                 n.status = NodeStatus.DEAD
                 n.energy = 0
                 was_leader = n.is_leader
-                events.append(f"Node {n.id} died (was_leader={was_leader})")
-                self.logger.log_event(self.step, "DEATH", node=n.id,
-                                       was_leader=was_leader, group=n.group_id)
+                self.result.deaths.append((self.step, n.id, was_leader))
+                self.result.events.append({"step": self.step, "type": "DEATH",
+                                           "node": n.id, "was_leader": was_leader,
+                                           "group": n.group_id})
                 if was_leader and n.group_id is not None:
-                    newly_dead_leader_groups.append(n.group_id)
-                # Remove from group's member list
+                    affected.append(n.group_id)
                 if n.group_id is not None and n.group_id in self.groups:
                     g = self.groups[n.group_id]
                     if n.id in g.member_ids:
                         g.member_ids.remove(n.id)
                 n.is_leader = False
                 n.group_id = None
+                if self.result.t_first_death is None:
+                    self.result.t_first_death = self.step
+        alive_now = sum(1 for n in self.nodes.values() if n.is_alive())
+        if (self.result.t_50_percent is None
+                and alive_now <= self.result.n_nodes / 2):
+            self.result.t_50_percent = self.step
+        return affected
 
-        # (D) Trigger elections in groups whose leader died
-        for gid in newly_dead_leader_groups:
+    def _run_elections(self, affected_groups):
+        for gid in affected_groups:
             g = self.groups.get(gid)
             if g is None:
                 continue
-            new_leader_id, election_msgs = energy_aware_bully_election(
-                g, self.nodes, self.step
-            )
-            self.pending_messages.extend(election_msgs)
-            if new_leader_id is not None:
-                g.leader_id = new_leader_id
-                events.append(f"Election in G{gid} → new leader N{new_leader_id} "
-                              f"(E={self.nodes[new_leader_id].energy:.0f})")
-                self.logger.log_event(self.step, "ELECTION_START",
-                                       group=gid, initiator=None)
-                self.logger.log_event(self.step, "COORDINATOR_ANNOUNCED",
-                                       group=gid, new_leader=new_leader_id)
+            self.result.elections_triggered += 1
+            new_leader, msgs = self.elect_fn(g, self.nodes, self.step,
+                                             score_fn=self.score_fn)
+            if msgs:
+                self.pending.extend(msgs)
+            if new_leader is not None:
+                g.leader_id = new_leader
+                _refresh_backup(g, self.nodes)
+                if g.backup_id is not None:
+                    self.result.events.append({"step": self.step,
+                                               "type": "BACKUP_ASSIGNED",
+                                               "group": gid,
+                                               "node": g.backup_id})
+                self.result.leader_changes += 1
+                self.result.events.append({"step": self.step,
+                                           "type": "COORDINATOR_ANNOUNCED",
+                                           "group": gid,
+                                           "new_leader": new_leader})
             else:
-                # Group dissolved (no alive members)
-                events.append(f"Group {gid} dissolved (no alive members)")
-                self.logger.log_event(self.step, "GROUP_DISSOLVED", group=gid)
+                self.result.events.append({"step": self.step,
+                                           "type": "GROUP_DISSOLVED", "group": gid})
                 del self.groups[gid]
 
-        # (E) Re-form groups for orphans (e.g., if entire group collapsed,
-        #     surviving isolated nodes get a singleton group)
-        self.groups = reform_groups_for_orphans(self.nodes, self.groups, self.radius)
+    def _maybe_rotate(self):
+        if self.cfg.rotation_period <= 0:
+            return
+        if self.step == 0 or self.step % self.cfg.rotation_period != 0:
+            return
+        for g in self.groups.values():
+            alive = [self.nodes[m] for m in g.member_ids
+                     if m in self.nodes and self.nodes[m].is_alive()]
+            if len(alive) <= 1:
+                continue
+            new_leader = max(alive, key=lambda n: self.score_fn(n, alive))
+            if new_leader.id != g.leader_id:
+                self.result.events.append({"step": self.step,
+                                           "type": "LEADER_ROTATED",
+                                           "group": g.id, "from": g.leader_id,
+                                           "to": new_leader.id})
+                self.nodes[g.leader_id].is_leader = False
+                g.leader_id = new_leader.id
+                new_leader.is_leader = True
+                new_leader.times_as_leader += 1
+                _refresh_backup(g, self.nodes)
+                if g.backup_id is not None:
+                    self.result.events.append({"step": self.step,
+                                               "type": "BACKUP_ASSIGNED",
+                                               "group": g.id,
+                                               "node": g.backup_id})
 
-        # (F) Periodic heartbeat
-        if self.step > 0 and self.step % self.heartbeat_interval == 0:
-            for g in self.groups.values():
-                leader = self.nodes.get(g.leader_id)
-                if leader is None or not leader.is_alive():
-                    continue
-                others = [m for m in g.member_ids if m != leader.id
-                          and self.nodes[m].is_alive()]
-                if others:
-                    self.pending_messages.append(Message(
-                        sender_id=leader.id, recipient_ids=others,
-                        msg_type=MessageType.HEARTBEAT, step=self.step,
-                    ))
+    def _maybe_recluster(self):
+        if self.cfg.recluster_period <= 0:
+            return
+        if self.step == 0 or self.step % self.cfg.recluster_period != 0:
+            return
+        self.groups = self.cluster_fn(self.nodes, radius=self.cfg.radius,
+                                      rng=self.rng)
+        self.result.events.append({"step": self.step, "type": "RECLUSTER",
+                                   "leaders": [g.leader_id for g in self.groups.values()]})
+        for g in self.groups.values():
+            if g.backup_id is None:
+                _refresh_backup(g, self.nodes)
+            if g.backup_id is not None:
+                self.result.events.append({"step": self.step,
+                                           "type": "BACKUP_ASSIGNED",
+                                           "group": g.id, "node": g.backup_id})
 
-        # (G) Snapshot history
+    def step_once(self):
+        for n in self.nodes.values():
+            if n.is_alive():
+                n.energy -= EXISTENCE_COST
+        self._emit_data_messages()
+        n_msgs = self._charge_messages()
+        self.result.total_messages += n_msgs
+        affected = self._death_sweep()
+        if affected:
+            self._run_elections(affected)
+            extra = self._charge_messages()
+            self.result.total_messages += extra
+            n_msgs += extra
+        self.groups = reform_for_orphans(self.nodes, self.groups,
+                                         radius=self.cfg.radius)
+        self._maybe_rotate()
+        self._maybe_recluster()
         alive = sum(1 for n in self.nodes.values() if n.is_alive())
         total_e = sum(n.energy for n in self.nodes.values() if n.is_alive())
-        self.history.append({"step": self.step, "alive": alive,
-                              "total_energy": total_e,
-                              "groups": len(self.groups),
-                              "messages": messages_this_step})
+        self.result.history.append(StepSnapshot(
+            step=self.step, alive=alive, total_energy=total_e,
+            n_groups=len(self.groups), messages=n_msgs,
+        ))
+        return alive
 
-        # (H) Log step
-        self.logger.log_step(self.step, self.nodes, self.groups,
-                              events, messages_this_step)
-
-        return messages_this_step, events
-
-    # ---------- Main loop ----------
-    def run(self, visualize: bool = True):
+    def run(self) -> RunResult:
         self.initialize()
-        # Render initial state
-        if visualize:
-            render_dashboard(
-                self.nodes, self.groups, self.step, self.history,
-                f"{self.output_dir}/{self.base_name}.step0.png",
-                title_suffix="(initial state)",
-            )
-
-        while self.step < self.max_steps:
+        self.step = 0
+        alive = sum(1 for n in self.nodes.values() if n.is_alive())
+        total_e = sum(n.energy for n in self.nodes.values() if n.is_alive())
+        self.result.history.append(StepSnapshot(
+            step=0, alive=alive, total_energy=total_e,
+            n_groups=len(self.groups), messages=0))
+        while self.step < self.cfg.max_steps:
             self.step += 1
-            self.step_once()
-            alive = sum(1 for n in self.nodes.values() if n.is_alive())
+            alive = self.step_once()
             if alive == 0:
                 break
-            if visualize and self.step % self.viz_every == 0:
-                render_dashboard(
-                    self.nodes, self.groups, self.step, self.history,
-                    f"{self.output_dir}/{self.base_name}.step{self.step}.png",
-                    title_suffix=f"(step {self.step})",
-                )
-
-        # Final snapshot
-        if visualize:
-            render_dashboard(
-                self.nodes, self.groups, self.step, self.history,
-                f"{self.output_dir}/{self.base_name}.final.png",
-                title_suffix="(final state)",
-            )
-        self.logger.finalize(self.nodes, self.initial_total_energy)
+        self.result.t_all_dead = self.step
+        self.result.final_nodes = [{
+            "id": n.id, "x": n.x, "y": n.y, "energy": n.energy,
+            "initial_energy": n.initial_energy, "status": n.status.value,
+            "is_leader": n.is_leader, "group_id": n.group_id,
+            "messages_sent": n.messages_sent,
+            "times_as_leader": n.times_as_leader,
+        } for n in self.nodes.values()]
+        return self.result

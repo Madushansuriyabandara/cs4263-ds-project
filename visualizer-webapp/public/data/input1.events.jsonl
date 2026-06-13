@@ -1,0 +1,23 @@
+{"step": 0, "type": "INIT", "leaders": [3, 1, 9, 8, 6, 7], "groups": {"0": [3], "1": [1, 5], "2": [2, 4, 9], "3": [8], "4": [6], "5": [7]}}
+{"step": 0, "type": "BACKUP_ASSIGNED", "group": 1, "node": 5}
+{"step": 0, "type": "BACKUP_ASSIGNED", "group": 2, "node": 2}
+{"step": 0, "type": "MESSAGE_SENT", "sender": 1, "recipients": [5], "msg_type": "ADV"}
+{"step": 0, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "JOIN"}
+{"step": 0, "type": "MESSAGE_SENT", "sender": 9, "recipients": [2, 4], "msg_type": "ADV"}
+{"step": 0, "type": "MESSAGE_SENT", "sender": 2, "recipients": [9], "msg_type": "JOIN"}
+{"step": 0, "type": "MESSAGE_SENT", "sender": 4, "recipients": [9], "msg_type": "JOIN"}
+{"step": 33, "type": "DEATH", "node": 5, "was_leader": false, "group": 1}
+{"step": 97, "type": "DEATH", "node": 6, "was_leader": true, "group": 4}
+{"step": 97, "type": "GROUP_DISSOLVED", "group": 4}
+{"step": 143, "type": "DEATH", "node": 7, "was_leader": true, "group": 5}
+{"step": 143, "type": "GROUP_DISSOLVED", "group": 5}
+{"step": 165, "type": "DEATH", "node": 2, "was_leader": false, "group": 2}
+{"step": 165, "type": "DEATH", "node": 4, "was_leader": false, "group": 2}
+{"step": 166, "type": "DEATH", "node": 9, "was_leader": true, "group": 2}
+{"step": 166, "type": "GROUP_DISSOLVED", "group": 2}
+{"step": 232, "type": "DEATH", "node": 8, "was_leader": true, "group": 3}
+{"step": 232, "type": "GROUP_DISSOLVED", "group": 3}
+{"step": 328, "type": "DEATH", "node": 1, "was_leader": true, "group": 1}
+{"step": 328, "type": "GROUP_DISSOLVED", "group": 1}
+{"step": 532, "type": "DEATH", "node": 3, "was_leader": true, "group": 0}
+{"step": 532, "type": "GROUP_DISSOLVED", "group": 0}
