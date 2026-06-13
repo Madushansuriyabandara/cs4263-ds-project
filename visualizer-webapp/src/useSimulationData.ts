@@ -187,7 +187,7 @@ export function processSimulation(
     });
 
     // ── Check if there's an election sequence at this step ──
-    const hasElection = electionStartEvents.length > 0 && coordinatorAnnouncedEvents.length > 0;
+    const hasElection = coordinatorAnnouncedEvents.length > 0;
 
     // ── Check if election messages exist at the NEXT step ──
     const nextStepEvents = eventsByStep[s + 1] || [];
@@ -201,7 +201,7 @@ export function processSimulation(
       // ELECTION SEQUENCE: Generate multiple animation sub-frames
       // ══════════════════════════════════════════════════════════════
 
-      const electionGroup = electionStartEvents[0].group;
+      const electionGroup = coordinatorAnnouncedEvents[0].group;
       const newLeaderId = coordinatorAnnouncedEvents[0].new_leader;
 
       // Separate next-step election messages by type
@@ -317,7 +317,7 @@ export function processSimulation(
 
     } else if (hasElection && nextStepElectionMsgs.length === 0) {
       // Election with no messages (single-member election, e.g. step 211)
-      const electionGroup = electionStartEvents[0].group;
+      const electionGroup = coordinatorAnnouncedEvents[0].group;
       const newLeaderId = coordinatorAnnouncedEvents[0].new_leader;
 
       // Sub-frame 1: Death + regular messages

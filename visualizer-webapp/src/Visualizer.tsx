@@ -242,9 +242,9 @@ export default function Visualizer() {
               <select value={simConfig.cluster_algo} onChange={e => setSimConfig({...simConfig, cluster_algo: e.target.value})} style={selectStyle}>
                 <option value="hybrid">Hybrid</option>
                 <option value="leach">LEACH</option>
-                <option value="k-medoids">K-Medoids</option>
-                <option value="set-cover">Set-Cover</option>
-                <option value="highest-energy">Highest-Energy</option>
+                <option value="kmedoids">K-Medoids</option>
+                <option value="setcover">Set-Cover</option>
+                <option value="highest_energy">Highest-Energy</option>
                 <option value="random">Random</option>
               </select>
             </div>
