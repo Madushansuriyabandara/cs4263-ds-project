@@ -112,7 +112,6 @@ export function processSimulation(
     // ── Separate events into categories ──
     const initEvents = stepEvents.filter((e) => e.type === 'INIT');
     const deathEvents = stepEvents.filter((e) => e.type === 'DEATH');
-    const electionStartEvents = stepEvents.filter((e) => e.type === 'ELECTION_START');
     const coordinatorAnnouncedEvents = stepEvents.filter((e) => e.type === 'COORDINATOR_ANNOUNCED');
     const groupDissolvedEvents = stepEvents.filter((e) => e.type === 'GROUP_DISSOLVED');
     const backupAssignedEvents = stepEvents.filter((e) => e.type === 'BACKUP_ASSIGNED');
