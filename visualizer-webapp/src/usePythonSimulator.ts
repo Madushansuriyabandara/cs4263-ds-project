@@ -73,7 +73,7 @@ export function usePythonSimulator() {
 
       for (const file of PYTHON_FILES) {
         if (file === '__init__.py') continue;
-        const response = await fetch(`/python_src/${file}`);
+        const response = await fetch(`/python_src/${file}?v=${Date.now()}`);
         if (!response.ok) {
             throw new Error(`Failed to load python source file: ${file}`);
         }
