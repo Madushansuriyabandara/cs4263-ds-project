@@ -7,7 +7,7 @@ import {
   type StepState,
   type NodeState,
 } from './useSimulationData';
-import { usePythonSimulator } from './usePythonSimulator';
+import { usePythonSimulator, type SimulationConfig } from './usePythonSimulator';
 
 // ── Group color palette for border rings ───────────────────────────────────
 const GROUP_COLORS: Record<number, string> = {
@@ -35,6 +35,17 @@ export default function Visualizer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataset, setDataset] = useState<string>('input1');
+  const [fastForwardHeartbeats, setFastForwardHeartbeats] = useState(true);
+  const [simConfig, setSimConfig] = useState<SimulationConfig>({
+    cluster_algo: 'hybrid',
+    election_algo: 'backup_first',
+    aggregation: 'full',
+    agg_factor: 4,
+    data_period: 5,
+    heartbeat: 10,
+    rotation_period: 0,
+    recluster_period: 0,
+  });
   const { runSimulation, isRunning, error: pyodideError } = usePythonSimulator();
 
   // Load from raw strings
@@ -88,6 +99,13 @@ export default function Visualizer() {
   useEffect(() => {
     let timer: ReturnType<typeof setInterval>;
     if (isPlaying && states.length > 0) {
+      let delay = 1500;
+      if (fastForwardHeartbeats && states[currentStep]) {
+        const frameMsgs = states[currentStep].messages;
+        if (frameMsgs.length === 0 || frameMsgs.every(m => ['HEARTBEAT', 'DATA', 'AGG'].includes(m.msg_type))) {
+          delay = 50;
+        }
+      }
       timer = setInterval(() => {
         setCurrentStep((prev) => {
           if (prev >= states.length - 1) {
@@ -96,10 +114,10 @@ export default function Visualizer() {
           }
           return prev + 1;
         });
-      }, 600);
+      }, delay);
     }
     return () => clearInterval(timer!);
-  }, [isPlaying, states]);
+  }, [isPlaying, states, currentStep, fastForwardHeartbeats]);
 
   // ── Keyboard controls ──
   const handleKeyDown = useCallback(
@@ -215,9 +233,51 @@ export default function Visualizer() {
         </div>
 
         {dataset === 'custom' && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 12, padding: '12px 20px', background: '#1e293b', borderRadius: 8, border: '1px dashed #475569', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
-            <p style={{ margin: 0, color: '#94a3b8' }}>Upload your `input.txt` to run the Python simulation directly in the browser:</p>
-            <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 12, padding: '16px 20px', background: '#1e293b', borderRadius: 8, border: '1px dashed #475569', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px 24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Clustering Algorithm (c)</label>
+                <select value={simConfig.cluster_algo} onChange={e => setSimConfig({...simConfig, cluster_algo: e.target.value})} style={selectStyle}>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="leach">LEACH</option>
+                  <option value="k-medoids">K-Medoids</option>
+                  <option value="set-cover">Set-Cover</option>
+                  <option value="highest-energy">Highest-Energy</option>
+                  <option value="random">Random</option>
+                </select>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Election Algorithm (e)</label>
+                <select value={simConfig.election_algo} onChange={e => setSimConfig({...simConfig, election_algo: e.target.value})} style={selectStyle}>
+                  <option value="backup_first">Backup-First</option>
+                  <option value="bully">Bully</option>
+                  <option value="ring">Ring</option>
+                  <option value="local_score">Local-Score</option>
+                </select>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Aggregation Mode (a)</label>
+                <select value={simConfig.aggregation} onChange={e => setSimConfig({...simConfig, aggregation: e.target.value})} style={selectStyle}>
+                  <option value="full">Full</option>
+                  <option value="partial">Partial-k</option>
+                  <option value="none">None</option>
+                </select>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Data Period (d)</label>
+                <input type="number" min="0" value={simConfig.data_period} onChange={e => setSimConfig({...simConfig, data_period: parseInt(e.target.value) || 0})} style={inputStyle} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Heartbeat Period (h)</label>
+                <input type="number" min="0" value={simConfig.heartbeat} onChange={e => setSimConfig({...simConfig, heartbeat: parseInt(e.target.value) || 0})} style={inputStyle} />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <label style={{ color: '#cbd5e1' }}>Rotation Period (r)</label>
+                <input type="number" min="0" value={simConfig.rotation_period} onChange={e => setSimConfig({...simConfig, rotation_period: parseInt(e.target.value) || 0})} style={inputStyle} />
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #334155', paddingTop: 16 }}>
               <div>
                 <label style={{ display: 'block', marginBottom: 4, color: '#cbd5e1' }}>input.txt</label>
                 <input type="file" accept=".txt" id="custom-txt" style={{ color: '#94a3b8' }} disabled={isRunning} />
@@ -232,14 +292,14 @@ export default function Visualizer() {
                   setLoading(true);
                   try {
                     const txt = await txtFile.text();
-                    const eventsJsonl = await runSimulation(txt);
+                    const eventsJsonl = await runSimulation(txt, simConfig);
                     loadData(txt, eventsJsonl);
                   } catch (e: any) {
                     setError('Simulation failed: ' + e.message);
                     setLoading(false);
                   }
                 }}
-                style={{ alignSelf: 'flex-end', background: isRunning ? '#64748b' : '#3b82f6', color: 'white', border: 'none', padding: '6px 12px', borderRadius: 4, cursor: isRunning ? 'not-allowed' : 'pointer' }}
+                style={{ background: isRunning ? '#64748b' : '#3b82f6', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 4, cursor: isRunning ? 'not-allowed' : 'pointer', fontWeight: 600 }}
               >
                 {isRunning ? 'Running Pyodide...' : 'Run Simulation'}
               </button>
@@ -418,26 +478,42 @@ export default function Visualizer() {
           </div>
 
           {/* ── Controls ── */}
-          <div style={{ display: 'flex', gap: 8, marginTop: 16, alignItems: 'center' }}>
-            <button onClick={() => setCurrentStep(0)} style={btnStyle} title="Go to start">
-              <SkipBack size={18} />
-            </button>
-            <button onClick={() => setCurrentStep((p) => Math.max(0, p - 1))} style={btnStyle} title="Previous frame">
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              style={{ ...btnStyle, width: 64, background: isPlaying ? '#dc2626' : '#2563eb' }}
-              title={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-            </button>
-            <button onClick={() => setCurrentStep((p) => Math.min(states.length - 1, p + 1))} style={btnStyle} title="Next frame">
-              <ChevronRight size={18} />
-            </button>
-            <button onClick={() => setCurrentStep(states.length - 1)} style={btnStyle} title="Go to end">
-              <SkipForward size={18} />
-            </button>
+          <div style={{ display: 'flex', gap: 16, marginTop: 16, alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={() => setCurrentStep(0)} style={btnStyle} title="Go to start">
+                <SkipBack size={18} />
+              </button>
+              <button onClick={() => setCurrentStep((p) => Math.max(0, p - 1))} style={btnStyle} title="Previous frame">
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                style={{ ...btnStyle, width: 64, background: isPlaying ? '#dc2626' : '#2563eb' }}
+                title={isPlaying ? 'Pause' : 'Play'}
+              >
+                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+              </button>
+              <button onClick={() => setCurrentStep((p) => Math.min(states.length - 1, p + 1))} style={btnStyle} title="Next frame">
+                <ChevronRight size={18} />
+              </button>
+              <button onClick={() => setCurrentStep(states.length - 1)} style={btnStyle} title="Go to end">
+                <SkipForward size={18} />
+              </button>
+            </div>
+            
+            {/* Fast-Forward Checkbox */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#1e293b', padding: '8px 12px', borderRadius: 8, border: '1px solid #334155' }}>
+              <input
+                type="checkbox"
+                id="ff-check"
+                checked={fastForwardHeartbeats}
+                onChange={(e) => setFastForwardHeartbeats(e.target.checked)}
+                style={{ cursor: 'pointer' }}
+              />
+              <label htmlFor="ff-check" style={{ fontSize: 13, color: '#e2e8f0', cursor: 'pointer', userSelect: 'none' }}>
+                Fast-Forward Routine Steps
+              </label>
+            </div>
           </div>
 
           {/* ── Slider ── */}
@@ -485,6 +561,22 @@ const btnStyle: React.CSSProperties = {
   color: '#e2e8f0',
   cursor: 'pointer',
   transition: 'background 0.15s',
+};
+
+const inputStyle: React.CSSProperties = {
+  background: '#0f172a',
+  color: '#e2e8f0',
+  border: '1px solid #475569',
+  borderRadius: 4,
+  padding: '6px 8px',
+  fontSize: 13,
+  width: '100%',
+  boxSizing: 'border-box'
+};
+
+const selectStyle: React.CSSProperties = {
+  ...inputStyle,
+  appearance: 'auto'
 };
 
 // ── Legend helpers ──

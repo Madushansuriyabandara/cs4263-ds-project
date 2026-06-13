@@ -10,8 +10,8 @@ declare global {
 let pyodideInstance: any = null;
 
 const PYTHON_FILES = [
-  'group_formation.py',
-  'leader_election.py',
+  'clustering.py',
+  'election.py',
   'logger.py',
   'main.py',
   'messaging.py',
@@ -20,11 +20,22 @@ const PYTHON_FILES = [
   '__init__.py'
 ];
 
+export interface SimulationConfig {
+  cluster_algo: string;
+  election_algo: string;
+  aggregation: string;
+  agg_factor: number;
+  data_period: number;
+  heartbeat: number;
+  rotation_period: number;
+  recluster_period: number;
+}
+
 export function usePythonSimulator() {
   const [isRunning, setIsRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const runSimulation = useCallback(async (inputText: string): Promise<string> => {
+  const runSimulation = useCallback(async (inputText: string, config: SimulationConfig): Promise<string> => {
     setIsRunning(true);
     setError(null);
 
@@ -92,10 +103,10 @@ if 'src.simulator' in sys.modules:
     del sys.modules['src.simulator']
 if 'src.logger' in sys.modules:
     del sys.modules['src.logger']
-if 'src.leader_election' in sys.modules:
-    del sys.modules['src.leader_election']
-if 'src.group_formation' in sys.modules:
-    del sys.modules['src.group_formation']
+if 'src.election' in sys.modules:
+    del sys.modules['src.election']
+if 'src.clustering' in sys.modules:
+    del sys.modules['src.clustering']
 if 'src.messaging' in sys.modules:
     del sys.modules['src.messaging']
 if 'src.node' in sys.modules:
@@ -103,23 +114,37 @@ if 'src.node' in sys.modules:
 
 sys.path.append('/')
 
-from src.simulator import Simulator, parse_input_file
+from src.simulator import Simulator, parse_input_file, SimConfig
 from src.logger import SimulationLogger
 
 try:
     nodes = parse_input_file('/input.txt')
     logger = SimulationLogger('/outputs', 'input1')
+    
+    cfg = SimConfig(
+        cluster_algo="${config.cluster_algo}",
+        election_algo="${config.election_algo}",
+        aggregation="${config.aggregation}",
+        agg_factor=${config.agg_factor},
+        data_period=${config.data_period},
+        heartbeat=${config.heartbeat},
+        rotation_period=${config.rotation_period},
+        recluster_period=${config.recluster_period},
+        max_steps=2000,
+        radius=20.0
+    )
+    
     sim = Simulator(
         nodes=nodes,
-        logger=logger,
-        max_steps=2000,
-        radius=20.0,
-        heartbeat_interval=5,
-        viz_every=50,
-        output_dir='/outputs',
-        base_name='input1'
+        config=cfg
     )
-    sim.run(visualize=False)
+    # Monkey-patch to use the logger correctly since the assignment simulator does it slightly differently
+    sim.logger = logger
+    sim.cfg.output_dir = '/outputs'
+    sim.cfg.base_name = 'input1'
+    sim.run()
+    # Write the events out manually if run() doesn't do it identically
+    logger.export_all_events()
 except Exception as e:
     print(f"Error during simulation: {e}")
     raise e
