@@ -197,10 +197,13 @@ class Simulator:
                 n.messages_sent += c
         total = len(self.pending)
         for m in self.pending:
+            # Log all transmitted message types so the visualizer can replay
+            # the full protocol (including DATA, AGG, HEARTBEAT).
             if m.msg_type in (MessageType.ELECTION, MessageType.OK,
                               MessageType.COORDINATOR, MessageType.VOTE,
                               MessageType.TOKEN, MessageType.ADV,
-                              MessageType.JOIN):
+                              MessageType.JOIN, MessageType.DATA,
+                              MessageType.AGG, MessageType.HEARTBEAT):
                 self.result.events.append({
                     "step": self.step, "type": "MESSAGE_SENT",
                     "sender": m.sender_id, "recipients": m.recipient_ids,
@@ -241,6 +244,11 @@ class Simulator:
             g = self.groups.get(gid)
             if g is None:
                 continue
+            # Announce start of election to the event stream so the UI
+            # can render the multi-frame election animation.
+            self.result.events.append({"step": self.step,
+                                       "type": "ELECTION_START",
+                                       "group": gid})
             self.result.elections_triggered += 1
             new_leader, msgs = self.elect_fn(g, self.nodes, self.step,
                                              score_fn=self.score_fn)

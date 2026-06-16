@@ -1,0 +1,14 @@
+# Simulation log — edge_all_dead_initial
+# Config: {'cluster_algo': 'hybrid', 'election_algo': 'backup_first', 'radius': '20.0', 'data_period': '5', 'heartbeat': '10', 'aggregation': 'full', 'agg_factor': '4', 'rotation_period': '0', 'recluster_period': '0', 'leader_to_leader': 'False', 'max_steps': '5000', 'seed': '0'}
+# Initial nodes: 4, initial total energy: 0
+
+=== STEP 0 ===
+Alive=0, Groups=0, TotalEnergy=0.0, Messages=0
+=== STEP 1 ===
+Alive=0, Groups=0, TotalEnergy=0.0, Messages=0
+
+# Deaths:
+  step 1: node 1 died (was_leader=False)
+  step 1: node 2 died (was_leader=False)
+  step 1: node 3 died (was_leader=False)
+  step 1: node 4 died (was_leader=False)
