@@ -1,0 +1,103 @@
+{
+  "base_name": "edge_many_clustered",
+  "config": {
+    "cluster_algo": "hybrid",
+    "election_algo": "backup_first",
+    "radius": "20.0",
+    "data_period": "5",
+    "heartbeat": "10",
+    "aggregation": "full",
+    "agg_factor": "4",
+    "rotation_period": "0",
+    "recluster_period": "0",
+    "leader_to_leader": "False",
+    "max_steps": "5000",
+    "seed": "0"
+  },
+  "n_nodes": 15,
+  "initial_total_energy": 562.0,
+  "lifetime_T_all": 64,
+  "T_first_death": 1,
+  "T_50_percent": 20,
+  "total_messages": 92,
+  "messages_per_unit_time": 1.4375,
+  "leader_changes": 1,
+  "elections_triggered": 2,
+  "deaths": [
+    {
+      "step": 1,
+      "node": 12,
+      "was_leader": false
+    },
+    {
+      "step": 1,
+      "node": 13,
+      "was_leader": false
+    },
+    {
+      "step": 1,
+      "node": 14,
+      "was_leader": false
+    },
+    {
+      "step": 1,
+      "node": 15,
+      "was_leader": false
+    },
+    {
+      "step": 3,
+      "node": 11,
+      "was_leader": false
+    },
+    {
+      "step": 6,
+      "node": 10,
+      "was_leader": false
+    },
+    {
+      "step": 14,
+      "node": 9,
+      "was_leader": false
+    },
+    {
+      "step": 20,
+      "node": 8,
+      "was_leader": false
+    },
+    {
+      "step": 28,
+      "node": 7,
+      "was_leader": false
+    },
+    {
+      "step": 35,
+      "node": 6,
+      "was_leader": false
+    },
+    {
+      "step": 42,
+      "node": 5,
+      "was_leader": false
+    },
+    {
+      "step": 50,
+      "node": 4,
+      "was_leader": false
+    },
+    {
+      "step": 56,
+      "node": 3,
+      "was_leader": false
+    },
+    {
+      "step": 62,
+      "node": 1,
+      "was_leader": true
+    },
+    {
+      "step": 64,
+      "node": 2,
+      "was_leader": true
+    }
+  ]
+}
