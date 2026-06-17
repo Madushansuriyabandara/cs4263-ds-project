@@ -91,8 +91,8 @@ done
 src/
   node.py                 — Node & Group domain model
   messaging.py            — Message types & energy costs
-  group_formation.py      — Energy-aware greedy clustering (radius 20)
-  leader_election.py      — Energy-Aware Bully Algorithm
+  clustering.py          — Energy-aware greedy clustering (radius 20)
+  election.py            — Energy-Aware Bully Algorithm
   simulator.py            — Discrete-event simulation loop
   logger.py               — JSONL + TXT + summary logging
   visualizer.py           — 4-panel matplotlib dashboard
