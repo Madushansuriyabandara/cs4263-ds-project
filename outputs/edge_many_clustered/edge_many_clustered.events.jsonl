@@ -1,0 +1,113 @@
+{"step": 0, "type": "INIT", "leaders": [1], "groups": {"0": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}}
+{"step": 0, "type": "BACKUP_ASSIGNED", "group": 0, "node": 2}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "msg_type": "ADV"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 8, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 9, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 10, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 11, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 12, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 13, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 14, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "MESSAGE_SENT", "sender": 15, "recipients": [1], "msg_type": "JOIN"}
+{"step": 1, "type": "DEATH", "node": 12, "was_leader": false, "group": 0}
+{"step": 1, "type": "DEATH", "node": 13, "was_leader": false, "group": 0}
+{"step": 1, "type": "DEATH", "node": 14, "was_leader": false, "group": 0}
+{"step": 1, "type": "DEATH", "node": 15, "was_leader": false, "group": 0}
+{"step": 3, "type": "DEATH", "node": 11, "was_leader": false, "group": 0}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 8, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 9, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 10, "recipients": [1], "msg_type": "DATA"}
+{"step": 5, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 6, "type": "DEATH", "node": 10, "was_leader": false, "group": 0}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 8, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 9, "recipients": [1], "msg_type": "DATA"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 10, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3, 4, 5, 6, 7, 8, 9], "msg_type": "HEARTBEAT"}
+{"step": 14, "type": "DEATH", "node": 9, "was_leader": false, "group": 0}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 8, "recipients": [1], "msg_type": "DATA"}
+{"step": 15, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 8, "recipients": [1], "msg_type": "DATA"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 20, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3, 4, 5, 6, 7, 8], "msg_type": "HEARTBEAT"}
+{"step": 20, "type": "DEATH", "node": 8, "was_leader": false, "group": 0}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 7, "recipients": [1], "msg_type": "DATA"}
+{"step": 25, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 28, "type": "DEATH", "node": 7, "was_leader": false, "group": 0}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 30, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3, 4, 5, 6], "msg_type": "HEARTBEAT"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 6, "recipients": [1], "msg_type": "DATA"}
+{"step": 35, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 35, "type": "DEATH", "node": 6, "was_leader": false, "group": 0}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 5, "recipients": [1], "msg_type": "DATA"}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 40, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3, 4, 5], "msg_type": "HEARTBEAT"}
+{"step": 42, "type": "DEATH", "node": 5, "was_leader": false, "group": 0}
+{"step": 45, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 45, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 45, "type": "MESSAGE_SENT", "sender": 4, "recipients": [1], "msg_type": "DATA"}
+{"step": 45, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 50, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 50, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 50, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 50, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2, 3], "msg_type": "HEARTBEAT"}
+{"step": 50, "type": "DEATH", "node": 4, "was_leader": false, "group": 0}
+{"step": 55, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 55, "type": "MESSAGE_SENT", "sender": 3, "recipients": [1], "msg_type": "DATA"}
+{"step": 55, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 56, "type": "DEATH", "node": 3, "was_leader": false, "group": 0}
+{"step": 60, "type": "MESSAGE_SENT", "sender": 2, "recipients": [1], "msg_type": "DATA"}
+{"step": 60, "type": "MESSAGE_SENT", "sender": 1, "recipients": [], "msg_type": "AGG"}
+{"step": 60, "type": "MESSAGE_SENT", "sender": 1, "recipients": [2], "msg_type": "HEARTBEAT"}
+{"step": 62, "type": "DEATH", "node": 1, "was_leader": true, "group": 0}
+{"step": 62, "type": "ELECTION_START", "group": 0}
+{"step": 62, "type": "COORDINATOR_ANNOUNCED", "group": 0, "new_leader": 2}
+{"step": 64, "type": "DEATH", "node": 2, "was_leader": true, "group": 0}
+{"step": 64, "type": "ELECTION_START", "group": 0}
+{"step": 64, "type": "GROUP_DISSOLVED", "group": 0}
