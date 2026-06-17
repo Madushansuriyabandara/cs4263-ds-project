@@ -84,19 +84,26 @@ def elect_bully(group, nodes, step, score_fn=default_score):
     by_prio = sorted(alive, key=lambda n: score_fn(n, alive))
     detector = by_prio[0]
     higher = [n for n in alive if score_fn(n, alive) > score_fn(detector, alive)]
-    for h in higher:
-        msgs.append(Message(sender_id=detector.id, recipient_ids=[h.id],
+    
+    # Detector broadcasts ELECTION to all higher nodes
+    if higher:
+        msgs.append(Message(sender_id=detector.id, recipient_ids=[h.id for h in higher],
                             msg_type=MessageType.ELECTION, step=step))
-    for h in higher:
-        msgs.append(Message(sender_id=h.id, recipient_ids=[detector.id],
-                            msg_type=MessageType.OK, step=step))
-    if len(higher) > 1:
+    
+    # Higher nodes broadcast OK to lower nodes (including detector)
+    if len(higher) >= 1:
         for i, h in enumerate(higher):
-            for h2 in higher[i + 1:]:
-                msgs.append(Message(sender_id=h.id, recipient_ids=[h2.id],
+            # h receives ELECTION from detector and all nodes in higher[:i]
+            lower_nodes = [detector.id] + [lower.id for lower in higher[:i]]
+            msgs.append(Message(sender_id=h.id, recipient_ids=lower_nodes,
+                                msg_type=MessageType.OK, step=step))
+            
+            # h sends ELECTION to all nodes in higher[i+1:]
+            h_higher = higher[i + 1:]
+            if h_higher:
+                msgs.append(Message(sender_id=h.id, recipient_ids=[h2.id for h2 in h_higher],
                                     msg_type=MessageType.ELECTION, step=step))
-                msgs.append(Message(sender_id=h2.id, recipient_ids=[h.id],
-                                    msg_type=MessageType.OK, step=step))
+
     winner = max(alive, key=lambda n: score_fn(n, alive))
     others = [m.id for m in alive if m.id != winner.id]
     if others:
