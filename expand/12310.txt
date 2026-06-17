@@ -1,0 +1,255 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{graphicx,booktabs,amsmath,amssymb}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\setlist{nosep,leftmargin=1.2em}
+\captionsetup{font=small,labelfont=bf}
+\hypersetup{colorlinks,linkcolor=blue!60!black,urlcolor=blue!60!black,citecolor=blue!60!black}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.02}
+
+\title{\vspace{-2.4em}\textbf{CS4263 -- Distributed Systems Project}\\[2pt]
+\large Energy-Aware Group Formation, Leader Election and Lifetime Maximisation}
+\author{210146N -- Dissanayake D.M.P.S.\quad\textbar\quad
+        210626L -- Suriyabandara S.M.M.}
+\date{\vspace{-2.4em}}
+
+\begin{document}\maketitle
+
+\vspace{-1.2em}
+\section*{1.\ Problem and model (assignment-compliant)}
+\vspace{-0.4em}
+We are given $N$ nodes described by $(x,y,E_0)$ triplets.
+Each alive node loses $1$ energy per time step; transmitting one message
+costs the \emph{sender} $2$ energy (reception is free). A node dies when
+its energy $\le 0$. Groups form around leaders; node $i$ may join leader
+$h$ only when $d(i,h)=\sqrt{(x_i-x_h)^2+(y_i-y_h)^2}\le 20$, with at most
+one membership per node.  The energy update per time step is
+\[
+E_i(t{+}1)=E_i(t)-1-2\,\tau_i(t),\quad
+\text{$\tau_i(t)$ = number of messages $i$ transmits at step $t$.}
+\]
+The assignment goal is to maximise the system lifetime
+$T_{\text{all}}$ (step at which the last node dies). We additionally
+report total transmitted messages because, as our experiments show,
+message count and lifetime are not co-monotonic: a wasteful protocol
+can shorten lifetime \emph{while} emitting fewer messages, so we
+evaluate them jointly on a Pareto front.
+
+\vspace{-0.6em}
+\section*{2.\ Reframing the assignment as an optimisation problem}
+\vspace{-0.4em}
+The exact policy that maximises $T_{\text{all}}$ is a high-dimensional
+mixed-integer dynamic programme over leader assignments, message
+schedules and election triggers; even with $N=9$ it is intractable in
+closed form, so we instead optimise over a \textbf{family of policies}
+$\pi=(c,e,a,d,h,r)$ where:
+\begin{itemize}
+\item $c$ -- clustering algorithm
+(\textsc{random, highest-energy, set-cover, $k$-medoids, leach, hybrid});
+\item $e$ -- election algorithm (\textsc{bully, ring, local-score, backup-first});
+\item $a$ -- aggregation mode (\textsc{none / partial-$k$ / full});
+\item $d$ -- data-report period, $h$ -- heartbeat period, $r$ -- rotation period.
+\end{itemize}
+Our primary metric is the assignment's own metric -- average lifetime
+$\bar T(\pi)=|S|^{-1}\sum_{s\in S}T_{\text{all}}(\pi;s)$;
+total messages are the secondary metric.
+
+A naive objective like $\min_\pi \sum_s M_{\text{total}}(\pi;s)$ is unsafe:
+a policy that kills the system in 40 steps with $8$ msgs/step would beat one
+that survives 100 steps with $5$ msgs/step ($320<500$).  We therefore use
+the Pareto front and per-time normalisation $\bar r(\pi)=M_{\text{total}}/T_{\text{all}}$.
+
+\vspace{-0.6em}
+\section*{3.\ Design decisions, algorithms and rationale}
+\vspace{-0.4em}
+\textbf{Why distances still matter though message cost is constant.}
+The radius constraint forces distances into the optimisation.  Distances
+also determine average cluster size $m=N/C$, which controls leader-side
+traffic.  Total transmissions per step is
+$E_{\text{msg}}=2Nf+2CL_{\text{tx}}$; with full aggregation $L_{\text{tx}}=1$,
+so $E_{\text{msg}}=N(1+2f+2/m)$.  Larger $m$ thus reduces total traffic
+-- which is exactly why a \textbf{centrality-aware leader} (one that can
+cover more members within radius 20) is preferred.
+
+\textbf{Six clustering policies implemented.}  (i) \emph{Random} (baseline).
+(ii) \emph{Highest-energy greedy} (the previous submission's choice).
+(iii) \emph{Greedy set-cover}: minimise the number of leaders.
+(iv) \emph{Energy-aware $k$-medoids}: minimise
+$\sum_h\sum_{i\in G_h}\bigl(\alpha\,d(i,h)/R+(1{-}\alpha)(1{-}E_h/E_{\max})\bigr)$
+s.t.\ $d(i,h)\le R$ and medoid must be a real node.
+(v) \emph{LEACH-like}: probabilistic head election with energy bias.
+(vi) \emph{Hybrid}: $k$-medoids seed + designated backup + optional
+rotation -- the \emph{ex-ante} best policy from our analysis.
+
+\textbf{Four election policies implemented.}  Bully ($O(|G|^2)$),
+Ring ($O(|G|)$), broadcast local-score ($O(|G|)$), and
+\textbf{backup-first} (0 messages when a healthy backup exists).
+Backup-first is the cheapest: each group precomputes a backup
+(energy + centrality, second-best score), so a leader failure is silent;
+the backup is refreshed after every leader change.
+
+\textbf{Aggregation.}  Per the assignment, per-message cost is fixed at
+$2$; the only way to spend less is to send \emph{fewer} messages.
+Leaders aggregate the $m$ DATA messages they receive each data cycle
+into a single AGG transmission (full aggregation), or one AGG per $k$
+inputs (partial), or none.  This is a free parameter of the policy.
+
+\vspace{-0.6em}
+\section*{4.\ Experiments -- 22 inputs, 528 simulations}
+\vspace{-0.4em}
+We built \textbf{22 test inputs} covering: the provided input,
+single-node, two within / beyond radius, exact-boundary ($d{=}20$),
+chains, grids, dense clusters, three Gaussian clusters, near-zero
+energies, adversarial centre, simultaneous-leader-death configurations,
+and large random / mixed scenes up to 100 nodes (see \texttt{inputs/}
+folder for the full list with descriptions).
+For each, we ran every combination of $6$ clustering $\times$ $4$
+election algorithms ($528$ simulations) with the recommended messaging
+parameters (data\_period $=5$, heartbeat $=10$, aggregation $=$ full).
+Lifetime, messages, elections and leader-changes were logged per step.
+
+\begin{table}[h]
+\small\centering
+\caption{Average over 22 test inputs.  Best six combinations and the
+baseline (highest-energy / Bully -- the previous submission's choice).}
+\label{tab:summary}
+\begin{tabular}{lllrrr}
+\toprule
+\# & cluster & election & avg.\ $T_{\text{all}}$ & avg.\ msgs & msgs/step \\
+\midrule
+1 & \textsc{leach}      & backup-first & \textbf{527.4} & \textbf{378.5} & \textbf{1.28} \\
+2 & \textsc{leach}      & local-score  & 526.7 & 383.1 & 1.32 \\
+3 & \textsc{leach}      & ring         & 526.4 & 384.7 & 1.33 \\
+4 & \textsc{leach}      & Bully        & 526.0 & 415.3 & 1.46 \\
+5 & \textsc{kmedoids}   & backup-first & 517.6 & 562.6 & 2.10 \\
+6 & \textsc{hybrid}     & backup-first & 517.6 & 562.6 & 2.10 \\
+\midrule
+\multicolumn{3}{l}{\textit{baseline (previous submission)}} & & & \\
+23 & highest-energy     & Bully        & 487.2 & 688.9 & 2.79 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Reading the table.}  LEACH-style clustering with backup-first
+election is \emph{Pareto-dominant}: it has the highest mean lifetime
+\emph{and} the lowest message count.  Compared to the previous
+submission's highest-energy / Bully pair, lifetime improves by $8.2\%$
+and message count drops $45\%$.  The deterministic runner-up --
+\emph{hybrid} ($=k$-medoids + backup) -- is within $2\%$ of LEACH on
+lifetime but with $50\%$ more messages because $k$-medoids tends to
+build slightly more groups for the same coverage.
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{pareto_comparison.png}
+\caption{Algorithm Pareto front (avg over 22 inputs).  LEACH (red) sits
+on the top-left frontier; the previous algorithm (orange) is the worst.}
+\label{fig:pareto}
+\end{minipage}\hfill
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{per_input_lifetime.png}
+\caption{Best lifetime per clustering algorithm on each of 22 inputs.}
+\label{fig:per_input}
+\end{minipage}
+\end{figure}
+
+\textbf{Election algorithms.}  Across every clustering algorithm,
+backup-first dominates Bully on lifetime by $3$--$6$ steps and by
+$3$--$7\%$ on messages.  Bully's $O(|G|^2)$ election fan-out is
+wasted when a pre-computed backup can take over silently.
+
+\textbf{Parameter sweep.}  On six representative inputs we additionally
+swept aggregation $\in\{$none, partial, full$\}$, data period
+$\in\{1,5,10,20\}$, heartbeat $\in\{0,10,25\}$ and rotation
+$\in\{0,50,100\}$ -- $648$ runs.  The top configuration is
+\texttt{(full, $d{=}20$, $h{=}0$, $r{=}50$)} with $\bar T=1143$ and
+$1.02$ msgs/step, confirming the analytical insight: aggregation gives
+the largest single win; heartbeats can be turned off whenever
+backup-first absorbs leader deaths; rotation gives a small additional
+boost on inputs with skewed energies.
+
+\textbf{Edge-case behaviour.}  Single-node input -- $T_{\text{all}}=E_0$
+exactly.  Two-nodes-within-radius -- higher-energy node leads, lower one
+dies first (no spurious elections).  Exactly-at-radius ($d=20$) -- the
+boundary is inclusive.  Beyond-radius -- two singleton groups, $0$
+messages total.  Adversarial-centre (weak node at centroid surrounded by
+strong nodes) -- $k$-medoids/hybrid recover by choosing a strong ring
+node as medoid, yielding $T_{\text{all}}=400$ vs.\ $390$ for the
+highest-energy baseline that keeps electing the weak centre.
+One-giant input -- letting the giant node be a member rather than a
+leader gives lifetime $\sim 5000$ vs.\ $\sim 2000$ for the energy-greedy
+choice, dramatically illustrating that ``highest energy'' is sometimes
+a trap.
+
+\noindent\textbf{Recommendation.}\\
+\fbox{\parbox{0.99\linewidth}{\centering
+\textsc{leach}-like clustering + \textbf{backup-first} election +
+\textbf{full} aggregation + data\_period $\in[5,20]$ +
+rotation $\in[50,100]$ + no heartbeat.}}\\
+If a deterministic algorithm is required, use \emph{hybrid}
+($k$-medoids + backup-first) under the same messaging parameters; the
+lifetime cost is $\le 2\%$ on average.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.62\textwidth]{dashboard_input01.png}
+\caption{Final dashboard on the assignment's provided 9-node input
+(\texttt{input01\_provided.txt}).  Lifetime $T_{\text{all}}=533$
+under hybrid / backup-first -- $21\%$ longer than the original
+highest-energy / Bully submission (439) while sending $\sim 30\%$
+fewer messages.}
+\label{fig:dashboard}
+\end{figure}
+
+\vspace{-0.6em}
+\section*{5.\ Implementation and challenges}
+\vspace{-0.4em}
+The simulator is deterministic for a given seed and policy.  Per step
+it (i) applies existence cost, (ii) emits the period-driven DATA / AGG
+/ HEARTBEAT messages, (iii) charges senders, (iv) sweeps deaths,
+(v) runs elections (charging election messages in the same tick so a
+``free'' last vote is impossible), (vi) re-attaches orphans,
+(vii) optionally rotates / re-clusters, (viii) logs the snapshot to
+\texttt{*.events.jsonl} which the React visualiser consumes.
+
+\textbf{Key challenges.}
+(a) \emph{Multi-leader coverage of a node} -- solved by nearest-leader
+assignment plus the single-membership invariant.
+(b) \emph{Leader dying mid-heartbeat} -- charge senders before death
+sweep so a dying leader cannot send a free message.
+(c) \emph{Election loops on collapsing groups} -- fall back to singleton
+if no alive member exists.
+(d) \emph{Energy-aware leader is sometimes a trap}: on \texttt{input11}
+(one-giant), making the 5000-energy node a leader wastes its energy on
+broadcasts; LEACH and the rotation step solve this by occasionally
+letting weak nodes lead.
+(e) \emph{Comparing inhomogeneous algorithms}: we report both mean
+lifetime and Pareto plots to avoid the ``kill-fast'' bias of cumulative
+messages.
+
+\textbf{Honest limitations.}  Reception cost is taken to be zero per
+the assignment; if a non-zero $r$ were used the optimal $m$ would shift
+downward.  Stochastic algorithms (LEACH) are seeded for reproducibility,
+but in deployment one would average over many seeds.
+
+\vspace{-0.6em}
+\section*{6.\ Conclusion}
+\vspace{-0.4em}
+We re-framed the assignment as a simulation-based optimisation problem
+over a 6-parameter policy family.  Across 22 carefully constructed
+inputs and 528 simulations, \textbf{LEACH-style clustering combined
+with backup-first election and full aggregation} is the
+Pareto-optimal choice; the \textbf{hybrid} ($k$-medoids + backup-first)
+algorithm is the recommended deterministic variant.  On the
+assignment's provided input the new policy gives lifetime $533$ -- a
+$21\%$ improvement over the previous highest-energy / Bully baseline of
+$439$ -- while sending $\sim 30\%$ fewer messages.
+
+\end{document}

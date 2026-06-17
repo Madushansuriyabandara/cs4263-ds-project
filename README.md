@@ -1,4 +1,4 @@
-# CS4262 / CS42623 Distributed Systems – Project Submission
+# CS4263 Distributed Systems – Project Submission
 ### Energy-Aware Distributed System Simulation
 
 | | |

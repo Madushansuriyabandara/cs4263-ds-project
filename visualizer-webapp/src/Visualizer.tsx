@@ -79,8 +79,8 @@ export default function Visualizer() {
     setLoading(true);
     setError(null);
     Promise.all([
-      fetch(`/data/${dataset}.txt`).then((r) => { if(!r.ok) throw new Error(`${dataset}.txt not found`); return r.text()}),
-      fetch(`/data/${dataset}.events.jsonl`).then((r) => { if(!r.ok) throw new Error(`${dataset}.events.jsonl not found`); return r.text()}),
+      fetch(`/data/${dataset}.txt`).then((r) => { if (!r.ok) throw new Error(`${dataset}.txt not found`); return r.text() }),
+      fetch(`/data/${dataset}.events.jsonl`).then((r) => { if (!r.ok) throw new Error(`${dataset}.events.jsonl not found`); return r.text() }),
     ])
       .then(([inputText, eventsText]) => {
         loadData(inputText, eventsText);
@@ -190,17 +190,17 @@ export default function Visualizer() {
   // Message styling
   const msgStyle = (msgType: string) => {
     switch (msgType) {
-      case 'ELECTION':   return { color: '#10b981', width: 3, dash: 'none', marker: 'url(#arrow-ELECTION)',   label: 'ELECTION' };
-      case 'VOTE':       return { color: '#14b8a6', width: 3, dash: 'none', marker: 'url(#arrow-VOTE)',       label: 'VOTE' };
-      case 'TOKEN':      return { color: '#8b5cf6', width: 3, dash: 'none', marker: 'url(#arrow-TOKEN)',      label: 'TOKEN' };
-      case 'OK':         return { color: '#ef4444', width: 3, dash: 'none', marker: 'url(#arrow-OK)',         label: 'OK' };
-      case 'COORDINATOR':return { color: '#ec4899', width: 3, dash: 'none', marker: 'url(#arrow-COORDINATOR)',label: 'COORDINATOR' };
-      case 'ADV':        return { color: '#a78bfa', width: 2, dash: '6,3', marker: 'url(#arrow-ADV)',         label: 'ADV' };
-      case 'JOIN':       return { color: '#22d3ee', width: 2, dash: '6,3', marker: 'url(#arrow-JOIN)',        label: 'JOIN' };
-      case 'DATA':       return { color: '#84cc16', width: 2, dash: '6,3', marker: 'url(#arrow-DATA)',        label: 'DATA' };
-      case 'AGG':        return { color: '#f97316', width: 3, dash: 'none', marker: 'url(#arrow-AGG)',        label: 'AGG' };
-      case 'HEARTBEAT':  return { color: 'rgba(148,163,184,0.5)', width: 1.5, dash: '4,4', marker: '',       label: 'HB' };
-      default:           return { color: '#cbd5e1', width: 1, dash: 'none', marker: '',                       label: msgType };
+      case 'ELECTION': return { color: '#10b981', width: 3, dash: 'none', marker: 'url(#arrow-ELECTION)', label: 'ELECTION' };
+      case 'VOTE': return { color: '#14b8a6', width: 3, dash: 'none', marker: 'url(#arrow-VOTE)', label: 'VOTE' };
+      case 'TOKEN': return { color: '#8b5cf6', width: 3, dash: 'none', marker: 'url(#arrow-TOKEN)', label: 'TOKEN' };
+      case 'OK': return { color: '#ef4444', width: 3, dash: 'none', marker: 'url(#arrow-OK)', label: 'OK' };
+      case 'COORDINATOR': return { color: '#ec4899', width: 3, dash: 'none', marker: 'url(#arrow-COORDINATOR)', label: 'COORDINATOR' };
+      case 'ADV': return { color: '#a78bfa', width: 2, dash: '6,3', marker: 'url(#arrow-ADV)', label: 'ADV' };
+      case 'JOIN': return { color: '#22d3ee', width: 2, dash: '6,3', marker: 'url(#arrow-JOIN)', label: 'JOIN' };
+      case 'DATA': return { color: '#84cc16', width: 2, dash: '6,3', marker: 'url(#arrow-DATA)', label: 'DATA' };
+      case 'AGG': return { color: '#f97316', width: 3, dash: 'none', marker: 'url(#arrow-AGG)', label: 'AGG' };
+      case 'HEARTBEAT': return { color: 'rgba(148,163,184,0.5)', width: 1.5, dash: '4,4', marker: '', label: 'HB' };
+      default: return { color: '#cbd5e1', width: 1, dash: 'none', marker: '', label: msgType };
     }
   };
 
@@ -212,17 +212,17 @@ export default function Visualizer() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
           <img src="/eale-viz-logo.png" alt="eale-viz logo" style={{ height: 48 }} />
           <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
-            Energy-Aware Bully Algorithm Visualizer
+            Energy-Aware Leader Election Visualizer
           </h2>
         </div>
-        
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 12, padding: '16px 20px', background: '#1e293b', borderRadius: 8, border: '1px solid #334155', fontSize: 13, width: '100%', boxSizing: 'border-box' }}>
-          
+
           {/* Top row: Dataset selector */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <label style={{ fontSize: 14, color: '#94a3b8', fontWeight: 600 }}>Dataset:</label>
-            <select 
-              value={dataset} 
+            <select
+              value={dataset}
               onChange={(e) => setDataset(e.target.value)}
               style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #475569', borderRadius: 4, padding: '6px 8px', fontSize: 14 }}
             >
@@ -238,8 +238,10 @@ export default function Visualizer() {
           {/* Config Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px 24px', borderTop: '1px solid #334155', paddingTop: 16 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Clustering Algorithm (c)</label>
-              <select value={simConfig.cluster_algo} onChange={e => setSimConfig({...simConfig, cluster_algo: e.target.value})} style={selectStyle}>
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Clustering Algorithm (c)
+                <span title="Hybrid: Iteratively optimizes cluster centers by balancing both distance (to keep groups tight) and energy (to avoid draining weak nodes).&#10;&#10;LEACH: Nodes randomly elect themselves as leaders based on a probability tied to their remaining energy. Others join the closest leader. Good for load balancing.&#10;&#10;K-Medoids: Iteratively finds the most central node in a group to act as the leader, minimizing communication distances.&#10;&#10;Set-Cover: Greedily tries to create the absolute minimum number of groups. It always picks the leader that can cover the most unassigned nodes.&#10;&#10;Highest-Energy: Very simple and greedy. Always picks the node with the absolute highest energy in the network to be a leader, then groups its neighbors.&#10;&#10;Random: Shuffles the nodes and randomly forms groups. Used as a baseline for performance comparison." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>              <select value={simConfig.cluster_algo} onChange={e => setSimConfig({ ...simConfig, cluster_algo: e.target.value })} style={selectStyle}>
                 <option value="hybrid">Hybrid</option>
                 <option value="leach">LEACH</option>
                 <option value="kmedoids">K-Medoids</option>
@@ -249,8 +251,11 @@ export default function Visualizer() {
               </select>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Election Algorithm (e)</label>
-              <select value={simConfig.election_algo} onChange={e => setSimConfig({...simConfig, election_algo: e.target.value})} style={selectStyle}>
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Election Algorithm (e)
+                <span title="Backup-First: Quickly promotes a pre-designated backup node to leader if the current leader fails. Falls back to Local-Score if no backup is available.&#10;&#10;Bully: The node with the highest priority (energy/centrality) bullies others into accepting it as leader. Robust but requires many messages.&#10;&#10;Ring: Nodes pass a token in a logical ring to agree on the best candidate. Requires fewer messages than Bully but takes longer to complete.&#10;&#10;Local-Score: All surviving group members broadcast their scores. The highest score wins. Simple and direct." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>
+              <select value={simConfig.election_algo} onChange={e => setSimConfig({ ...simConfig, election_algo: e.target.value })} style={selectStyle}>
                 <option value="backup_first">Backup-First</option>
                 <option value="bully">Bully</option>
                 <option value="ring">Ring</option>
@@ -258,24 +263,36 @@ export default function Visualizer() {
               </select>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Aggregation Mode (a)</label>
-              <select value={simConfig.aggregation} onChange={e => setSimConfig({...simConfig, aggregation: e.target.value})} style={selectStyle}>
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Aggregation Mode (a)
+                <span title="Full: The leader combines all incoming data from members into a single message before transmitting it outward. Highly energy efficient.&#10;&#10;Partial-k: The leader batches incoming data into chunks of size 'k'. A balance between energy efficiency and data granularity.&#10;&#10;None: The leader simply forwards every single message it receives without combining them. Very energy intensive." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>
+              <select value={simConfig.aggregation} onChange={e => setSimConfig({ ...simConfig, aggregation: e.target.value })} style={selectStyle}>
                 <option value="full">Full</option>
                 <option value="partial">Partial-k</option>
                 <option value="none">None</option>
               </select>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Data Period (d)</label>
-              <input type="number" min="0" value={simConfig.data_period} onChange={e => setSimConfig({...simConfig, data_period: parseInt(e.target.value) || 0})} style={inputStyle} />
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Data Period (d)
+                <span title="How often (in time steps) standard nodes send their sensor data to their group leader. Smaller values mean more frequent data collection, which drains battery faster." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>
+              <input type="number" min="0" value={simConfig.data_period} onChange={e => setSimConfig({ ...simConfig, data_period: parseInt(e.target.value) || 0 })} style={inputStyle} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Heartbeat Period (h)</label>
-              <input type="number" min="0" value={simConfig.heartbeat} onChange={e => setSimConfig({...simConfig, heartbeat: parseInt(e.target.value) || 0})} style={inputStyle} />
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Heartbeat Period (h)
+                <span title="How often (in time steps) the leader sends a 'keep-alive' ping to its members. Members use this to detect if the leader has failed so they can start a new election." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>
+              <input type="number" min="0" value={simConfig.heartbeat} onChange={e => setSimConfig({ ...simConfig, heartbeat: parseInt(e.target.value) || 0 })} style={inputStyle} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ color: '#cbd5e1' }}>Rotation Period (r)</label>
-              <input type="number" min="0" value={simConfig.rotation_period} onChange={e => setSimConfig({...simConfig, rotation_period: parseInt(e.target.value) || 0})} style={inputStyle} />
+              <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                Rotation Period (r)
+                <span title="Forces groups to proactively elect a new leader after this many time steps, even if the current leader is still alive. This prevents the current leader from dying of exhaustion. Set to 0 to disable." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
+              </label>
+              <input type="number" min="0" value={simConfig.rotation_period} onChange={e => setSimConfig({ ...simConfig, rotation_period: parseInt(e.target.value) || 0 })} style={inputStyle} />
             </div>
           </div>
 
@@ -293,7 +310,7 @@ export default function Visualizer() {
                 </div>
               )}
             </div>
-            <button 
+            <button
               disabled={isRunning}
               onClick={async () => {
                 setLoading(true);
@@ -517,7 +534,7 @@ export default function Visualizer() {
                 <SkipForward size={18} />
               </button>
             </div>
-            
+
             {/* Fast-Forward Checkbox */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#1e293b', padding: '8px 12px', borderRadius: 8, border: '1px solid #334155' }}>
               <input
