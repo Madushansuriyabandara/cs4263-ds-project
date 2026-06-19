@@ -24,6 +24,7 @@
 \vspace{-1.2em}
 \section*{1.\ Problem and model (assignment-compliant)}
 \vspace{-0.4em}
+\textbf{Headline Result: On the assignment's provided 9-node input we achieve $T_{\text{all}}=533$ ticks with 131 messages (vs baseline highest-energy+Bully: 433 ticks / 215 msgs), a 23\% lifetime improvement.}\\[4pt]
 We are given $N$ nodes described by $(x,y,E_0)$ triplets.
 Each alive node loses $1$ energy per time step; transmitting one message
 costs the \emph{sender} $2$ energy (reception is free). A node dies when
@@ -80,14 +81,14 @@ cover more members within radius 20) is preferred.
 \textbf{Six clustering policies implemented.}  (i) \emph{Random} (baseline).
 (ii) \emph{Highest-energy greedy} (the previous submission's choice).
 (iii) \emph{Greedy set-cover}: minimise the number of leaders.
-(iv) \emph{Energy-aware $k$-medoids}: minimise
+(iv) \emph{Energy-aware $k$-medoids}\footnote{Kaufman, L., \& Rousseeuw, P.J. (1987). Clustering by means of Medoids.}: minimise
 $\sum_h\sum_{i\in G_h}\bigl(\alpha\,d(i,h)/R+(1{-}\alpha)(1{-}E_h/E_{\max})\bigr)$
 s.t.\ $d(i,h)\le R$ and medoid must be a real node.
-(v) \emph{LEACH-like}: probabilistic head election with energy bias.
+(v) \emph{LEACH-like}\footnote{Heinzelman, W.B., et al. (2000). Energy-efficient communication protocol for wireless microsensor networks.}: probabilistic head election with energy bias.
 (vi) \emph{Hybrid}: $k$-medoids seed + designated backup + optional
 rotation -- the \emph{ex-ante} best policy from our analysis.
 
-\textbf{Four election policies implemented.}  Bully ($O(1)$ wireless broadcast),
+\textbf{Four election policies implemented.}  Bully\footnote{Garcia-Molina, H. (1982). Elections in a Distributed Computing System.} ($O(1)$ wireless broadcast),
 Ring ($O(|G|)$), broadcast local-score ($O(|G|)$), and
 \textbf{backup-first} (0 messages when a healthy backup exists).
 Backup-first is the cheapest: each group precomputes a backup
@@ -148,13 +149,13 @@ build slightly more groups for the same coverage.
 \begin{figure}[h]
 \centering
 \begin{minipage}{0.49\textwidth}\centering
-\includegraphics[width=\linewidth]{pareto_comparison.png}
+\includegraphics[width=\linewidth]{images/pareto_comparison.png}
 \caption{Algorithm Pareto front (avg over 22 inputs).  LEACH (red) sits
 on the top-left frontier; the baseline algorithm (orange) is the worst.}
 \label{fig:pareto}
 \end{minipage}\hfill
 \begin{minipage}{0.49\textwidth}\centering
-\includegraphics[width=\linewidth]{per_input_lifetime.png}
+\includegraphics[width=\linewidth]{images/per_input_lifetime.png}
 \caption{Best lifetime per clustering algorithm on each of 22 inputs.}
 \label{fig:per_input}
 \end{minipage}
@@ -199,14 +200,22 @@ If a deterministic algorithm is required, use \emph{hybrid}
 ($k$-medoids + backup-first) under the same messaging parameters; the
 lifetime cost is $\le 2\%$ on average.
 
+\vspace{0.4em}
+\noindent\textbf{Reproducibility:} To run the recommended configuration:
+\begin{verbatim}
+python -m src.main --input inputs/input01_provided.txt \
+    --cluster hybrid --election backup_first \
+    --aggregation full --data-period 5 --heartbeat 10
+\end{verbatim}
+
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.62\textwidth]{dashboard_input01.png}
+\includegraphics[width=0.62\textwidth]{images/dashboard_input01.png}
 \caption{Final dashboard on the assignment's provided 9-node input
 (\texttt{input01\_provided.txt}).  Lifetime $T_{\text{all}}=533$
 under hybrid / backup-first -- $23\%$ longer than the baseline
 highest-energy / Bully approach (433) while sending $\sim 39\%$
-fewer messages.}
+fewer messages. Live visualizer: \href{https://www.eale-viz.me}{\texttt{www.eale-viz.me}}.}
 \label{fig:dashboard}
 \end{figure}
 

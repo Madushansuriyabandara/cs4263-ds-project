@@ -34,7 +34,7 @@ export default function Visualizer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [dataset, setDataset] = useState<string>('input1');
+  const [dataset, setDataset] = useState<string>('input01_provided');
   const [fastForwardHeartbeats, setFastForwardHeartbeats] = useState(true);
   const [simConfig, setSimConfig] = useState<SimulationConfig>({
     cluster_algo: 'hybrid',
@@ -208,7 +208,7 @@ export default function Visualizer() {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: 'Inter, system-ui, sans-serif', padding: '16px 20px', background: '#0f172a', minHeight: '100vh', color: '#e2e8f0' }}>
 
       {/* Header and Dataset Selector */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, width: canvasW }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 20, width: '100%', maxWidth: canvasW }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
           <img src="/eale-viz-logo.png" alt="eale-viz logo" style={{ height: 48 }} />
           <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#f1f5f9', letterSpacing: '-0.02em' }}>
@@ -226,7 +226,7 @@ export default function Visualizer() {
               onChange={(e) => setDataset(e.target.value)}
               style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #475569', borderRadius: 4, padding: '6px 8px', fontSize: 14 }}
             >
-              <option value="input1">Default Assignment Input (input1)</option>
+              <option value="input01_provided">Default Assignment Input (input1)</option>
               <option value="input2_single">Single Node (input2)</option>
               <option value="input3_small">Small Topology (input3)</option>
               <option value="input4_large">Large Topology 25-node (input4)</option>
@@ -350,8 +350,8 @@ export default function Visualizer() {
           </p>
 
           {/* Main canvas */}
-          <div style={{ position: 'relative', width: canvasW, height: canvasH, border: '1px solid #334155', borderRadius: 12, backgroundColor: '#1e293b', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
-            <svg width={canvasW} height={canvasH}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: canvasW, aspectRatio: '700/550', border: '1px solid #334155', borderRadius: 12, backgroundColor: '#1e293b', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
+            <svg width="100%" height="100%" viewBox={`0 0 ${canvasW} ${canvasH}`}>
               <defs>
                 {/* Arrow markers for each message type */}
                 <marker id="arrow-ELECTION" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -557,7 +557,7 @@ export default function Visualizer() {
             max={states.length - 1}
             value={currentStep}
             onChange={(e) => setCurrentStep(Number(e.target.value))}
-            style={{ width: canvasW - 40, marginTop: 10, accentColor: '#3b82f6' }}
+            style={{ width: '100%', maxWidth: canvasW - 40, marginTop: 10, accentColor: '#3b82f6' }}
           />
 
           {/* ── Legend ── */}

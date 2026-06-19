@@ -29,6 +29,7 @@ def main() -> int:
     p.add_argument("--recluster-period", type=int, default=0)
     p.add_argument("--max-steps", type=int, default=5000)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--viz-every", type=int, default=50)
     p.add_argument("--no-visualize", action="store_true")
     args = p.parse_args()
 
@@ -46,18 +47,32 @@ def main() -> int:
         recluster_period=args.recluster_period,
         max_steps=args.max_steps, seed=args.seed,
     )
+    frame_paths = []
+    
+    def viz_cb(s):
+        if args.viz_every > 0 and (s.step % args.viz_every == 0 or s.step == 1):
+            viz_path = os.path.join(args.output_dir, "frames", f"{base}.step{s.step:04d}.png")
+            render_dashboard(s.nodes, s.groups, s.result, viz_path, step_label=f"step {s.step}")
+            frame_paths.append(viz_path)
+
     sim = Simulator(nodes, cfg)
-    res = sim.run()
+    res = sim.run(step_callback=viz_cb if not args.no_visualize else None)
     paths = write_outputs(args.output_dir, base, sim.nodes, res)
     if not args.no_visualize:
         viz = os.path.join(args.output_dir, f"{base}.final.png")
         render_dashboard(sim.nodes, sim.groups, res, viz,
                          step_label=f"final (step {res.t_all_dead})")
         paths["dashboard"] = viz
+        if frame_paths:
+            frame_paths.append(viz)
+            gif_path = os.path.join(args.output_dir, f"{base}.animation.gif")
+            from .visualizer import render_animation
+            render_animation(frame_paths, gif_path, duration=300)
+            paths["animation"] = gif_path
     print(f"[done] {base}: lifetime={res.t_all_dead}  "
           f"first_death={res.t_first_death}  "
           f"msgs={res.total_messages}  "
-          f"msgs/step={res.messages_per_unit_time():.2f}  "
+          f"msgs/step={res.messages_per_step_avg():.2f}  "
           f"elections={res.elections_triggered}")
     for k, v in paths.items():
         print(f"  {k}: {v}")
