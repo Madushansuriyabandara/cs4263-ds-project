@@ -87,7 +87,7 @@ s.t.\ $d(i,h)\le R$ and medoid must be a real node.
 (vi) \emph{Hybrid}: $k$-medoids seed + designated backup + optional
 rotation -- the \emph{ex-ante} best policy from our analysis.
 
-\textbf{Four election policies implemented.}  Bully ($O(|G|^2)$),
+\textbf{Four election policies implemented.}  Bully ($O(1)$ wireless broadcast),
 Ring ($O(|G|)$), broadcast local-score ($O(|G|)$), and
 \textbf{backup-first} (0 messages when a healthy backup exists).
 Backup-first is the cheapest: each group precomputes a backup
@@ -123,15 +123,15 @@ standard baseline (highest-energy / Bully).}
 \toprule
 \# & cluster & election & avg.\ $T_{\text{all}}$ & avg.\ msgs & msgs/step \\
 \midrule
-1 & \textsc{leach}      & backup-first & \textbf{527.4} & \textbf{378.5} & \textbf{1.28} \\
-2 & \textsc{leach}      & local-score  & 526.7 & 383.1 & 1.32 \\
-3 & \textsc{leach}      & ring         & 526.4 & 384.7 & 1.33 \\
-4 & \textsc{leach}      & Bully        & 526.0 & 415.3 & 1.46 \\
-5 & \textsc{kmedoids}   & backup-first & 517.6 & 562.6 & 2.10 \\
-6 & \textsc{hybrid}     & backup-first & 517.6 & 562.6 & 2.10 \\
+1 & \textsc{leach}      & backup-first & \textbf{546.0} & \textbf{330.3} & \textbf{1.11} \\
+2 & \textsc{leach}      & local-score  & 545.4 & 334.1 & 1.14 \\
+3 & \textsc{leach}      & ring         & 545.1 & 335.4 & 1.15 \\
+4 & \textsc{leach}      & Bully        & 545.1 & 337.3 & 1.16 \\
+5 & \textsc{kmedoids}   & backup-first & 540.7 & 508.0 & 1.82 \\
+6 & \textsc{hybrid}     & backup-first & 540.7 & 508.0 & 1.82 \\
 \midrule
 \multicolumn{3}{l}{\textit{baseline (standard approach)}} & & & \\
-23 & highest-energy     & Bully        & 487.2 & 688.9 & 2.79 \\
+23 & highest-energy     & Bully        & 511.9 & 606.2 & 2.36 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -139,8 +139,8 @@ standard baseline (highest-energy / Bully).}
 \textbf{Reading the table.}  LEACH-style clustering with backup-first
 election is \emph{Pareto-dominant}: it has the highest mean lifetime
 \emph{and} the lowest message count.  Compared to the standard
-baseline's highest-energy / Bully pair, lifetime improves by $8.2\%$
-and message count drops $45\%$.  The deterministic runner-up --
+baseline's highest-energy / Bully pair, lifetime improves by $6.7\%$
+and message count drops $45.5\%$.  The deterministic runner-up --
 \emph{hybrid} ($=k$-medoids + backup) -- is within $2\%$ of LEACH on
 lifetime but with $50\%$ more messages because $k$-medoids tends to
 build slightly more groups for the same coverage.
@@ -161,9 +161,10 @@ on the top-left frontier; the baseline algorithm (orange) is the worst.}
 \end{figure}
 
 \textbf{Election algorithms.}  Across every clustering algorithm,
-backup-first dominates Bully on lifetime by $3$--$6$ steps and by
-$3$--$7\%$ on messages.  Bully's $O(|G|^2)$ election fan-out is
-wasted when a pre-computed backup can take over silently.
+backup-first slightly dominates Bully on lifetime by $\sim 1$ step and by
+$\sim 2\%$ on messages. Even with Bully optimised to use $O(1)$ wireless
+broadcasts, taking over silently using a pre-computed backup is still
+marginally more efficient.
 
 \textbf{Parameter sweep.}  On six representative inputs we additionally
 swept aggregation $\in\{$none, partial, full$\}$, data period
@@ -180,13 +181,14 @@ exactly.  Two-nodes-within-radius -- higher-energy node leads, lower one
 dies first (no spurious elections).  Exactly-at-radius ($d=20$) -- the
 boundary is inclusive.  Beyond-radius -- two singleton groups, $0$
 messages total.  Adversarial-centre (weak node at centroid surrounded by
-strong nodes) -- $k$-medoids/hybrid recover by choosing a strong ring
-node as medoid, yielding $T_{\text{all}}=400$ vs.\ $390$ for the
-highest-energy baseline that keeps electing the weak centre.
-One-giant input -- letting the giant node be a member rather than a
-leader gives lifetime $\sim 5000$ vs.\ $\sim 2000$ for the energy-greedy
-choice, dramatically illustrating that ``highest energy'' is sometimes
-a trap.
+strong nodes) -- $k$-medoids/hybrid and highest-energy all reliably
+yield $T_{\text{all}}=400$. Prior to our broadcast optimisation, the
+baseline would waste energy and die at step $390$, proving the value
+of $O(1)$ messaging.
+One-giant input -- all algorithms now survive to $\sim 5000$ steps.
+Before our broadcast fixes, energy-greedy algorithms would trap the giant
+node into an $O(N^2)$ broadcast storm, killing it at $\sim 2000$ steps.
+This illustrates the robustness of the updated protocol.
 
 \noindent\textbf{Recommendation.}\\
 \fbox{\parbox{0.99\linewidth}{\centering
@@ -202,8 +204,8 @@ lifetime cost is $\le 2\%$ on average.
 \includegraphics[width=0.62\textwidth]{dashboard_input01.png}
 \caption{Final dashboard on the assignment's provided 9-node input
 (\texttt{input01\_provided.txt}).  Lifetime $T_{\text{all}}=533$
-under hybrid / backup-first -- $21\%$ longer than the baseline
-highest-energy / Bully approach (439) while sending $\sim 30\%$
+under hybrid / backup-first -- $23\%$ longer than the baseline
+highest-energy / Bully approach (433) while sending $\sim 39\%$
 fewer messages.}
 \label{fig:dashboard}
 \end{figure}
@@ -249,7 +251,7 @@ with backup-first election and full aggregation} is the
 Pareto-optimal choice; the \textbf{hybrid} ($k$-medoids + backup-first)
 algorithm is the recommended deterministic variant.  On the
 assignment's provided input the new policy gives lifetime $533$ -- a
-$21\%$ improvement over the highest-energy / Bully baseline of
-$439$ -- while sending $\sim 30\%$ fewer messages.
+$23\%$ improvement over the highest-energy / Bully baseline of
+$433$ -- while sending $\sim 39\%$ fewer messages.
 
 \end{document}
