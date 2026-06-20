@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.15)  20 JUN 2026 00:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.15)  20 JUN 2026 09:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,24 +396,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (REPORT.aux)
 \openout1 = `REPORT.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -475,13 +475,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \microtypecontext on input line 22.
-Package microtype Info: Applying patch `item' on input line 22.
-Package microtype Info: Applying patch `toc' on input line 22.
-Package microtype Info: Applying patch `eqnum' on input line 22.
-Package microtype Info: Applying patch `footnote' on input line 22.
-Package microtype Info: Applying patch `verbatim' on input line 22.
-LaTeX Info: Redefining \microtypesetup on input line 22.
+LaTeX Info: Redefining \microtypecontext on input line 23.
+Package microtype Info: Applying patch `item' on input line 23.
+Package microtype Info: Applying patch `toc' on input line 23.
+Package microtype Info: Applying patch `eqnum' on input line 23.
+Package microtype Info: Applying patch `footnote' on input line 23.
+Package microtype Info: Applying patch `verbatim' on input line 23.
+LaTeX Info: Redefining \microtypesetup on input line 23.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -497,7 +497,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 22.
+Package hyperref Info: Link coloring ON on input line 23.
 
 (REPORT.out) (REPORT.out)
 \@outlinefile=\write3
@@ -505,7 +505,7 @@ Package hyperref Info: Link coloring ON on input line 22.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 24.
 
 
 (C:\Users\madus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -514,7 +514,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (C:\Users\madus\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 24.
 
 
 (C:\Users\madus\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -524,38 +524,38 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-3.
+4.
 
 (C:\Users\madus\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
 
 [1
 
 {C:/Users/madus/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<images/pareto_comparison.png, id=34, 578.16pt x 433.62pt>
+<images/pareto_comparison.png, id=36, 578.16pt x 433.62pt>
 File: images/pareto_comparison.png Graphic file (type png)
 <use images/pareto_comparison.png>
-Package pdftex.def Info: images/pareto_comparison.png  used on input line 152.
+Package pdftex.def Info: images/pareto_comparison.png  used on input line 153.
 (pdftex.def)             Requested size: 248.16754pt x 186.12213pt.
-<images/per_input_lifetime.png, id=36, 794.97pt x 433.62pt>
+<images/per_input_lifetime.png, id=38, 794.97pt x 433.62pt>
 File: images/per_input_lifetime.png Graphic file (type png)
 <use images/per_input_lifetime.png>
-Package pdftex.def Info: images/per_input_lifetime.png  used on input line 158.
+Package pdftex.def Info: images/per_input_lifetime.png  used on input line 159.
 
 (pdftex.def)             Requested size: 248.16754pt x 135.36035pt.
 
-Overfull \hbox (1.73817pt too wide) in paragraph at lines 194--202
+Overfull \hbox (1.73817pt too wide) in paragraph at lines 195--203
 [] 
  []
 
 [2 <./images/pareto_comparison.png> <./images/per_input_lifetime.png>]
-<images/dashboard_input01.png, id=51, 1011.78pt x 722.7pt>
+<images/dashboard_input01.png, id=52, 1011.78pt x 722.7pt>
 File: images/dashboard_input01.png Graphic file (type png)
 <use images/dashboard_input01.png>
-Package pdftex.def Info: images/dashboard_input01.png  used on input line 213.
+Package pdftex.def Info: images/dashboard_input01.png  used on input line 214.
 (pdftex.def)             Requested size: 314.00192pt x 224.28831pt.
  [3 <./images/dashboard_input01.png>] (REPORT.aux)
  ***********
@@ -600,9 +600,9 @@ cm/cmti10.pfb><C:/Users/madus/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmti9.pfb><C:/Users/madus/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmtt10.pfb><C:/Users/madus/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on REPORT.pdf (3 pages, 639429 bytes).
+Output written on REPORT.pdf (3 pages, 640222 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
+ 167 PDF objects out of 1000 (max. 8388607)
  16 named destinations out of 1000 (max. 500000)
  42000 words of extra memory for PDF output out of 42996 (max. 10000000)
 
