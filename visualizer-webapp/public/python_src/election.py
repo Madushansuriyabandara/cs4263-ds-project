@@ -20,6 +20,9 @@ def _alive_members(group: Group, nodes: Dict[int, Node]) -> List[Node]:
 
 
 def elect_backup_first(group, nodes, step, score_fn=default_score):
+    """Silent takeover if a pre-computed healthy backup exists.
+    Falls back to a broadcast local-score election if the backup is dead or missing.
+    """
     if group.backup_id is not None:
         b = nodes.get(group.backup_id)
         if b and b.is_alive():
