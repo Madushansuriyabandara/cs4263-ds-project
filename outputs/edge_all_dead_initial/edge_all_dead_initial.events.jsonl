@@ -1,5 +1,0 @@
-{"step": 0, "type": "INIT", "leaders": [], "groups": {}}
-{"step": 1, "type": "DEATH", "node": 1, "was_leader": false, "group": null}
-{"step": 1, "type": "DEATH", "node": 2, "was_leader": false, "group": null}
-{"step": 1, "type": "DEATH", "node": 3, "was_leader": false, "group": null}
-{"step": 1, "type": "DEATH", "node": 4, "was_leader": false, "group": null}
