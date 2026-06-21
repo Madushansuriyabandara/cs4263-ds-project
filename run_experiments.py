@@ -20,7 +20,7 @@ EXP_DIR = ROOT / "experiments" / "results"
 EXP_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def run_one(input_path, cluster, election, *, data_period=5, heartbeat=10,
+def run_one(input_path, cluster, election, *, data_period=5, heartbeat=15,
             aggregation="full", rotation=0, max_steps=6000, seed=0):
     nodes = parse_input_file(str(input_path))
     cfg = SimConfig(cluster_algo=cluster, election_algo=election,
@@ -38,7 +38,7 @@ def run_one(input_path, cluster, election, *, data_period=5, heartbeat=10,
         "T_first": res.t_first_death or "",
         "T_50": res.t_50_percent or "",
         "total_msgs": res.total_messages,
-        "msgs_per_step": round(res.messages_per_unit_time(), 3),
+        "msgs_per_step": round(res.messages_per_step_avg(), 3),
         "leader_changes": res.leader_changes,
         "elections": res.elections_triggered,
         "initial_energy": res.initial_total_energy,
@@ -51,16 +51,19 @@ def main():
     if not inputs:
         raise SystemExit(f"No inputs in {INPUTS_DIR}")
     clusters = ["random","highest_energy","setcover","kmedoids","leach","hybrid"]
-    elections = ["bully","ring","local_score","backup_first"]
+    elections = ["bully","ring","local_score","backup_first","lowest_energy"]
+    rotations = list(range(0, 151, 5))
     rows = []
-    print(f"Running {len(inputs)} x {len(clusters)} x {len(elections)} sims")
+    print(f"Running {len(inputs)} x {len(clusters)} x {len(elections)} x {len(rotations)} sims")
     for inp in inputs:
         for c in clusters:
             for e in elections:
-                r = run_one(inp, c, e)
-                rows.append(r)
-                print(f"  {inp.stem:30s} c={c:14s} e={e:13s}  "
-                      f"T_all={r['T_all']:5d} msgs={r['total_msgs']:6d}")
+                for rot in rotations:
+                    r = run_one(inp, c, e, rotation=rot)
+                    r["rotation"] = rot
+                    rows.append(r)
+                    print(f"  {inp.stem:30s} c={c:14s} e={e:13s} r={rot:<3}  "
+                          f"T_all={r['T_all']:5d} msgs={r['total_msgs']:6d}")
 
     csv_path = EXP_DIR / "all_results.csv"
     with open(csv_path, "w", newline="") as f:
@@ -70,14 +73,14 @@ def main():
 
     agg = defaultdict(list)
     for r in rows:
-        agg[(r["cluster"], r["election"])].append(r)
+        agg[(r["cluster"], r["election"], r["rotation"])].append(r)
     summary = []
-    for (c, e), lst in agg.items():
+    for (c, e, rot), lst in agg.items():
         ts = [x["T_all"] for x in lst]
         ms = [x["total_msgs"] for x in lst]
         mps = [x["msgs_per_step"] for x in lst]
         summary.append({
-            "cluster": c, "election": e,
+            "cluster": c, "election": e, "rotation": rot,
             "avg_T_all": sum(ts)/len(ts),
             "avg_total_msgs": sum(ms)/len(ms),
             "avg_msgs_per_step": sum(mps)/len(mps),
@@ -91,11 +94,11 @@ def main():
     print(f"Wrote {sum_path}")
     print("\nTop 8 combos by avg lifetime:")
     for r in summary[:8]:
-        print(f"  {r['cluster']}/{r['election']}  T={r['avg_T_all']:.1f}  "
+        print(f"  {r['cluster']}/{r['election']} (rot={r['rotation']})  T={r['avg_T_all']:.1f}  "
               f"msgs={r['avg_total_msgs']:.1f}")
 
     fig, ax = plt.subplots(figsize=(8, 6))
-    markers = {"bully":"o","ring":"s","local_score":"^","backup_first":"D"}
+    markers = {"bully":"o","ring":"s","local_score":"^","backup_first":"D","lowest_energy":"*"}
     colors = {"random":"gray","highest_energy":"tab:orange",
               "setcover":"tab:green","kmedoids":"tab:blue",
               "leach":"tab:red","hybrid":"tab:purple"}

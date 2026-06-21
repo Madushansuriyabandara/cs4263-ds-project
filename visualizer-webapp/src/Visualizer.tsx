@@ -274,6 +274,7 @@ export default function Visualizer() {
               </label>
               <select value={simConfig.election_algo} onChange={e => setSimConfig({ ...simConfig, election_algo: e.target.value })} style={selectStyle}>
                 <option value="backup_first">Backup-First</option>
+                <option value="lowest_energy">Lowest-Energy (Sacrificial)</option>
                 <option value="bully">Bully</option>
                 <option value="ring">Ring</option>
                 <option value="local_score">Local-Score</option>
@@ -284,11 +285,23 @@ export default function Visualizer() {
                 Aggregation Mode (a)
                 <span title="Full: The leader combines all incoming data from members into a single message before transmitting it outward. Highly energy efficient.&#10;&#10;Partial-k: The leader batches incoming data into chunks of size 'k'. A balance between energy efficiency and data granularity.&#10;&#10;None: The leader simply forwards every single message it receives without combining them. Very energy intensive." style={{ cursor: 'help', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '16px', borderRadius: '50%', border: '1px solid #94a3b8', fontSize: '10px', color: '#94a3b8' }}>i</span>
               </label>
-              <select value={simConfig.aggregation} onChange={e => setSimConfig({ ...simConfig, aggregation: e.target.value })} style={selectStyle}>
-                <option value="full">Full</option>
-                <option value="partial">Partial-k</option>
-                <option value="none">None</option>
-              </select>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                <select value={simConfig.aggregation} onChange={e => setSimConfig({ ...simConfig, aggregation: e.target.value })} style={{...selectStyle, flex: 1}}>
+                  <option value="full">Full</option>
+                  <option value="partial">Partial-k</option>
+                  <option value="none">None</option>
+                </select>
+                {simConfig.aggregation === 'partial' && (
+                  <input 
+                    type="number" 
+                    min="1" 
+                    value={simConfig.agg_factor} 
+                    onChange={e => setSimConfig({ ...simConfig, agg_factor: parseInt(e.target.value) || 1 })} 
+                    style={{...inputStyle, width: '60px'}} 
+                    title="Aggregation Factor (k)"
+                  />
+                )}
+              </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <label style={{ color: '#cbd5e1', display: 'flex', alignItems: 'center', gap: '6px' }}>

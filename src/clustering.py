@@ -3,8 +3,9 @@ from __future__ import annotations
 
 import math
 import random
-from typing import Dict, List
+from typing import Dict, List, Optional
 
+from .election import default_score
 from .node import GROUP_RADIUS, Group, Node
 
 
@@ -20,10 +21,7 @@ def _pick_backup(leader: Node, members: List[int], nodes: Dict[int, Node]):
     others = [nodes[m] for m in members if m != leader.id and nodes[m].is_alive()]
     if not others:
         return None
-    e_max = max(o.energy for o in others) or 1.0
-    d_max = max(o.distance_to(leader) for o in others) or 1.0
-    best = max(others, key=lambda o: 0.7 * (o.energy / e_max)
-                                     + 0.3 * (1.0 - o.distance_to(leader) / d_max))
+    best = max(others, key=lambda o: default_score(o, others))
     return best.id
 
 
@@ -44,7 +42,7 @@ def _wrap_groups(leader_to_members: Dict[int, List[int]],
 
 
 def cluster_random(nodes, radius=GROUP_RADIUS, rng=None, **_):
-    rng = rng or random.Random(0)
+    rng = rng or random
     alive = _reset_assignments(nodes)
     rng.shuffle(alive)
     leader_to_members: Dict[int, List[int]] = {}
@@ -207,7 +205,7 @@ def cluster_kmedoids_energy(nodes, radius=GROUP_RADIUS, alpha=0.6,
 
 
 def cluster_leach(nodes, radius=GROUP_RADIUS, p=0.2, rng=None, **_):
-    rng = rng or random.Random(0)
+    rng = rng or random
     alive = _reset_assignments(nodes)
     if not alive:
         return {}
@@ -260,6 +258,16 @@ def reform_for_orphans(nodes, groups, radius=GROUP_RADIUS):
             n.is_leader = False
             n.group_id = None
             orphans.append(n)
+        else:
+            # Strict radius enforcement
+            g = groups[n.group_id]
+            leader = nodes.get(g.leader_id)
+            if leader and n.distance_to(leader) > radius:
+                n.is_leader = False
+                n.group_id = None
+                if n.id in g.member_ids:
+                    g.member_ids.remove(n.id)
+                orphans.append(n)
     next_id = max(groups.keys(), default=-1) + 1
     for orphan in orphans:
         best_g, best_d = None, math.inf
