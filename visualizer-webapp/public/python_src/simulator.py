@@ -27,6 +27,8 @@ def parse_input_file(path: str) -> Dict[int, Node]:
     nodes: Dict[int, Node] = {}
     for idx, m in enumerate(TRIPLET_RE.finditer(text), start=1):
         x, y, e = float(m.group(1)), float(m.group(2)), float(m.group(3))
+        if e <= 0:
+            raise ValueError(f"Energy must be > 0, got {e} at triplet {idx}")
         nodes[idx] = Node(id=idx, x=x, y=y, energy=e, initial_energy=e)
     if not nodes:
         raise ValueError(f"No (x,y,E) triplets in {path}")
@@ -38,8 +40,8 @@ class SimConfig:
     cluster_algo: str = "hybrid"
     election_algo: str = "backup_first"
     radius: float = GROUP_RADIUS
-    data_period: int = 5
-    heartbeat: int = 10
+    data_period: int = 0
+    heartbeat: int = 50
     aggregation: str = "full"
     agg_factor: int = 4
     rotation_period: int = 0
@@ -72,6 +74,7 @@ class RunResult:
     total_messages: int
     leader_changes: int
     elections_triggered: int
+    total_orphan_ticks: int = 0
     history: List[StepSnapshot] = field(default_factory=list)
     deaths: List[Tuple[int, int, bool]] = field(default_factory=list)
     events: List[dict] = field(default_factory=list)
@@ -81,7 +84,7 @@ class RunResult:
         return self.total_messages / max(1, self.t_all_dead)
 
 
-def _refresh_backup(group: Group, nodes: Dict[int, Node]) -> None:
+def _refresh_backup(group: Group, nodes: Dict[int, Node], step: int = 0, pending: Optional[List[Message]] = None) -> None:
     leader = nodes.get(group.leader_id)
     if not leader:
         group.backup_id = None
@@ -93,6 +96,15 @@ def _refresh_backup(group: Group, nodes: Dict[int, Node]) -> None:
         return
     e_max = max(c.energy for c in cands) or 1.0
     d_max = max(c.distance_to(leader) for c in cands) or 1.0
+    
+    if pending is not None:
+        # Honest backup election: leader broadcasts request, members reply
+        pending.append(Message(sender_id=leader.id, recipient_ids=[c.id for c in cands],
+                               msg_type=MessageType.HEARTBEAT, step=step))
+        for c in cands:
+            pending.append(Message(sender_id=c.id, recipient_ids=[leader.id],
+                                   msg_type=MessageType.VOTE, step=step))
+
     best = max(cands,
                key=lambda c: 0.7 * (c.energy / e_max)
                             + 0.3 * (1.0 - c.distance_to(leader) / d_max))
@@ -138,7 +150,7 @@ class Simulator:
                                               for g in self.groups.values()}})
         for g in self.groups.values():
             if g.backup_id is None:
-                _refresh_backup(g, self.nodes)
+                _refresh_backup(g, self.nodes, step=self.step, pending=self.pending)
             if g.backup_id is not None:
                 self.result.events.append({"step": 0, "type": "BACKUP_ASSIGNED",
                                            "group": g.id, "node": g.backup_id})
@@ -159,7 +171,7 @@ class Simulator:
                 if alive_members:
                     if self.cfg.aggregation == "full":
                         self.pending.append(Message(sender_id=leader.id,
-                                                    recipient_ids=[],
+                                                    recipient_ids=[0],
                                                     msg_type=MessageType.AGG,
                                                     step=self.step))
                     elif self.cfg.aggregation == "partial":
@@ -167,13 +179,13 @@ class Simulator:
                         n_out = (len(alive_members) + k - 1) // k
                         for _ in range(n_out):
                             self.pending.append(Message(sender_id=leader.id,
-                                                        recipient_ids=[],
+                                                        recipient_ids=[0],
                                                         msg_type=MessageType.AGG,
                                                         step=self.step))
                     elif self.cfg.aggregation == "none":
                         for _ in alive_members:
                             self.pending.append(Message(sender_id=leader.id,
-                                                        recipient_ids=[],
+                                                        recipient_ids=[0],
                                                         msg_type=MessageType.AGG,
                                                         step=self.step))
         if self.cfg.heartbeat > 0 and self.step > 0 \
@@ -184,11 +196,11 @@ class Simulator:
                     continue
                 others = [m for m in g.member_ids
                           if m != leader.id and self.nodes[m].is_alive()]
-                if others:
-                    self.pending.append(Message(sender_id=leader.id,
-                                                recipient_ids=others,
-                                                msg_type=MessageType.HEARTBEAT,
-                                                step=self.step))
+                # Send heartbeat unconditionally (broadcast to network)
+                self.pending.append(Message(sender_id=leader.id,
+                                            recipient_ids=others,
+                                            msg_type=MessageType.HEARTBEAT,
+                                            step=self.step))
 
     def _charge_messages(self) -> int:
         # Invariant: charge BEFORE _death_sweep so leaders cannot transmit on their death-tick.
@@ -218,7 +230,6 @@ class Simulator:
         return total
 
     def _death_sweep(self):
-        affected = []
         for n in list(self.nodes.values()):
             if n.status == NodeStatus.ACTIVE and n.energy <= 0:
                 n.status = NodeStatus.DEAD
@@ -228,8 +239,7 @@ class Simulator:
                 self.result.events.append({"step": self.step, "type": "DEATH",
                                            "node": n.id, "was_leader": was_leader,
                                            "group": n.group_id})
-                if was_leader and n.group_id is not None:
-                    affected.append(n.group_id)
+
                 if n.group_id is not None and n.group_id in self.groups:
                     g = self.groups[n.group_id]
                     if n.id in g.member_ids:
@@ -242,7 +252,7 @@ class Simulator:
         if (self.result.t_50_percent is None
                 and alive_now <= self.result.n_nodes / 2):
             self.result.t_50_percent = self.step
-        return affected
+
 
     def _run_elections(self, affected_groups):
         for gid in affected_groups:
@@ -261,7 +271,7 @@ class Simulator:
                 self.pending.extend(msgs)
             if new_leader is not None:
                 g.leader_id = new_leader
-                _refresh_backup(g, self.nodes)
+                _refresh_backup(g, self.nodes, step=self.step, pending=self.pending)
                 if g.backup_id is not None:
                     self.result.events.append({"step": self.step,
                                                "type": "BACKUP_ASSIGNED",
@@ -297,7 +307,7 @@ class Simulator:
                 g.leader_id = new_leader.id
                 new_leader.is_leader = True
                 new_leader.times_as_leader += 1
-                _refresh_backup(g, self.nodes)
+                _refresh_backup(g, self.nodes, step=self.step, pending=self.pending)
                 if g.backup_id is not None:
                     self.result.events.append({"step": self.step,
                                                "type": "BACKUP_ASSIGNED",
@@ -315,7 +325,7 @@ class Simulator:
                                    "leaders": [g.leader_id for g in self.groups.values()]})
         for g in self.groups.values():
             if g.backup_id is None:
-                _refresh_backup(g, self.nodes)
+                _refresh_backup(g, self.nodes, step=self.step, pending=self.pending)
             if g.backup_id is not None:
                 self.result.events.append({"step": self.step,
                                            "type": "BACKUP_ASSIGNED",
@@ -328,7 +338,13 @@ class Simulator:
         self._emit_data_messages()
         n_msgs = self._charge_messages()
         self.result.total_messages += n_msgs
-        affected = self._death_sweep()
+        self._death_sweep()
+        affected = []
+        if self.cfg.heartbeat == 0 or (self.cfg.heartbeat > 0 and self.step > 0 and self.step % self.cfg.heartbeat == 0):
+            for gid, g in list(self.groups.items()):
+                leader = self.nodes.get(g.leader_id)
+                if not leader or not leader.is_alive():
+                    affected.append(gid)
         if affected:
             self._run_elections(affected)
             extra = self._charge_messages()
@@ -341,6 +357,14 @@ class Simulator:
                                        "node": pid, "group": gid})
         self._maybe_rotate()
         self._maybe_recluster()
+        
+        # Count orphan ticks for responsiveness metric
+        for n in self.nodes.values():
+            if n.status == NodeStatus.ACTIVE and not n.is_leader:
+                leader = self.nodes.get(n.group_id) if n.group_id is not None else None
+                if not leader or leader.status != NodeStatus.ACTIVE:
+                    self.result.total_orphan_ticks += 1
+                    
         alive = sum(1 for n in self.nodes.values() if n.is_alive())
         total_e = sum(n.energy for n in self.nodes.values() if n.is_alive())
         self.result.history.append(StepSnapshot(

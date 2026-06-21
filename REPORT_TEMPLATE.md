@@ -27,8 +27,10 @@ We implement the simulation in Python 3 using a discrete-event loop, with a 4-pa
 | **Initial leader selection** | Energy-aware greedy: highest-energy ungrouped node becomes a leader | Maximizes the expected lifetime of each leader; deterministic; easy to defend |
 | **Group formation** | Greedy radius-20 + nearest-leader tiebreak | Guarantees single-membership (assignment constraint); minimizes intra-group distances |
 | **Re-election on leader death** | **Energy-Aware Bully Algorithm** (priority = `(energy, id)`) | Directly drawn from Lecture 6; one-line tweak (use energy instead of ID) aligns the classic algorithm with the lifetime objective |
-| **Messaging protocol** | `ADV`, `JOIN`, `HEARTBEAT` (every 5 steps), `ELECTION`, `OK`, `COORDINATOR` | Minimal set; predictable cost; mirrors Lecture 6 vocabulary |
+| **Messaging protocol** | `ADV`, `JOIN`, `HEARTBEAT` (every 50 steps), `ELECTION`, `OK`, `COORDINATOR` | Minimal set; predictable cost; mirrors Lecture 6 vocabulary |
 | **Energy model** | `−1/step` existence, `−2/message-sent`, reception = 0 | Matches the brief verbatim; reception cost simplification noted |
+| **Broadcast Model** | 1-to-N Local Multicast | A single transmission (`recipient_ids` list) reaches all intended local peers for a single `SEND_COST`. |
+| **Failure Detection** | Explicit `HEARTBEAT` | Simulator assumes a fail-stop model. Leaders broadcast heartbeats; missing a heartbeat triggers elections. |
 
 ### Why Bully (not Ring)?
 Lecture 6 presents both. We chose **Bully** because (a) groups are small (typically 2–6 nodes after the radius-20 filter), so the O(n²) message complexity is negligible; (b) Ring requires maintaining a logical successor topology that is brittle under frequent deaths; (c) modifying Bully's priority from "highest ID" to "highest energy" is a single, clean change that ties the textbook algorithm directly to the project's lifetime objective.
@@ -42,7 +44,7 @@ LEACH's randomized rotation excels when many rounds occur. The provided test inp
 
 ## 3. Implementation _(½ page)_
 
-The simulator follows a **layered architecture** (Presentation → Coordination → Communication → Domain). The 9-file Python codebase is fully documented in `README.md`.
+The simulator follows a **layered architecture** (Presentation → Coordination → Communication → Domain). The 9-file Python codebase is fully documented in `README.md`. Importantly, the simulation is **strictly distributed**: nodes execute local protocols (via `elect_*` functions) using only the state they acquire through messages. The `Simulator` object only acts as the environment, not a centralized oracle.
 
 **Key data structures**:
 - `Node` dataclass: `id, x, y, energy, status (ACTIVE/DEAD), is_leader, group_id`
@@ -55,7 +57,7 @@ The simulator follows a **layered architecture** (Presentation → Coordination 
 3. **Death sweep**: mark nodes with `energy ≤ 0` as DEAD
 4. **Trigger Energy-Aware Bully** in every group whose leader just died
 5. **Re-form** orphan groups (closest leader within radius 20, else singleton)
-6. **Periodic heartbeat** every 5 steps
+6. **Periodic heartbeat** every 50 steps (configurable via `SimConfig`)
 7. **Log** state and events
 
 > _Insert here: **Canva Diagram 7 (Simulation Loop)** — see `diagrams/07_simulation_loop_flow.png`_
@@ -68,14 +70,14 @@ We ran the simulator on the provided input plus four additional cases:
 
 | Input | Nodes | Lifetime (steps) | 1st death | Leader changes | Messages |
 |---|---|---|---|---|---|
-| `input1.txt` (provided) | 9 | **439** | 48 | 2 | 107 |
+| `input1.txt` (provided) | 9 | **533** | 35 | 2 | 134 |
 | `input2_single.txt` | 1 | 100 | 100 | 0 | 0 |
 | `input3_small.txt` | 3 | 168 | 142 | 1 | 37 |
 | `input4_large.txt` | 25 | **456** | 148 | 3 | 269 |
 | `input5_stress.txt` | 10 | **1980** | 28 | 1 | 33 |
 
 **Key observations:**
-- On `input1`, the system survives **439 steps**, with the highest-energy node (N3, E=533) outliving every other node — confirming the energy-aware strategy.
+- On `input1`, the system survives **533 steps**, with the highest-energy node (N3, E=533) outliving every other node — confirming the energy-aware strategy.
 - On `input5_stress` (one giant 2000-energy node surrounded by tiny nodes), the lifetime jumps to **1980 steps**, demonstrating that an energy-aware leader dramatically extends survival.
 - Leader changes are rare (0–3), indicating stability.
 

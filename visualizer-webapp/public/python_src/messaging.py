@@ -16,7 +16,6 @@ class MessageType(Enum):
     COORDINATOR = "COORDINATOR"
     VOTE = "VOTE"
     TOKEN = "TOKEN"
-    L2L = "L2L"
 
 
 @dataclass
