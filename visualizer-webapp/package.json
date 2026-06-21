@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node copy_python.js",
+    "predev": "node sync_assets.js",
     "dev": "vite",
-    "prebuild": "node copy_python.js",
+    "prebuild": "node sync_assets.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
