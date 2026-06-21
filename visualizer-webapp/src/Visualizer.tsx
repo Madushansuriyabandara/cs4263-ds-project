@@ -46,6 +46,19 @@ export default function Visualizer() {
     rotation_period: 0,
     recluster_period: 0,
   });
+  const [inputList, setInputList] = useState<string[]>(['input01_provided']);
+
+  useEffect(() => {
+    fetch('/data/input_list.json')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setInputList(data);
+        }
+      })
+      .catch(err => console.error('Failed to load input list:', err));
+  }, []);
+
   const { runSimulation, isRunning, error: pyodideError } = usePythonSimulator();
 
   // Load from raw strings
@@ -80,9 +93,15 @@ export default function Visualizer() {
     setError(null);
     Promise.all([
       fetch(`/data/${dataset}.txt`).then((r) => { if (!r.ok) throw new Error(`${dataset}.txt not found`); return r.text() }),
-      fetch(`/data/${dataset}.events.jsonl`).then((r) => { if (!r.ok) throw new Error(`${dataset}.events.jsonl not found`); return r.text() }),
+      fetch(`/data/${dataset}.events.jsonl`).then((r) => { if (!r.ok) throw new Error(`NOT_FOUND`); return r.text() }).catch(() => null),
     ])
       .then(([inputText, eventsText]) => {
+        if (!eventsText) {
+          setError(`No precomputed results for ${dataset}.txt. Click "Run Simulation" to execute the Pyodide backend!`);
+          setStates([]);
+          setLoading(false);
+          return;
+        }
         loadData(inputText, eventsText);
       })
       .catch((err) => {
@@ -175,7 +194,7 @@ export default function Visualizer() {
 
   const renderError = () => (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 400, color: '#ef4444', flexDirection: 'column' }}>
-      <p>{error || pyodideError || 'No simulation data available.'}</p>
+      <p style={{ textAlign: 'center', maxWidth: 400 }}>{error || pyodideError || 'No simulation data available.'}</p>
     </div>
   );
 
@@ -226,11 +245,9 @@ export default function Visualizer() {
               onChange={(e) => setDataset(e.target.value)}
               style={{ background: '#0f172a', color: '#e2e8f0', border: '1px solid #475569', borderRadius: 4, padding: '6px 8px', fontSize: 14 }}
             >
-              <option value="input01_provided">Default Assignment Input (input1)</option>
-              <option value="input2_single">Single Node (input2)</option>
-              <option value="input3_small">Small Topology (input3)</option>
-              <option value="input4_large">Large Topology 25-node (input4)</option>
-              <option value="input5_stress">Stress Test (input5)</option>
+              {inputList.map(inp => (
+                <option key={inp} value={inp}>{inp}</option>
+              ))}
               <option value="custom">Custom Input...</option>
             </select>
           </div>
