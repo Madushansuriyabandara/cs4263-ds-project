@@ -42,7 +42,7 @@ def write_outputs(out_dir: str, base: str,
         "T_first_death": result.t_first_death,
         "T_50_percent": result.t_50_percent,
         "total_messages": result.total_messages,
-        "messages_per_unit_time": result.messages_per_unit_time(),
+        "messages_per_step_avg": result.messages_per_step_avg(),
         "leader_changes": result.leader_changes,
         "elections_triggered": result.elections_triggered,
         "deaths": [{"step": s, "node": n, "was_leader": w}

@@ -85,3 +85,19 @@ def render_dashboard(nodes: Dict[int, Node], groups: Dict[int, Group],
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     fig.savefig(out_path, dpi=140)
     plt.close(fig)
+
+
+def render_animation(frame_paths: list[str], out_path: str, duration: int = 200) -> None:
+    try:
+        from PIL import Image
+    except ImportError:
+        print("Pillow not installed, skipping GIF generation.")
+        return
+    if not frame_paths:
+        return
+    frames = []
+    for p in frame_paths:
+        if os.path.exists(p):
+            frames.append(Image.open(p))
+    if frames:
+        frames[0].save(out_path, save_all=True, append_images=frames[1:], duration=duration, loop=0)

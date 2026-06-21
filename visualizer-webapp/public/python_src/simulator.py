@@ -1,4 +1,8 @@
-"""Discrete-time simulator."""
+"""Discrete-time simulator.
+
+Pipeline per tick:
+existence -> emit -> charge -> die -> elect -> re-cluster -> log
+"""
 from __future__ import annotations
 
 import random
@@ -40,7 +44,7 @@ class SimConfig:
     agg_factor: int = 4
     rotation_period: int = 0
     recluster_period: int = 0
-    leader_to_leader: bool = False
+
     max_steps: int = 5000
     seed: int = 0
 
@@ -73,7 +77,7 @@ class RunResult:
     events: List[dict] = field(default_factory=list)
     final_nodes: List[dict] = field(default_factory=list)
 
-    def messages_per_unit_time(self) -> float:
+    def messages_per_step_avg(self) -> float:
         return self.total_messages / max(1, self.t_all_dead)
 
 
@@ -187,6 +191,7 @@ class Simulator:
                                                 step=self.step))
 
     def _charge_messages(self) -> int:
+        # Invariant: charge BEFORE _death_sweep so leaders cannot transmit on their death-tick.
         counts: Dict[int, int] = {}
         for m in self.pending:
             counts[m.sender_id] = counts.get(m.sender_id, 0) + 1
@@ -329,8 +334,11 @@ class Simulator:
             extra = self._charge_messages()
             self.result.total_messages += extra
             n_msgs += extra
-        self.groups = reform_for_orphans(self.nodes, self.groups,
-                                         radius=self.cfg.radius)
+        self.groups, promoted = reform_for_orphans(self.nodes, self.groups,
+                                                   radius=self.cfg.radius)
+        for pid, gid in promoted:
+            self.result.events.append({"step": self.step, "type": "ORPHAN_SELF_PROMOTED",
+                                       "node": pid, "group": gid})
         self._maybe_rotate()
         self._maybe_recluster()
         alive = sum(1 for n in self.nodes.values() if n.is_alive())
@@ -341,7 +349,7 @@ class Simulator:
         ))
         return alive
 
-    def run(self) -> RunResult:
+    def run(self, step_callback=None) -> RunResult:
         self.initialize()
         self.step = 0
         alive = sum(1 for n in self.nodes.values() if n.is_alive())
@@ -349,9 +357,13 @@ class Simulator:
         self.result.history.append(StepSnapshot(
             step=0, alive=alive, total_energy=total_e,
             n_groups=len(self.groups), messages=0))
+        if step_callback:
+            step_callback(self)
         while self.step < self.cfg.max_steps:
             self.step += 1
             alive = self.step_once()
+            if step_callback:
+                step_callback(self)
             if alive == 0:
                 break
         self.result.t_all_dead = self.step

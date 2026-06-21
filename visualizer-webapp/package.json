@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node copy_python.js",
     "dev": "vite",
+    "prebuild": "node copy_python.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

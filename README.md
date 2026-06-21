@@ -1,11 +1,12 @@
 # CS4263 Distributed Systems – Project Submission
-### Energy-Aware Distributed System Simulation
+### Energy-Aware Group Formation, Leader Election and Lifetime Maximisation
 
 | | |
 |---|---|
 | **Team** | 210146N – Dissanayake D.M.P.S. · 210626L – Suriyabandara S.M.M. |
 | **Language** | Python 3.10+ |
-| **Dependencies** | matplotlib, numpy |
+| **Dependencies** | matplotlib, numpy, pillow (for GIF generation) |
+| **Live Visualizer** | [www.eale-viz.me](https://www.eale-viz.me) |
 
 ---
 
@@ -26,62 +27,32 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Run the provided test case
-
+### 2. Quick Sanity Check (Energy Model)
+To verify that the energy model perfectly matches the assignment spec (`−1/tick`, death at `0`), run a single-node input `(10,10,100)`. It should survive exactly 100 ticks because it sends 0 messages.
 ```bash
-python -m src.main --input inputs/input1.txt --output-dir outputs/
+python -m src.main --input inputs/input02_single.txt --output-dir outputs/
+# Output should show: System died at step 100.
 ```
 
-Outputs you'll find in `outputs/`:
-
-| File | Description |
-|---|---|
-| `input1.log.txt` | Human-readable per-step log |
-| `input1.events.jsonl` | Structured events (one JSON per line) |
-| `input1.summary.json` | Final metrics |
-| `input1.step0.png` | Initial topology dashboard |
-| `input1.stepN.png` | Periodic snapshots (every 50 steps) |
-| `input1.final.png` | Final dashboard |
-
-### 3. CLI Options
-
+### 3. Reproducibility Command (The Winning Configuration)
+On the assignment's provided 9-node input, we achieve **533 ticks** with only 131 messages using our best deterministic algorithm.
 ```bash
-python -m src.main --help
+python -m src.main --input inputs/input01_provided.txt \
+    --cluster hybrid --election backup_first \
+    --aggregation full --data-period 5 --heartbeat 10
 ```
-
-| Flag | Default | Meaning |
-|---|---|---|
-| `--input` | (required) | Path to triplets file |
-| `--output-dir` | `outputs` | Where to write logs & images |
-| `--max-steps` | `2000` | Stop after this many steps |
-| `--radius` | `20.0` | Group radius (Euclidean) |
-| `--heartbeat` | `5` | Steps between leader heartbeats |
-| `--viz-every` | `50` | Render dashboard every N steps |
-| `--no-visualize` | `False` | Skip PNG rendering (faster) |
+*Note on defaults: We default to `hybrid` clustering instead of `leach`. While LEACH yields a ~1% higher average lifetime across our 528 benchmark runs, its stochastic nature makes it harder to reproduce exactly. `hybrid` (k-medoids + backup) is deterministic.*
 
 ### 4. Run the Web Visualizer (Animated)
 
-We built a beautiful animated React dashboard to visualize the simulation steps, leader elections, and message arrows over time.
-
+We built an interactive React dashboard deployed at **[www.eale-viz.me](https://www.eale-viz.me)**!
+To run it locally:
 ```bash
-# 1. Ensure you have run the python simulator first to generate outputs/input1.events.jsonl
-# 2. Copy the events file to the webapp data folder (if you test a new input)
-cp outputs/input1.events.jsonl eale-viz/public/data/
-
-# 3. Start the visualizer
-cd eale-viz
+cd visualizer-webapp
 npm install
 npm run dev
 ```
-Then open `http://localhost:5173` in your browser.
-
-### 5. Run on all sample inputs
-
-```bash
-for f in inputs/*.txt; do
-  python -m src.main --input "$f" --output-dir outputs/
-done
-```
+Then open `http://localhost:5173`.
 
 ---
 
@@ -91,34 +62,18 @@ done
 src/
   node.py                 — Node & Group domain model
   messaging.py            — Message types & energy costs
-  clustering.py          — Energy-aware greedy clustering (radius 20)
-  election.py            — Energy-Aware Bully Algorithm
+  clustering.py           — 6 Clustering implementations
+  election.py             — 4 Leader Election algorithms (O(1) Bully, Ring, Backup)
   simulator.py            — Discrete-event simulation loop
   logger.py               — JSONL + TXT + summary logging
-  visualizer.py           — 4-panel matplotlib dashboard
+  visualizer.py           — Matplotlib dashboard
   main.py                 — CLI entry point
-inputs/                   — 5 test cases
+inputs/                   — 22 hand-crafted test inputs covering all edge cases
 outputs/                  — generated logs & images (gitignored)
-diagrams/                 — Canva diagrams used in report
-REPORT.pdf                — 3-page report
-GUIDELINE.md              — internal project guideline
+tests/                    — unit test suite
+visualizer-webapp/        — React/TypeScript visualizer codebase
+REPORT.pdf                — 3-page comprehensive report
 ```
-
----
-
-## 🧠 Algorithm Summary
-
-| Aspect | Choice | Rationale |
-|---|---|---|
-| Initial leader selection | **Energy-aware greedy** | Highest-energy node → maximizes leader lifetime |
-| Group formation | Radius 20 + closest-leader tiebreak | Satisfies single-membership constraint |
-| Leader re-election | **Energy-Aware Bully** (priority = `(energy, id)`) | Highest remaining energy wins; from Lecture 6 |
-| Messaging | ADV + JOIN + HEARTBEAT (every 5 steps) + ELECTION/OK/COORDINATOR | Minimal, deterministic, justifiable |
-| Energy model | `−1/step existence`, `−2/message sent`, reception `0` | Matches assignment spec exactly |
-
-See `GUIDELINE.md` for the full design rationale and `REPORT.pdf` for the academic summary.
-
----
 
 ## 🔒 Privacy Notice
 Per the assignment brief (R13): this repository **MUST remain private** until evaluations are complete. Make it public only after final grading.
