@@ -252,6 +252,7 @@ CLUSTER_ALGORITHMS = {
 
 def reform_for_orphans(nodes, groups, radius=GROUP_RADIUS):
     orphans = []
+    promoted = []
     for n in nodes.values():
         if not n.is_alive():
             continue
@@ -278,8 +279,9 @@ def reform_for_orphans(nodes, groups, radius=GROUP_RADIUS):
             groups[next_id] = Group(id=next_id, leader_id=orphan.id,
                                     backup_id=None, member_ids=[orphan.id],
                                     radius=radius)
+            promoted.append((orphan.id, next_id))
             next_id += 1
-    return groups
+    return groups, promoted
 
 
 def _merge_close_leaders(leader_to_members: Dict[int, List[int]],
@@ -321,3 +323,4 @@ def _merge_close_leaders(leader_to_members: Dict[int, List[int]],
         if not merged:
             break
     return groups
+  
