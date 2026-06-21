@@ -1,0 +1,3416 @@
+=== STEP 1 ===
+Alive=25, Dead=0, TotalEnergy=6949, Messages=23
+  Group 0: leader=N11(E=597) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=497) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=397) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=327) members=[14, 15]
+  Group 4: leader=N18(E=309) members=[18]
+  Group 5: leader=N25(E=249) members=[25]
+
+=== STEP 2 ===
+Alive=25, Dead=0, TotalEnergy=6924, Messages=0
+  Group 0: leader=N11(E=596) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=496) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=396) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=326) members=[14, 15]
+  Group 4: leader=N18(E=308) members=[18]
+  Group 5: leader=N25(E=248) members=[25]
+
+=== STEP 3 ===
+Alive=25, Dead=0, TotalEnergy=6899, Messages=0
+  Group 0: leader=N11(E=595) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=495) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=395) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=325) members=[14, 15]
+  Group 4: leader=N18(E=307) members=[18]
+  Group 5: leader=N25(E=247) members=[25]
+
+=== STEP 4 ===
+Alive=25, Dead=0, TotalEnergy=6874, Messages=0
+  Group 0: leader=N11(E=594) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=494) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=394) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=324) members=[14, 15]
+  Group 4: leader=N18(E=306) members=[18]
+  Group 5: leader=N25(E=246) members=[25]
+
+=== STEP 5 ===
+Alive=25, Dead=0, TotalEnergy=6849, Messages=0
+  Group 0: leader=N11(E=593) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=493) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=393) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=323) members=[14, 15]
+  Group 4: leader=N18(E=305) members=[18]
+  Group 5: leader=N25(E=245) members=[25]
+
+=== STEP 6 ===
+Alive=25, Dead=0, TotalEnergy=6816, Messages=4
+  Group 0: leader=N11(E=590) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=490) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=390) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=320) members=[14, 15]
+  Group 4: leader=N18(E=304) members=[18]
+  Group 5: leader=N25(E=244) members=[25]
+
+=== STEP 7 ===
+Alive=25, Dead=0, TotalEnergy=6791, Messages=0
+  Group 0: leader=N11(E=589) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=489) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=389) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=319) members=[14, 15]
+  Group 4: leader=N18(E=303) members=[18]
+  Group 5: leader=N25(E=243) members=[25]
+
+=== STEP 8 ===
+Alive=25, Dead=0, TotalEnergy=6766, Messages=0
+  Group 0: leader=N11(E=588) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=488) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=388) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=318) members=[14, 15]
+  Group 4: leader=N18(E=302) members=[18]
+  Group 5: leader=N25(E=242) members=[25]
+
+=== STEP 9 ===
+Alive=25, Dead=0, TotalEnergy=6741, Messages=0
+  Group 0: leader=N11(E=587) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=487) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=387) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=317) members=[14, 15]
+  Group 4: leader=N18(E=301) members=[18]
+  Group 5: leader=N25(E=241) members=[25]
+
+=== STEP 10 ===
+Alive=25, Dead=0, TotalEnergy=6716, Messages=0
+  Group 0: leader=N11(E=586) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=486) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=386) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=316) members=[14, 15]
+  Group 4: leader=N18(E=300) members=[18]
+  Group 5: leader=N25(E=240) members=[25]
+
+=== STEP 11 ===
+Alive=25, Dead=0, TotalEnergy=6683, Messages=4
+  Group 0: leader=N11(E=583) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=483) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=383) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=313) members=[14, 15]
+  Group 4: leader=N18(E=299) members=[18]
+  Group 5: leader=N25(E=239) members=[25]
+
+=== STEP 12 ===
+Alive=25, Dead=0, TotalEnergy=6658, Messages=0
+  Group 0: leader=N11(E=582) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=482) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=382) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=312) members=[14, 15]
+  Group 4: leader=N18(E=298) members=[18]
+  Group 5: leader=N25(E=238) members=[25]
+
+=== STEP 13 ===
+Alive=25, Dead=0, TotalEnergy=6633, Messages=0
+  Group 0: leader=N11(E=581) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=481) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=381) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=311) members=[14, 15]
+  Group 4: leader=N18(E=297) members=[18]
+  Group 5: leader=N25(E=237) members=[25]
+
+=== STEP 14 ===
+Alive=25, Dead=0, TotalEnergy=6608, Messages=0
+  Group 0: leader=N11(E=580) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=480) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=380) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=310) members=[14, 15]
+  Group 4: leader=N18(E=296) members=[18]
+  Group 5: leader=N25(E=236) members=[25]
+
+=== STEP 15 ===
+Alive=25, Dead=0, TotalEnergy=6583, Messages=0
+  Group 0: leader=N11(E=579) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=479) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=379) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=309) members=[14, 15]
+  Group 4: leader=N18(E=295) members=[18]
+  Group 5: leader=N25(E=235) members=[25]
+
+=== STEP 16 ===
+Alive=25, Dead=0, TotalEnergy=6550, Messages=4
+  Group 0: leader=N11(E=576) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=476) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=376) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=306) members=[14, 15]
+  Group 4: leader=N18(E=294) members=[18]
+  Group 5: leader=N25(E=234) members=[25]
+
+=== STEP 17 ===
+Alive=25, Dead=0, TotalEnergy=6525, Messages=0
+  Group 0: leader=N11(E=575) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=475) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=375) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=305) members=[14, 15]
+  Group 4: leader=N18(E=293) members=[18]
+  Group 5: leader=N25(E=233) members=[25]
+
+=== STEP 18 ===
+Alive=25, Dead=0, TotalEnergy=6500, Messages=0
+  Group 0: leader=N11(E=574) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=474) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=374) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=304) members=[14, 15]
+  Group 4: leader=N18(E=292) members=[18]
+  Group 5: leader=N25(E=232) members=[25]
+
+=== STEP 19 ===
+Alive=25, Dead=0, TotalEnergy=6475, Messages=0
+  Group 0: leader=N11(E=573) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=473) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=373) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=303) members=[14, 15]
+  Group 4: leader=N18(E=291) members=[18]
+  Group 5: leader=N25(E=231) members=[25]
+
+=== STEP 20 ===
+Alive=25, Dead=0, TotalEnergy=6450, Messages=0
+  Group 0: leader=N11(E=572) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=472) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=372) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=302) members=[14, 15]
+  Group 4: leader=N18(E=290) members=[18]
+  Group 5: leader=N25(E=230) members=[25]
+
+=== STEP 21 ===
+Alive=25, Dead=0, TotalEnergy=6417, Messages=4
+  Group 0: leader=N11(E=569) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=469) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=369) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=299) members=[14, 15]
+  Group 4: leader=N18(E=289) members=[18]
+  Group 5: leader=N25(E=229) members=[25]
+
+=== STEP 22 ===
+Alive=25, Dead=0, TotalEnergy=6392, Messages=0
+  Group 0: leader=N11(E=568) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=468) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=368) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=298) members=[14, 15]
+  Group 4: leader=N18(E=288) members=[18]
+  Group 5: leader=N25(E=228) members=[25]
+
+=== STEP 23 ===
+Alive=25, Dead=0, TotalEnergy=6367, Messages=0
+  Group 0: leader=N11(E=567) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=467) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=367) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=297) members=[14, 15]
+  Group 4: leader=N18(E=287) members=[18]
+  Group 5: leader=N25(E=227) members=[25]
+
+=== STEP 24 ===
+Alive=25, Dead=0, TotalEnergy=6342, Messages=0
+  Group 0: leader=N11(E=566) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=466) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=366) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=296) members=[14, 15]
+  Group 4: leader=N18(E=286) members=[18]
+  Group 5: leader=N25(E=226) members=[25]
+
+=== STEP 25 ===
+Alive=25, Dead=0, TotalEnergy=6317, Messages=0
+  Group 0: leader=N11(E=565) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=465) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=365) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=295) members=[14, 15]
+  Group 4: leader=N18(E=285) members=[18]
+  Group 5: leader=N25(E=225) members=[25]
+
+=== STEP 26 ===
+Alive=25, Dead=0, TotalEnergy=6284, Messages=4
+  Group 0: leader=N11(E=562) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=462) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=362) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=292) members=[14, 15]
+  Group 4: leader=N18(E=284) members=[18]
+  Group 5: leader=N25(E=224) members=[25]
+
+=== STEP 27 ===
+Alive=25, Dead=0, TotalEnergy=6259, Messages=0
+  Group 0: leader=N11(E=561) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=461) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=361) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=291) members=[14, 15]
+  Group 4: leader=N18(E=283) members=[18]
+  Group 5: leader=N25(E=223) members=[25]
+
+=== STEP 28 ===
+Alive=25, Dead=0, TotalEnergy=6234, Messages=0
+  Group 0: leader=N11(E=560) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=460) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=360) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=290) members=[14, 15]
+  Group 4: leader=N18(E=282) members=[18]
+  Group 5: leader=N25(E=222) members=[25]
+
+=== STEP 29 ===
+Alive=25, Dead=0, TotalEnergy=6209, Messages=0
+  Group 0: leader=N11(E=559) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=459) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=359) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=289) members=[14, 15]
+  Group 4: leader=N18(E=281) members=[18]
+  Group 5: leader=N25(E=221) members=[25]
+
+=== STEP 30 ===
+Alive=25, Dead=0, TotalEnergy=6184, Messages=0
+  Group 0: leader=N11(E=558) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=458) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=358) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=288) members=[14, 15]
+  Group 4: leader=N18(E=280) members=[18]
+  Group 5: leader=N25(E=220) members=[25]
+
+=== STEP 31 ===
+Alive=25, Dead=0, TotalEnergy=6151, Messages=4
+  Group 0: leader=N11(E=555) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=455) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=355) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=285) members=[14, 15]
+  Group 4: leader=N18(E=279) members=[18]
+  Group 5: leader=N25(E=219) members=[25]
+
+=== STEP 32 ===
+Alive=25, Dead=0, TotalEnergy=6126, Messages=0
+  Group 0: leader=N11(E=554) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=454) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=354) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=284) members=[14, 15]
+  Group 4: leader=N18(E=278) members=[18]
+  Group 5: leader=N25(E=218) members=[25]
+
+=== STEP 33 ===
+Alive=25, Dead=0, TotalEnergy=6101, Messages=0
+  Group 0: leader=N11(E=553) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=453) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=353) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=283) members=[14, 15]
+  Group 4: leader=N18(E=277) members=[18]
+  Group 5: leader=N25(E=217) members=[25]
+
+=== STEP 34 ===
+Alive=25, Dead=0, TotalEnergy=6076, Messages=0
+  Group 0: leader=N11(E=552) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=452) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=352) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=282) members=[14, 15]
+  Group 4: leader=N18(E=276) members=[18]
+  Group 5: leader=N25(E=216) members=[25]
+
+=== STEP 35 ===
+Alive=25, Dead=0, TotalEnergy=6051, Messages=0
+  Group 0: leader=N11(E=551) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=451) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=351) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=281) members=[14, 15]
+  Group 4: leader=N18(E=275) members=[18]
+  Group 5: leader=N25(E=215) members=[25]
+
+=== STEP 36 ===
+Alive=25, Dead=0, TotalEnergy=6018, Messages=4
+  Group 0: leader=N11(E=548) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=448) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=348) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=278) members=[14, 15]
+  Group 4: leader=N18(E=274) members=[18]
+  Group 5: leader=N25(E=214) members=[25]
+
+=== STEP 37 ===
+Alive=25, Dead=0, TotalEnergy=5993, Messages=0
+  Group 0: leader=N11(E=547) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=447) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=347) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=277) members=[14, 15]
+  Group 4: leader=N18(E=273) members=[18]
+  Group 5: leader=N25(E=213) members=[25]
+
+=== STEP 38 ===
+Alive=25, Dead=0, TotalEnergy=5968, Messages=0
+  Group 0: leader=N11(E=546) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=446) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=346) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=276) members=[14, 15]
+  Group 4: leader=N18(E=272) members=[18]
+  Group 5: leader=N25(E=212) members=[25]
+
+=== STEP 39 ===
+Alive=25, Dead=0, TotalEnergy=5943, Messages=0
+  Group 0: leader=N11(E=545) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=445) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=345) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=275) members=[14, 15]
+  Group 4: leader=N18(E=271) members=[18]
+  Group 5: leader=N25(E=211) members=[25]
+
+=== STEP 40 ===
+Alive=25, Dead=0, TotalEnergy=5918, Messages=0
+  Group 0: leader=N11(E=544) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=444) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=344) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=274) members=[14, 15]
+  Group 4: leader=N18(E=270) members=[18]
+  Group 5: leader=N25(E=210) members=[25]
+
+=== STEP 41 ===
+Alive=25, Dead=0, TotalEnergy=5885, Messages=4
+  Group 0: leader=N11(E=541) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=441) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=341) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=271) members=[14, 15]
+  Group 4: leader=N18(E=269) members=[18]
+  Group 5: leader=N25(E=209) members=[25]
+
+=== STEP 42 ===
+Alive=25, Dead=0, TotalEnergy=5860, Messages=0
+  Group 0: leader=N11(E=540) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=440) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=340) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=270) members=[14, 15]
+  Group 4: leader=N18(E=268) members=[18]
+  Group 5: leader=N25(E=208) members=[25]
+
+=== STEP 43 ===
+Alive=25, Dead=0, TotalEnergy=5835, Messages=0
+  Group 0: leader=N11(E=539) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=439) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=339) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=269) members=[14, 15]
+  Group 4: leader=N18(E=267) members=[18]
+  Group 5: leader=N25(E=207) members=[25]
+
+=== STEP 44 ===
+Alive=25, Dead=0, TotalEnergy=5810, Messages=0
+  Group 0: leader=N11(E=538) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=438) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=338) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=268) members=[14, 15]
+  Group 4: leader=N18(E=266) members=[18]
+  Group 5: leader=N25(E=206) members=[25]
+
+=== STEP 45 ===
+Alive=25, Dead=0, TotalEnergy=5785, Messages=0
+  Group 0: leader=N11(E=537) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=437) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=337) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=267) members=[14, 15]
+  Group 4: leader=N18(E=265) members=[18]
+  Group 5: leader=N25(E=205) members=[25]
+
+=== STEP 46 ===
+Alive=25, Dead=0, TotalEnergy=5752, Messages=4
+  Group 0: leader=N11(E=534) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=434) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=334) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=264) members=[14, 15]
+  Group 4: leader=N18(E=264) members=[18]
+  Group 5: leader=N25(E=204) members=[25]
+
+=== STEP 47 ===
+Alive=25, Dead=0, TotalEnergy=5727, Messages=0
+  Group 0: leader=N11(E=533) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=433) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=333) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=263) members=[14, 15]
+  Group 4: leader=N18(E=263) members=[18]
+  Group 5: leader=N25(E=203) members=[25]
+
+=== STEP 48 ===
+Alive=25, Dead=0, TotalEnergy=5702, Messages=0
+  Group 0: leader=N11(E=532) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=432) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=332) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=262) members=[14, 15]
+  Group 4: leader=N18(E=262) members=[18]
+  Group 5: leader=N25(E=202) members=[25]
+
+=== STEP 49 ===
+Alive=25, Dead=0, TotalEnergy=5677, Messages=0
+  Group 0: leader=N11(E=531) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=431) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=331) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=261) members=[14, 15]
+  Group 4: leader=N18(E=261) members=[18]
+  Group 5: leader=N25(E=201) members=[25]
+
+=== STEP 50 ===
+Alive=25, Dead=0, TotalEnergy=5652, Messages=0
+  Group 0: leader=N11(E=530) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=430) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=330) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=260) members=[14, 15]
+  Group 4: leader=N18(E=260) members=[18]
+  Group 5: leader=N25(E=200) members=[25]
+
+=== STEP 51 ===
+Alive=25, Dead=0, TotalEnergy=5619, Messages=4
+  Group 0: leader=N11(E=527) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=427) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=327) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=257) members=[14, 15]
+  Group 4: leader=N18(E=259) members=[18]
+  Group 5: leader=N25(E=199) members=[25]
+
+=== STEP 52 ===
+Alive=25, Dead=0, TotalEnergy=5594, Messages=0
+  Group 0: leader=N11(E=526) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=426) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=326) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=256) members=[14, 15]
+  Group 4: leader=N18(E=258) members=[18]
+  Group 5: leader=N25(E=198) members=[25]
+
+=== STEP 53 ===
+Alive=25, Dead=0, TotalEnergy=5569, Messages=0
+  Group 0: leader=N11(E=525) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=425) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=325) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=255) members=[14, 15]
+  Group 4: leader=N18(E=257) members=[18]
+  Group 5: leader=N25(E=197) members=[25]
+
+=== STEP 54 ===
+Alive=25, Dead=0, TotalEnergy=5544, Messages=0
+  Group 0: leader=N11(E=524) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=424) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=324) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=254) members=[14, 15]
+  Group 4: leader=N18(E=256) members=[18]
+  Group 5: leader=N25(E=196) members=[25]
+
+=== STEP 55 ===
+Alive=25, Dead=0, TotalEnergy=5519, Messages=0
+  Group 0: leader=N11(E=523) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=423) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=323) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=253) members=[14, 15]
+  Group 4: leader=N18(E=255) members=[18]
+  Group 5: leader=N25(E=195) members=[25]
+
+=== STEP 56 ===
+Alive=25, Dead=0, TotalEnergy=5486, Messages=4
+  Group 0: leader=N11(E=520) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=420) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=320) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=250) members=[14, 15]
+  Group 4: leader=N18(E=254) members=[18]
+  Group 5: leader=N25(E=194) members=[25]
+
+=== STEP 57 ===
+Alive=25, Dead=0, TotalEnergy=5461, Messages=0
+  Group 0: leader=N11(E=519) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=419) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=319) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=249) members=[14, 15]
+  Group 4: leader=N18(E=253) members=[18]
+  Group 5: leader=N25(E=193) members=[25]
+
+=== STEP 58 ===
+Alive=25, Dead=0, TotalEnergy=5436, Messages=0
+  Group 0: leader=N11(E=518) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=418) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=318) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=248) members=[14, 15]
+  Group 4: leader=N18(E=252) members=[18]
+  Group 5: leader=N25(E=192) members=[25]
+
+=== STEP 59 ===
+Alive=25, Dead=0, TotalEnergy=5411, Messages=0
+  Group 0: leader=N11(E=517) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=417) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=317) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=247) members=[14, 15]
+  Group 4: leader=N18(E=251) members=[18]
+  Group 5: leader=N25(E=191) members=[25]
+
+=== STEP 60 ===
+Alive=25, Dead=0, TotalEnergy=5386, Messages=0
+  Group 0: leader=N11(E=516) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=416) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=316) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=246) members=[14, 15]
+  Group 4: leader=N18(E=250) members=[18]
+  Group 5: leader=N25(E=190) members=[25]
+
+=== STEP 61 ===
+Alive=25, Dead=0, TotalEnergy=5353, Messages=4
+  Group 0: leader=N11(E=513) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=413) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=313) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=243) members=[14, 15]
+  Group 4: leader=N18(E=249) members=[18]
+  Group 5: leader=N25(E=189) members=[25]
+
+=== STEP 62 ===
+Alive=25, Dead=0, TotalEnergy=5328, Messages=0
+  Group 0: leader=N11(E=512) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=412) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=312) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=242) members=[14, 15]
+  Group 4: leader=N18(E=248) members=[18]
+  Group 5: leader=N25(E=188) members=[25]
+
+=== STEP 63 ===
+Alive=25, Dead=0, TotalEnergy=5303, Messages=0
+  Group 0: leader=N11(E=511) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=411) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=311) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=241) members=[14, 15]
+  Group 4: leader=N18(E=247) members=[18]
+  Group 5: leader=N25(E=187) members=[25]
+
+=== STEP 64 ===
+Alive=25, Dead=0, TotalEnergy=5278, Messages=0
+  Group 0: leader=N11(E=510) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=410) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=310) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=240) members=[14, 15]
+  Group 4: leader=N18(E=246) members=[18]
+  Group 5: leader=N25(E=186) members=[25]
+
+=== STEP 65 ===
+Alive=25, Dead=0, TotalEnergy=5253, Messages=0
+  Group 0: leader=N11(E=509) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=409) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=309) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=239) members=[14, 15]
+  Group 4: leader=N18(E=245) members=[18]
+  Group 5: leader=N25(E=185) members=[25]
+
+=== STEP 66 ===
+Alive=25, Dead=0, TotalEnergy=5220, Messages=4
+  Group 0: leader=N11(E=506) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=406) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=306) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=236) members=[14, 15]
+  Group 4: leader=N18(E=244) members=[18]
+  Group 5: leader=N25(E=184) members=[25]
+
+=== STEP 67 ===
+Alive=25, Dead=0, TotalEnergy=5195, Messages=0
+  Group 0: leader=N11(E=505) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=405) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=305) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=235) members=[14, 15]
+  Group 4: leader=N18(E=243) members=[18]
+  Group 5: leader=N25(E=183) members=[25]
+
+=== STEP 68 ===
+Alive=25, Dead=0, TotalEnergy=5170, Messages=0
+  Group 0: leader=N11(E=504) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=404) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=304) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=234) members=[14, 15]
+  Group 4: leader=N18(E=242) members=[18]
+  Group 5: leader=N25(E=182) members=[25]
+
+=== STEP 69 ===
+Alive=25, Dead=0, TotalEnergy=5145, Messages=0
+  Group 0: leader=N11(E=503) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=403) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=303) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=233) members=[14, 15]
+  Group 4: leader=N18(E=241) members=[18]
+  Group 5: leader=N25(E=181) members=[25]
+
+=== STEP 70 ===
+Alive=25, Dead=0, TotalEnergy=5120, Messages=0
+  Group 0: leader=N11(E=502) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=402) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=302) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=232) members=[14, 15]
+  Group 4: leader=N18(E=240) members=[18]
+  Group 5: leader=N25(E=180) members=[25]
+
+=== STEP 71 ===
+Alive=25, Dead=0, TotalEnergy=5087, Messages=4
+  Group 0: leader=N11(E=499) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=399) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=299) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=229) members=[14, 15]
+  Group 4: leader=N18(E=239) members=[18]
+  Group 5: leader=N25(E=179) members=[25]
+
+=== STEP 72 ===
+Alive=25, Dead=0, TotalEnergy=5062, Messages=0
+  Group 0: leader=N11(E=498) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=398) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=298) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=228) members=[14, 15]
+  Group 4: leader=N18(E=238) members=[18]
+  Group 5: leader=N25(E=178) members=[25]
+
+=== STEP 73 ===
+Alive=25, Dead=0, TotalEnergy=5037, Messages=0
+  Group 0: leader=N11(E=497) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=397) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=297) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=227) members=[14, 15]
+  Group 4: leader=N18(E=237) members=[18]
+  Group 5: leader=N25(E=177) members=[25]
+
+=== STEP 74 ===
+Alive=25, Dead=0, TotalEnergy=5012, Messages=0
+  Group 0: leader=N11(E=496) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=396) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=296) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=226) members=[14, 15]
+  Group 4: leader=N18(E=236) members=[18]
+  Group 5: leader=N25(E=176) members=[25]
+
+=== STEP 75 ===
+Alive=25, Dead=0, TotalEnergy=4987, Messages=0
+  Group 0: leader=N11(E=495) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=395) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=295) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=225) members=[14, 15]
+  Group 4: leader=N18(E=235) members=[18]
+  Group 5: leader=N25(E=175) members=[25]
+
+=== STEP 76 ===
+Alive=25, Dead=0, TotalEnergy=4954, Messages=4
+  Group 0: leader=N11(E=492) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=392) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=292) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=222) members=[14, 15]
+  Group 4: leader=N18(E=234) members=[18]
+  Group 5: leader=N25(E=174) members=[25]
+
+=== STEP 77 ===
+Alive=25, Dead=0, TotalEnergy=4929, Messages=0
+  Group 0: leader=N11(E=491) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=391) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=291) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=221) members=[14, 15]
+  Group 4: leader=N18(E=233) members=[18]
+  Group 5: leader=N25(E=173) members=[25]
+
+=== STEP 78 ===
+Alive=25, Dead=0, TotalEnergy=4904, Messages=0
+  Group 0: leader=N11(E=490) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=390) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=290) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=220) members=[14, 15]
+  Group 4: leader=N18(E=232) members=[18]
+  Group 5: leader=N25(E=172) members=[25]
+
+=== STEP 79 ===
+Alive=25, Dead=0, TotalEnergy=4879, Messages=0
+  Group 0: leader=N11(E=489) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=389) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=289) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=219) members=[14, 15]
+  Group 4: leader=N18(E=231) members=[18]
+  Group 5: leader=N25(E=171) members=[25]
+
+=== STEP 80 ===
+Alive=25, Dead=0, TotalEnergy=4854, Messages=0
+  Group 0: leader=N11(E=488) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=388) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=288) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=218) members=[14, 15]
+  Group 4: leader=N18(E=230) members=[18]
+  Group 5: leader=N25(E=170) members=[25]
+
+=== STEP 81 ===
+Alive=25, Dead=0, TotalEnergy=4821, Messages=4
+  Group 0: leader=N11(E=485) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=385) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=285) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=215) members=[14, 15]
+  Group 4: leader=N18(E=229) members=[18]
+  Group 5: leader=N25(E=169) members=[25]
+
+=== STEP 82 ===
+Alive=25, Dead=0, TotalEnergy=4796, Messages=0
+  Group 0: leader=N11(E=484) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=384) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=284) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=214) members=[14, 15]
+  Group 4: leader=N18(E=228) members=[18]
+  Group 5: leader=N25(E=168) members=[25]
+
+=== STEP 83 ===
+Alive=25, Dead=0, TotalEnergy=4771, Messages=0
+  Group 0: leader=N11(E=483) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=383) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=283) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=213) members=[14, 15]
+  Group 4: leader=N18(E=227) members=[18]
+  Group 5: leader=N25(E=167) members=[25]
+
+=== STEP 84 ===
+Alive=25, Dead=0, TotalEnergy=4746, Messages=0
+  Group 0: leader=N11(E=482) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=382) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=282) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=212) members=[14, 15]
+  Group 4: leader=N18(E=226) members=[18]
+  Group 5: leader=N25(E=166) members=[25]
+
+=== STEP 85 ===
+Alive=25, Dead=0, TotalEnergy=4721, Messages=0
+  Group 0: leader=N11(E=481) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=381) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=281) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=211) members=[14, 15]
+  Group 4: leader=N18(E=225) members=[18]
+  Group 5: leader=N25(E=165) members=[25]
+
+=== STEP 86 ===
+Alive=25, Dead=0, TotalEnergy=4688, Messages=4
+  Group 0: leader=N11(E=478) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=378) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=278) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=208) members=[14, 15]
+  Group 4: leader=N18(E=224) members=[18]
+  Group 5: leader=N25(E=164) members=[25]
+
+=== STEP 87 ===
+Alive=25, Dead=0, TotalEnergy=4663, Messages=0
+  Group 0: leader=N11(E=477) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=377) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=277) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=207) members=[14, 15]
+  Group 4: leader=N18(E=223) members=[18]
+  Group 5: leader=N25(E=163) members=[25]
+
+=== STEP 88 ===
+Alive=25, Dead=0, TotalEnergy=4638, Messages=0
+  Group 0: leader=N11(E=476) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=376) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=276) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=206) members=[14, 15]
+  Group 4: leader=N18(E=222) members=[18]
+  Group 5: leader=N25(E=162) members=[25]
+
+=== STEP 89 ===
+Alive=25, Dead=0, TotalEnergy=4613, Messages=0
+  Group 0: leader=N11(E=475) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=375) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=275) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=205) members=[14, 15]
+  Group 4: leader=N18(E=221) members=[18]
+  Group 5: leader=N25(E=161) members=[25]
+
+=== STEP 90 ===
+Alive=25, Dead=0, TotalEnergy=4588, Messages=0
+  Group 0: leader=N11(E=474) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=374) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=274) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=204) members=[14, 15]
+  Group 4: leader=N18(E=220) members=[18]
+  Group 5: leader=N25(E=160) members=[25]
+
+=== STEP 91 ===
+Alive=25, Dead=0, TotalEnergy=4555, Messages=4
+  Group 0: leader=N11(E=471) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=371) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=271) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=201) members=[14, 15]
+  Group 4: leader=N18(E=219) members=[18]
+  Group 5: leader=N25(E=159) members=[25]
+
+=== STEP 92 ===
+Alive=25, Dead=0, TotalEnergy=4530, Messages=0
+  Group 0: leader=N11(E=470) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=370) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=270) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=200) members=[14, 15]
+  Group 4: leader=N18(E=218) members=[18]
+  Group 5: leader=N25(E=158) members=[25]
+
+=== STEP 93 ===
+Alive=25, Dead=0, TotalEnergy=4505, Messages=0
+  Group 0: leader=N11(E=469) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=369) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=269) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=199) members=[14, 15]
+  Group 4: leader=N18(E=217) members=[18]
+  Group 5: leader=N25(E=157) members=[25]
+
+=== STEP 94 ===
+Alive=25, Dead=0, TotalEnergy=4480, Messages=0
+  Group 0: leader=N11(E=468) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=368) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=268) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=198) members=[14, 15]
+  Group 4: leader=N18(E=216) members=[18]
+  Group 5: leader=N25(E=156) members=[25]
+
+=== STEP 95 ===
+Alive=25, Dead=0, TotalEnergy=4455, Messages=0
+  Group 0: leader=N11(E=467) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=367) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=267) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=197) members=[14, 15]
+  Group 4: leader=N18(E=215) members=[18]
+  Group 5: leader=N25(E=155) members=[25]
+
+=== STEP 96 ===
+Alive=25, Dead=0, TotalEnergy=4422, Messages=4
+  Group 0: leader=N11(E=464) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=364) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=264) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=194) members=[14, 15]
+  Group 4: leader=N18(E=214) members=[18]
+  Group 5: leader=N25(E=154) members=[25]
+
+=== STEP 97 ===
+Alive=25, Dead=0, TotalEnergy=4397, Messages=0
+  Group 0: leader=N11(E=463) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=363) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=263) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=193) members=[14, 15]
+  Group 4: leader=N18(E=213) members=[18]
+  Group 5: leader=N25(E=153) members=[25]
+
+=== STEP 98 ===
+Alive=25, Dead=0, TotalEnergy=4372, Messages=0
+  Group 0: leader=N11(E=462) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=362) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=262) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=192) members=[14, 15]
+  Group 4: leader=N18(E=212) members=[18]
+  Group 5: leader=N25(E=152) members=[25]
+
+=== STEP 99 ===
+Alive=25, Dead=0, TotalEnergy=4347, Messages=0
+  Group 0: leader=N11(E=461) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=361) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=261) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=191) members=[14, 15]
+  Group 4: leader=N18(E=211) members=[18]
+  Group 5: leader=N25(E=151) members=[25]
+
+=== STEP 100 ===
+Alive=25, Dead=0, TotalEnergy=4322, Messages=0
+  Group 0: leader=N11(E=460) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=360) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=260) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=190) members=[14, 15]
+  Group 4: leader=N18(E=210) members=[18]
+  Group 5: leader=N25(E=150) members=[25]
+
+=== STEP 101 ===
+Alive=25, Dead=0, TotalEnergy=4289, Messages=4
+  Group 0: leader=N11(E=457) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=357) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=257) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=187) members=[14, 15]
+  Group 4: leader=N18(E=209) members=[18]
+  Group 5: leader=N25(E=149) members=[25]
+
+=== STEP 102 ===
+Alive=25, Dead=0, TotalEnergy=4264, Messages=0
+  Group 0: leader=N11(E=456) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=356) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=256) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=186) members=[14, 15]
+  Group 4: leader=N18(E=208) members=[18]
+  Group 5: leader=N25(E=148) members=[25]
+
+=== STEP 103 ===
+Alive=25, Dead=0, TotalEnergy=4239, Messages=0
+  Group 0: leader=N11(E=455) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=355) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=255) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=185) members=[14, 15]
+  Group 4: leader=N18(E=207) members=[18]
+  Group 5: leader=N25(E=147) members=[25]
+
+=== STEP 104 ===
+Alive=25, Dead=0, TotalEnergy=4214, Messages=0
+  Group 0: leader=N11(E=454) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=354) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=254) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=184) members=[14, 15]
+  Group 4: leader=N18(E=206) members=[18]
+  Group 5: leader=N25(E=146) members=[25]
+
+=== STEP 105 ===
+Alive=25, Dead=0, TotalEnergy=4189, Messages=0
+  Group 0: leader=N11(E=453) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=353) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=253) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=183) members=[14, 15]
+  Group 4: leader=N18(E=205) members=[18]
+  Group 5: leader=N25(E=145) members=[25]
+
+=== STEP 106 ===
+Alive=25, Dead=0, TotalEnergy=4156, Messages=4
+  Group 0: leader=N11(E=450) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=350) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=250) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=180) members=[14, 15]
+  Group 4: leader=N18(E=204) members=[18]
+  Group 5: leader=N25(E=144) members=[25]
+
+=== STEP 107 ===
+Alive=25, Dead=0, TotalEnergy=4131, Messages=0
+  Group 0: leader=N11(E=449) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=349) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=249) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=179) members=[14, 15]
+  Group 4: leader=N18(E=203) members=[18]
+  Group 5: leader=N25(E=143) members=[25]
+
+=== STEP 108 ===
+Alive=25, Dead=0, TotalEnergy=4106, Messages=0
+  Group 0: leader=N11(E=448) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=348) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=248) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=178) members=[14, 15]
+  Group 4: leader=N18(E=202) members=[18]
+  Group 5: leader=N25(E=142) members=[25]
+
+=== STEP 109 ===
+Alive=25, Dead=0, TotalEnergy=4081, Messages=0
+  Group 0: leader=N11(E=447) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=347) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=247) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=177) members=[14, 15]
+  Group 4: leader=N18(E=201) members=[18]
+  Group 5: leader=N25(E=141) members=[25]
+
+=== STEP 110 ===
+Alive=25, Dead=0, TotalEnergy=4056, Messages=0
+  Group 0: leader=N11(E=446) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=346) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=246) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=176) members=[14, 15]
+  Group 4: leader=N18(E=200) members=[18]
+  Group 5: leader=N25(E=140) members=[25]
+
+=== STEP 111 ===
+Alive=25, Dead=0, TotalEnergy=4023, Messages=4
+  Group 0: leader=N11(E=443) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=343) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=243) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=173) members=[14, 15]
+  Group 4: leader=N18(E=199) members=[18]
+  Group 5: leader=N25(E=139) members=[25]
+
+=== STEP 112 ===
+Alive=25, Dead=0, TotalEnergy=3998, Messages=0
+  Group 0: leader=N11(E=442) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=342) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=242) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=172) members=[14, 15]
+  Group 4: leader=N18(E=198) members=[18]
+  Group 5: leader=N25(E=138) members=[25]
+
+=== STEP 113 ===
+Alive=25, Dead=0, TotalEnergy=3973, Messages=0
+  Group 0: leader=N11(E=441) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=341) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=241) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=171) members=[14, 15]
+  Group 4: leader=N18(E=197) members=[18]
+  Group 5: leader=N25(E=137) members=[25]
+
+=== STEP 114 ===
+Alive=25, Dead=0, TotalEnergy=3948, Messages=0
+  Group 0: leader=N11(E=440) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=340) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=240) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=170) members=[14, 15]
+  Group 4: leader=N18(E=196) members=[18]
+  Group 5: leader=N25(E=136) members=[25]
+
+=== STEP 115 ===
+Alive=25, Dead=0, TotalEnergy=3923, Messages=0
+  Group 0: leader=N11(E=439) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=339) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=239) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=169) members=[14, 15]
+  Group 4: leader=N18(E=195) members=[18]
+  Group 5: leader=N25(E=135) members=[25]
+
+=== STEP 116 ===
+Alive=25, Dead=0, TotalEnergy=3890, Messages=4
+  Group 0: leader=N11(E=436) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=336) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=236) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=166) members=[14, 15]
+  Group 4: leader=N18(E=194) members=[18]
+  Group 5: leader=N25(E=134) members=[25]
+
+=== STEP 117 ===
+Alive=25, Dead=0, TotalEnergy=3865, Messages=0
+  Group 0: leader=N11(E=435) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=335) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=235) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=165) members=[14, 15]
+  Group 4: leader=N18(E=193) members=[18]
+  Group 5: leader=N25(E=133) members=[25]
+
+=== STEP 118 ===
+Alive=25, Dead=0, TotalEnergy=3840, Messages=0
+  Group 0: leader=N11(E=434) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=334) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=234) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=164) members=[14, 15]
+  Group 4: leader=N18(E=192) members=[18]
+  Group 5: leader=N25(E=132) members=[25]
+
+=== STEP 119 ===
+Alive=25, Dead=0, TotalEnergy=3815, Messages=0
+  Group 0: leader=N11(E=433) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=333) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=233) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=163) members=[14, 15]
+  Group 4: leader=N18(E=191) members=[18]
+  Group 5: leader=N25(E=131) members=[25]
+
+=== STEP 120 ===
+Alive=25, Dead=0, TotalEnergy=3790, Messages=0
+  Group 0: leader=N11(E=432) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=332) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=232) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=162) members=[14, 15]
+  Group 4: leader=N18(E=190) members=[18]
+  Group 5: leader=N25(E=130) members=[25]
+
+=== STEP 121 ===
+Alive=25, Dead=0, TotalEnergy=3757, Messages=4
+  Group 0: leader=N11(E=429) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=329) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=229) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=159) members=[14, 15]
+  Group 4: leader=N18(E=189) members=[18]
+  Group 5: leader=N25(E=129) members=[25]
+
+=== STEP 122 ===
+Alive=25, Dead=0, TotalEnergy=3732, Messages=0
+  Group 0: leader=N11(E=428) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=328) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=228) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=158) members=[14, 15]
+  Group 4: leader=N18(E=188) members=[18]
+  Group 5: leader=N25(E=128) members=[25]
+
+=== STEP 123 ===
+Alive=25, Dead=0, TotalEnergy=3707, Messages=0
+  Group 0: leader=N11(E=427) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=327) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=227) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=157) members=[14, 15]
+  Group 4: leader=N18(E=187) members=[18]
+  Group 5: leader=N25(E=127) members=[25]
+
+=== STEP 124 ===
+Alive=25, Dead=0, TotalEnergy=3682, Messages=0
+  Group 0: leader=N11(E=426) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=326) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=226) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=156) members=[14, 15]
+  Group 4: leader=N18(E=186) members=[18]
+  Group 5: leader=N25(E=126) members=[25]
+
+=== STEP 125 ===
+Alive=25, Dead=0, TotalEnergy=3657, Messages=0
+  Group 0: leader=N11(E=425) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=325) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=225) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=155) members=[14, 15]
+  Group 4: leader=N18(E=185) members=[18]
+  Group 5: leader=N25(E=125) members=[25]
+
+=== STEP 126 ===
+Alive=25, Dead=0, TotalEnergy=3624, Messages=4
+  Group 0: leader=N11(E=422) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=322) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=222) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=152) members=[14, 15]
+  Group 4: leader=N18(E=184) members=[18]
+  Group 5: leader=N25(E=124) members=[25]
+
+=== STEP 127 ===
+Alive=25, Dead=0, TotalEnergy=3599, Messages=0
+  Group 0: leader=N11(E=421) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=321) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=221) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=151) members=[14, 15]
+  Group 4: leader=N18(E=183) members=[18]
+  Group 5: leader=N25(E=123) members=[25]
+
+=== STEP 128 ===
+Alive=25, Dead=0, TotalEnergy=3574, Messages=0
+  Group 0: leader=N11(E=420) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=320) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=220) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=150) members=[14, 15]
+  Group 4: leader=N18(E=182) members=[18]
+  Group 5: leader=N25(E=122) members=[25]
+
+=== STEP 129 ===
+Alive=25, Dead=0, TotalEnergy=3549, Messages=0
+  Group 0: leader=N11(E=419) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=319) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=219) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=149) members=[14, 15]
+  Group 4: leader=N18(E=181) members=[18]
+  Group 5: leader=N25(E=121) members=[25]
+
+=== STEP 130 ===
+Alive=25, Dead=0, TotalEnergy=3524, Messages=0
+  Group 0: leader=N11(E=418) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=318) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=218) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=148) members=[14, 15]
+  Group 4: leader=N18(E=180) members=[18]
+  Group 5: leader=N25(E=120) members=[25]
+
+=== STEP 131 ===
+Alive=25, Dead=0, TotalEnergy=3491, Messages=4
+  Group 0: leader=N11(E=415) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=315) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=215) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=145) members=[14, 15]
+  Group 4: leader=N18(E=179) members=[18]
+  Group 5: leader=N25(E=119) members=[25]
+
+=== STEP 132 ===
+Alive=25, Dead=0, TotalEnergy=3466, Messages=0
+  Group 0: leader=N11(E=414) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=314) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=214) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=144) members=[14, 15]
+  Group 4: leader=N18(E=178) members=[18]
+  Group 5: leader=N25(E=118) members=[25]
+
+=== STEP 133 ===
+Alive=25, Dead=0, TotalEnergy=3441, Messages=0
+  Group 0: leader=N11(E=413) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=313) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=213) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=143) members=[14, 15]
+  Group 4: leader=N18(E=177) members=[18]
+  Group 5: leader=N25(E=117) members=[25]
+
+=== STEP 134 ===
+Alive=25, Dead=0, TotalEnergy=3416, Messages=0
+  Group 0: leader=N11(E=412) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=312) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=212) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=142) members=[14, 15]
+  Group 4: leader=N18(E=176) members=[18]
+  Group 5: leader=N25(E=116) members=[25]
+
+=== STEP 135 ===
+Alive=25, Dead=0, TotalEnergy=3391, Messages=0
+  Group 0: leader=N11(E=411) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=311) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=211) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=141) members=[14, 15]
+  Group 4: leader=N18(E=175) members=[18]
+  Group 5: leader=N25(E=115) members=[25]
+
+=== STEP 136 ===
+Alive=25, Dead=0, TotalEnergy=3358, Messages=4
+  Group 0: leader=N11(E=408) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=308) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=208) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=138) members=[14, 15]
+  Group 4: leader=N18(E=174) members=[18]
+  Group 5: leader=N25(E=114) members=[25]
+
+=== STEP 137 ===
+Alive=25, Dead=0, TotalEnergy=3333, Messages=0
+  Group 0: leader=N11(E=407) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=307) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=207) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=137) members=[14, 15]
+  Group 4: leader=N18(E=173) members=[18]
+  Group 5: leader=N25(E=113) members=[25]
+
+=== STEP 138 ===
+Alive=25, Dead=0, TotalEnergy=3308, Messages=0
+  Group 0: leader=N11(E=406) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=306) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=206) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=136) members=[14, 15]
+  Group 4: leader=N18(E=172) members=[18]
+  Group 5: leader=N25(E=112) members=[25]
+
+=== STEP 139 ===
+Alive=25, Dead=0, TotalEnergy=3283, Messages=0
+  Group 0: leader=N11(E=405) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=305) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=205) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=135) members=[14, 15]
+  Group 4: leader=N18(E=171) members=[18]
+  Group 5: leader=N25(E=111) members=[25]
+
+=== STEP 140 ===
+Alive=25, Dead=0, TotalEnergy=3258, Messages=0
+  Group 0: leader=N11(E=404) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=304) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=204) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=134) members=[14, 15]
+  Group 4: leader=N18(E=170) members=[18]
+  Group 5: leader=N25(E=110) members=[25]
+
+=== STEP 141 ===
+Alive=25, Dead=0, TotalEnergy=3225, Messages=4
+  Group 0: leader=N11(E=401) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=301) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=201) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=131) members=[14, 15]
+  Group 4: leader=N18(E=169) members=[18]
+  Group 5: leader=N25(E=109) members=[25]
+
+=== STEP 142 ===
+Alive=25, Dead=0, TotalEnergy=3200, Messages=0
+  Group 0: leader=N11(E=400) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=300) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=200) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=130) members=[14, 15]
+  Group 4: leader=N18(E=168) members=[18]
+  Group 5: leader=N25(E=108) members=[25]
+
+=== STEP 143 ===
+Alive=25, Dead=0, TotalEnergy=3175, Messages=0
+  Group 0: leader=N11(E=399) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=299) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=199) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=129) members=[14, 15]
+  Group 4: leader=N18(E=167) members=[18]
+  Group 5: leader=N25(E=107) members=[25]
+
+=== STEP 144 ===
+Alive=25, Dead=0, TotalEnergy=3150, Messages=0
+  Group 0: leader=N11(E=398) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=298) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=198) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=128) members=[14, 15]
+  Group 4: leader=N18(E=166) members=[18]
+  Group 5: leader=N25(E=106) members=[25]
+
+=== STEP 145 ===
+Alive=25, Dead=0, TotalEnergy=3125, Messages=0
+  Group 0: leader=N11(E=397) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=297) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=197) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=127) members=[14, 15]
+  Group 4: leader=N18(E=165) members=[18]
+  Group 5: leader=N25(E=105) members=[25]
+
+=== STEP 146 ===
+Alive=25, Dead=0, TotalEnergy=3092, Messages=4
+  Group 0: leader=N11(E=394) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=294) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=194) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=124) members=[14, 15]
+  Group 4: leader=N18(E=164) members=[18]
+  Group 5: leader=N25(E=104) members=[25]
+
+=== STEP 147 ===
+Alive=25, Dead=0, TotalEnergy=3067, Messages=0
+  Group 0: leader=N11(E=393) members=[11, 21, 20, 13, 19, 10, 22, 24, 12, 23]
+  Group 1: leader=N7(E=293) members=[7, 8, 5, 16, 17, 6, 9]
+  Group 2: leader=N4(E=193) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=123) members=[14, 15]
+  Group 4: leader=N18(E=163) members=[18]
+  Group 5: leader=N25(E=103) members=[25]
+
+=== STEP 148 ===
+Alive=23, Dead=2, TotalEnergy=3042, Messages=0
+  Group 0: leader=N11(E=392) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=292) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=192) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=122) members=[14, 15]
+  Group 4: leader=N18(E=162) members=[18]
+  Group 5: leader=N25(E=102) members=[25]
+  EVENT: Node 9 died (was_leader=False)
+  EVENT: Node 23 died (was_leader=False)
+
+=== STEP 149 ===
+Alive=23, Dead=2, TotalEnergy=3019, Messages=0
+  Group 0: leader=N11(E=391) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=291) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=191) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=121) members=[14, 15]
+  Group 4: leader=N18(E=161) members=[18]
+  Group 5: leader=N25(E=101) members=[25]
+
+=== STEP 150 ===
+Alive=23, Dead=2, TotalEnergy=2996, Messages=0
+  Group 0: leader=N11(E=390) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=290) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=190) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=120) members=[14, 15]
+  Group 4: leader=N18(E=160) members=[18]
+  Group 5: leader=N25(E=100) members=[25]
+
+=== STEP 151 ===
+Alive=23, Dead=2, TotalEnergy=2965, Messages=4
+  Group 0: leader=N11(E=387) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=287) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=187) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=117) members=[14, 15]
+  Group 4: leader=N18(E=159) members=[18]
+  Group 5: leader=N25(E=99) members=[25]
+
+=== STEP 152 ===
+Alive=23, Dead=2, TotalEnergy=2942, Messages=0
+  Group 0: leader=N11(E=386) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=286) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=186) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=116) members=[14, 15]
+  Group 4: leader=N18(E=158) members=[18]
+  Group 5: leader=N25(E=98) members=[25]
+
+=== STEP 153 ===
+Alive=23, Dead=2, TotalEnergy=2919, Messages=0
+  Group 0: leader=N11(E=385) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=285) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=185) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=115) members=[14, 15]
+  Group 4: leader=N18(E=157) members=[18]
+  Group 5: leader=N25(E=97) members=[25]
+
+=== STEP 154 ===
+Alive=23, Dead=2, TotalEnergy=2896, Messages=0
+  Group 0: leader=N11(E=384) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=284) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=184) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=114) members=[14, 15]
+  Group 4: leader=N18(E=156) members=[18]
+  Group 5: leader=N25(E=96) members=[25]
+
+=== STEP 155 ===
+Alive=23, Dead=2, TotalEnergy=2873, Messages=0
+  Group 0: leader=N11(E=383) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=283) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=183) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=113) members=[14, 15]
+  Group 4: leader=N18(E=155) members=[18]
+  Group 5: leader=N25(E=95) members=[25]
+
+=== STEP 156 ===
+Alive=23, Dead=2, TotalEnergy=2842, Messages=4
+  Group 0: leader=N11(E=380) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=280) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=180) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=110) members=[14, 15]
+  Group 4: leader=N18(E=154) members=[18]
+  Group 5: leader=N25(E=94) members=[25]
+
+=== STEP 157 ===
+Alive=23, Dead=2, TotalEnergy=2819, Messages=0
+  Group 0: leader=N11(E=379) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=279) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=179) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=109) members=[14, 15]
+  Group 4: leader=N18(E=153) members=[18]
+  Group 5: leader=N25(E=93) members=[25]
+
+=== STEP 158 ===
+Alive=23, Dead=2, TotalEnergy=2796, Messages=0
+  Group 0: leader=N11(E=378) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=278) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=178) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=108) members=[14, 15]
+  Group 4: leader=N18(E=152) members=[18]
+  Group 5: leader=N25(E=92) members=[25]
+
+=== STEP 159 ===
+Alive=23, Dead=2, TotalEnergy=2773, Messages=0
+  Group 0: leader=N11(E=377) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=277) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=177) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=107) members=[14, 15]
+  Group 4: leader=N18(E=151) members=[18]
+  Group 5: leader=N25(E=91) members=[25]
+
+=== STEP 160 ===
+Alive=23, Dead=2, TotalEnergy=2750, Messages=0
+  Group 0: leader=N11(E=376) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=276) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=176) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=106) members=[14, 15]
+  Group 4: leader=N18(E=150) members=[18]
+  Group 5: leader=N25(E=90) members=[25]
+
+=== STEP 161 ===
+Alive=23, Dead=2, TotalEnergy=2719, Messages=4
+  Group 0: leader=N11(E=373) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=273) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=173) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=103) members=[14, 15]
+  Group 4: leader=N18(E=149) members=[18]
+  Group 5: leader=N25(E=89) members=[25]
+
+=== STEP 162 ===
+Alive=23, Dead=2, TotalEnergy=2696, Messages=0
+  Group 0: leader=N11(E=372) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=272) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=172) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=102) members=[14, 15]
+  Group 4: leader=N18(E=148) members=[18]
+  Group 5: leader=N25(E=88) members=[25]
+
+=== STEP 163 ===
+Alive=23, Dead=2, TotalEnergy=2673, Messages=0
+  Group 0: leader=N11(E=371) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=271) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=171) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=101) members=[14, 15]
+  Group 4: leader=N18(E=147) members=[18]
+  Group 5: leader=N25(E=87) members=[25]
+
+=== STEP 164 ===
+Alive=23, Dead=2, TotalEnergy=2650, Messages=0
+  Group 0: leader=N11(E=370) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=270) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=170) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=100) members=[14, 15]
+  Group 4: leader=N18(E=146) members=[18]
+  Group 5: leader=N25(E=86) members=[25]
+
+=== STEP 165 ===
+Alive=23, Dead=2, TotalEnergy=2627, Messages=0
+  Group 0: leader=N11(E=369) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=269) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=169) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=99) members=[14, 15]
+  Group 4: leader=N18(E=145) members=[18]
+  Group 5: leader=N25(E=85) members=[25]
+
+=== STEP 166 ===
+Alive=23, Dead=2, TotalEnergy=2596, Messages=4
+  Group 0: leader=N11(E=366) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=266) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=166) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=96) members=[14, 15]
+  Group 4: leader=N18(E=144) members=[18]
+  Group 5: leader=N25(E=84) members=[25]
+
+=== STEP 167 ===
+Alive=23, Dead=2, TotalEnergy=2573, Messages=0
+  Group 0: leader=N11(E=365) members=[11, 21, 20, 13, 19, 10, 22, 24, 12]
+  Group 1: leader=N7(E=265) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=165) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=95) members=[14, 15]
+  Group 4: leader=N18(E=143) members=[18]
+  Group 5: leader=N25(E=83) members=[25]
+
+=== STEP 168 ===
+Alive=22, Dead=3, TotalEnergy=2550, Messages=0
+  Group 0: leader=N11(E=364) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=264) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=164) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=94) members=[14, 15]
+  Group 4: leader=N18(E=142) members=[18]
+  Group 5: leader=N25(E=82) members=[25]
+  EVENT: Node 12 died (was_leader=False)
+
+=== STEP 169 ===
+Alive=22, Dead=3, TotalEnergy=2528, Messages=0
+  Group 0: leader=N11(E=363) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=263) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=163) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=93) members=[14, 15]
+  Group 4: leader=N18(E=141) members=[18]
+  Group 5: leader=N25(E=81) members=[25]
+
+=== STEP 170 ===
+Alive=22, Dead=3, TotalEnergy=2506, Messages=0
+  Group 0: leader=N11(E=362) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=262) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=162) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=92) members=[14, 15]
+  Group 4: leader=N18(E=140) members=[18]
+  Group 5: leader=N25(E=80) members=[25]
+
+=== STEP 171 ===
+Alive=22, Dead=3, TotalEnergy=2476, Messages=4
+  Group 0: leader=N11(E=359) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=259) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=159) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=89) members=[14, 15]
+  Group 4: leader=N18(E=139) members=[18]
+  Group 5: leader=N25(E=79) members=[25]
+
+=== STEP 172 ===
+Alive=22, Dead=3, TotalEnergy=2454, Messages=0
+  Group 0: leader=N11(E=358) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=258) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=158) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=88) members=[14, 15]
+  Group 4: leader=N18(E=138) members=[18]
+  Group 5: leader=N25(E=78) members=[25]
+
+=== STEP 173 ===
+Alive=22, Dead=3, TotalEnergy=2432, Messages=0
+  Group 0: leader=N11(E=357) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=257) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=157) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=87) members=[14, 15]
+  Group 4: leader=N18(E=137) members=[18]
+  Group 5: leader=N25(E=77) members=[25]
+
+=== STEP 174 ===
+Alive=22, Dead=3, TotalEnergy=2410, Messages=0
+  Group 0: leader=N11(E=356) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=256) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=156) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=86) members=[14, 15]
+  Group 4: leader=N18(E=136) members=[18]
+  Group 5: leader=N25(E=76) members=[25]
+
+=== STEP 175 ===
+Alive=22, Dead=3, TotalEnergy=2388, Messages=0
+  Group 0: leader=N11(E=355) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=255) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=155) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=85) members=[14, 15]
+  Group 4: leader=N18(E=135) members=[18]
+  Group 5: leader=N25(E=75) members=[25]
+
+=== STEP 176 ===
+Alive=22, Dead=3, TotalEnergy=2358, Messages=4
+  Group 0: leader=N11(E=352) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=252) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=152) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=82) members=[14, 15]
+  Group 4: leader=N18(E=134) members=[18]
+  Group 5: leader=N25(E=74) members=[25]
+
+=== STEP 177 ===
+Alive=22, Dead=3, TotalEnergy=2336, Messages=0
+  Group 0: leader=N11(E=351) members=[11, 21, 20, 13, 19, 10, 22, 24]
+  Group 1: leader=N7(E=251) members=[7, 8, 5, 16, 17, 6]
+  Group 2: leader=N4(E=151) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=81) members=[14, 15]
+  Group 4: leader=N18(E=133) members=[18]
+  Group 5: leader=N25(E=73) members=[25]
+
+=== STEP 178 ===
+Alive=20, Dead=5, TotalEnergy=2314, Messages=0
+  Group 0: leader=N11(E=350) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=250) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=150) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=80) members=[14, 15]
+  Group 4: leader=N18(E=132) members=[18]
+  Group 5: leader=N25(E=72) members=[25]
+  EVENT: Node 6 died (was_leader=False)
+  EVENT: Node 24 died (was_leader=False)
+
+=== STEP 179 ===
+Alive=20, Dead=5, TotalEnergy=2294, Messages=0
+  Group 0: leader=N11(E=349) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=249) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=149) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=79) members=[14, 15]
+  Group 4: leader=N18(E=131) members=[18]
+  Group 5: leader=N25(E=71) members=[25]
+
+=== STEP 180 ===
+Alive=20, Dead=5, TotalEnergy=2274, Messages=0
+  Group 0: leader=N11(E=348) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=248) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=148) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=78) members=[14, 15]
+  Group 4: leader=N18(E=130) members=[18]
+  Group 5: leader=N25(E=70) members=[25]
+
+=== STEP 181 ===
+Alive=20, Dead=5, TotalEnergy=2246, Messages=4
+  Group 0: leader=N11(E=345) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=245) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=145) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=75) members=[14, 15]
+  Group 4: leader=N18(E=129) members=[18]
+  Group 5: leader=N25(E=69) members=[25]
+
+=== STEP 182 ===
+Alive=20, Dead=5, TotalEnergy=2226, Messages=0
+  Group 0: leader=N11(E=344) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=244) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=144) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=74) members=[14, 15]
+  Group 4: leader=N18(E=128) members=[18]
+  Group 5: leader=N25(E=68) members=[25]
+
+=== STEP 183 ===
+Alive=20, Dead=5, TotalEnergy=2206, Messages=0
+  Group 0: leader=N11(E=343) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=243) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=143) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=73) members=[14, 15]
+  Group 4: leader=N18(E=127) members=[18]
+  Group 5: leader=N25(E=67) members=[25]
+
+=== STEP 184 ===
+Alive=20, Dead=5, TotalEnergy=2186, Messages=0
+  Group 0: leader=N11(E=342) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=242) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=142) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=72) members=[14, 15]
+  Group 4: leader=N18(E=126) members=[18]
+  Group 5: leader=N25(E=66) members=[25]
+
+=== STEP 185 ===
+Alive=20, Dead=5, TotalEnergy=2166, Messages=0
+  Group 0: leader=N11(E=341) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=241) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=141) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=71) members=[14, 15]
+  Group 4: leader=N18(E=125) members=[18]
+  Group 5: leader=N25(E=65) members=[25]
+
+=== STEP 186 ===
+Alive=20, Dead=5, TotalEnergy=2138, Messages=4
+  Group 0: leader=N11(E=338) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=238) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=138) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=68) members=[14, 15]
+  Group 4: leader=N18(E=124) members=[18]
+  Group 5: leader=N25(E=64) members=[25]
+
+=== STEP 187 ===
+Alive=20, Dead=5, TotalEnergy=2118, Messages=0
+  Group 0: leader=N11(E=337) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=237) members=[7, 8, 5, 16, 17]
+  Group 2: leader=N4(E=137) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=67) members=[14, 15]
+  Group 4: leader=N18(E=123) members=[18]
+  Group 5: leader=N25(E=63) members=[25]
+
+=== STEP 188 ===
+Alive=19, Dead=6, TotalEnergy=2098, Messages=0
+  Group 0: leader=N11(E=336) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=236) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=136) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=66) members=[14, 15]
+  Group 4: leader=N18(E=122) members=[18]
+  Group 5: leader=N25(E=62) members=[25]
+  EVENT: Node 17 died (was_leader=False)
+
+=== STEP 189 ===
+Alive=19, Dead=6, TotalEnergy=2079, Messages=0
+  Group 0: leader=N11(E=335) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=235) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=135) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=65) members=[14, 15]
+  Group 4: leader=N18(E=121) members=[18]
+  Group 5: leader=N25(E=61) members=[25]
+
+=== STEP 190 ===
+Alive=19, Dead=6, TotalEnergy=2060, Messages=0
+  Group 0: leader=N11(E=334) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=234) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=134) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=64) members=[14, 15]
+  Group 4: leader=N18(E=120) members=[18]
+  Group 5: leader=N25(E=60) members=[25]
+
+=== STEP 191 ===
+Alive=19, Dead=6, TotalEnergy=2033, Messages=4
+  Group 0: leader=N11(E=331) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=231) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=131) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=61) members=[14, 15]
+  Group 4: leader=N18(E=119) members=[18]
+  Group 5: leader=N25(E=59) members=[25]
+
+=== STEP 192 ===
+Alive=19, Dead=6, TotalEnergy=2014, Messages=0
+  Group 0: leader=N11(E=330) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=230) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=130) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=60) members=[14, 15]
+  Group 4: leader=N18(E=118) members=[18]
+  Group 5: leader=N25(E=58) members=[25]
+
+=== STEP 193 ===
+Alive=19, Dead=6, TotalEnergy=1995, Messages=0
+  Group 0: leader=N11(E=329) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=229) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=129) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=59) members=[14, 15]
+  Group 4: leader=N18(E=117) members=[18]
+  Group 5: leader=N25(E=57) members=[25]
+
+=== STEP 194 ===
+Alive=19, Dead=6, TotalEnergy=1976, Messages=0
+  Group 0: leader=N11(E=328) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=228) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=128) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=58) members=[14, 15]
+  Group 4: leader=N18(E=116) members=[18]
+  Group 5: leader=N25(E=56) members=[25]
+
+=== STEP 195 ===
+Alive=19, Dead=6, TotalEnergy=1957, Messages=0
+  Group 0: leader=N11(E=327) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=227) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=127) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=57) members=[14, 15]
+  Group 4: leader=N18(E=115) members=[18]
+  Group 5: leader=N25(E=55) members=[25]
+
+=== STEP 196 ===
+Alive=19, Dead=6, TotalEnergy=1930, Messages=4
+  Group 0: leader=N11(E=324) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=224) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=124) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=54) members=[14, 15]
+  Group 4: leader=N18(E=114) members=[18]
+  Group 5: leader=N25(E=54) members=[25]
+
+=== STEP 197 ===
+Alive=19, Dead=6, TotalEnergy=1911, Messages=0
+  Group 0: leader=N11(E=323) members=[11, 21, 20, 13, 19, 10, 22]
+  Group 1: leader=N7(E=223) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=123) members=[4, 1, 2, 3]
+  Group 3: leader=N14(E=53) members=[14, 15]
+  Group 4: leader=N18(E=113) members=[18]
+  Group 5: leader=N25(E=53) members=[25]
+
+=== STEP 198 ===
+Alive=17, Dead=8, TotalEnergy=1892, Messages=0
+  Group 0: leader=N11(E=322) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=222) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=122) members=[4, 1, 2]
+  Group 3: leader=N14(E=52) members=[14, 15]
+  Group 4: leader=N18(E=112) members=[18]
+  Group 5: leader=N25(E=52) members=[25]
+  EVENT: Node 3 died (was_leader=False)
+  EVENT: Node 22 died (was_leader=False)
+
+=== STEP 199 ===
+Alive=17, Dead=8, TotalEnergy=1875, Messages=0
+  Group 0: leader=N11(E=321) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=221) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=121) members=[4, 1, 2]
+  Group 3: leader=N14(E=51) members=[14, 15]
+  Group 4: leader=N18(E=111) members=[18]
+  Group 5: leader=N25(E=51) members=[25]
+
+=== STEP 200 ===
+Alive=17, Dead=8, TotalEnergy=1858, Messages=0
+  Group 0: leader=N11(E=320) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=220) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=120) members=[4, 1, 2]
+  Group 3: leader=N14(E=50) members=[14, 15]
+  Group 4: leader=N18(E=110) members=[18]
+  Group 5: leader=N25(E=50) members=[25]
+
+=== STEP 201 ===
+Alive=17, Dead=8, TotalEnergy=1833, Messages=4
+  Group 0: leader=N11(E=317) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=217) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=117) members=[4, 1, 2]
+  Group 3: leader=N14(E=47) members=[14, 15]
+  Group 4: leader=N18(E=109) members=[18]
+  Group 5: leader=N25(E=49) members=[25]
+
+=== STEP 202 ===
+Alive=17, Dead=8, TotalEnergy=1816, Messages=0
+  Group 0: leader=N11(E=316) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=216) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=116) members=[4, 1, 2]
+  Group 3: leader=N14(E=46) members=[14, 15]
+  Group 4: leader=N18(E=108) members=[18]
+  Group 5: leader=N25(E=48) members=[25]
+
+=== STEP 203 ===
+Alive=17, Dead=8, TotalEnergy=1799, Messages=0
+  Group 0: leader=N11(E=315) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=215) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=115) members=[4, 1, 2]
+  Group 3: leader=N14(E=45) members=[14, 15]
+  Group 4: leader=N18(E=107) members=[18]
+  Group 5: leader=N25(E=47) members=[25]
+
+=== STEP 204 ===
+Alive=17, Dead=8, TotalEnergy=1782, Messages=0
+  Group 0: leader=N11(E=314) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=214) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=114) members=[4, 1, 2]
+  Group 3: leader=N14(E=44) members=[14, 15]
+  Group 4: leader=N18(E=106) members=[18]
+  Group 5: leader=N25(E=46) members=[25]
+
+=== STEP 205 ===
+Alive=17, Dead=8, TotalEnergy=1765, Messages=0
+  Group 0: leader=N11(E=313) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=213) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=113) members=[4, 1, 2]
+  Group 3: leader=N14(E=43) members=[14, 15]
+  Group 4: leader=N18(E=105) members=[18]
+  Group 5: leader=N25(E=45) members=[25]
+
+=== STEP 206 ===
+Alive=17, Dead=8, TotalEnergy=1740, Messages=4
+  Group 0: leader=N11(E=310) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=210) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=110) members=[4, 1, 2]
+  Group 3: leader=N14(E=40) members=[14, 15]
+  Group 4: leader=N18(E=104) members=[18]
+  Group 5: leader=N25(E=44) members=[25]
+
+=== STEP 207 ===
+Alive=17, Dead=8, TotalEnergy=1723, Messages=0
+  Group 0: leader=N11(E=309) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=209) members=[7, 8, 5, 16]
+  Group 2: leader=N4(E=109) members=[4, 1, 2]
+  Group 3: leader=N14(E=39) members=[14, 15]
+  Group 4: leader=N18(E=103) members=[18]
+  Group 5: leader=N25(E=43) members=[25]
+
+=== STEP 208 ===
+Alive=16, Dead=9, TotalEnergy=1706, Messages=0
+  Group 0: leader=N11(E=308) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=208) members=[7, 8, 5]
+  Group 2: leader=N4(E=108) members=[4, 1, 2]
+  Group 3: leader=N14(E=38) members=[14, 15]
+  Group 4: leader=N18(E=102) members=[18]
+  Group 5: leader=N25(E=42) members=[25]
+  EVENT: Node 16 died (was_leader=False)
+
+=== STEP 209 ===
+Alive=16, Dead=9, TotalEnergy=1690, Messages=0
+  Group 0: leader=N11(E=307) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=207) members=[7, 8, 5]
+  Group 2: leader=N4(E=107) members=[4, 1, 2]
+  Group 3: leader=N14(E=37) members=[14, 15]
+  Group 4: leader=N18(E=101) members=[18]
+  Group 5: leader=N25(E=41) members=[25]
+
+=== STEP 210 ===
+Alive=16, Dead=9, TotalEnergy=1674, Messages=0
+  Group 0: leader=N11(E=306) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=206) members=[7, 8, 5]
+  Group 2: leader=N4(E=106) members=[4, 1, 2]
+  Group 3: leader=N14(E=36) members=[14, 15]
+  Group 4: leader=N18(E=100) members=[18]
+  Group 5: leader=N25(E=40) members=[25]
+
+=== STEP 211 ===
+Alive=16, Dead=9, TotalEnergy=1650, Messages=4
+  Group 0: leader=N11(E=303) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=203) members=[7, 8, 5]
+  Group 2: leader=N4(E=103) members=[4, 1, 2]
+  Group 3: leader=N14(E=33) members=[14, 15]
+  Group 4: leader=N18(E=99) members=[18]
+  Group 5: leader=N25(E=39) members=[25]
+
+=== STEP 212 ===
+Alive=16, Dead=9, TotalEnergy=1634, Messages=0
+  Group 0: leader=N11(E=302) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=202) members=[7, 8, 5]
+  Group 2: leader=N4(E=102) members=[4, 1, 2]
+  Group 3: leader=N14(E=32) members=[14, 15]
+  Group 4: leader=N18(E=98) members=[18]
+  Group 5: leader=N25(E=38) members=[25]
+
+=== STEP 213 ===
+Alive=16, Dead=9, TotalEnergy=1618, Messages=0
+  Group 0: leader=N11(E=301) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=201) members=[7, 8, 5]
+  Group 2: leader=N4(E=101) members=[4, 1, 2]
+  Group 3: leader=N14(E=31) members=[14, 15]
+  Group 4: leader=N18(E=97) members=[18]
+  Group 5: leader=N25(E=37) members=[25]
+
+=== STEP 214 ===
+Alive=16, Dead=9, TotalEnergy=1602, Messages=0
+  Group 0: leader=N11(E=300) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=200) members=[7, 8, 5]
+  Group 2: leader=N4(E=100) members=[4, 1, 2]
+  Group 3: leader=N14(E=30) members=[14, 15]
+  Group 4: leader=N18(E=96) members=[18]
+  Group 5: leader=N25(E=36) members=[25]
+
+=== STEP 215 ===
+Alive=16, Dead=9, TotalEnergy=1586, Messages=0
+  Group 0: leader=N11(E=299) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=199) members=[7, 8, 5]
+  Group 2: leader=N4(E=99) members=[4, 1, 2]
+  Group 3: leader=N14(E=29) members=[14, 15]
+  Group 4: leader=N18(E=95) members=[18]
+  Group 5: leader=N25(E=35) members=[25]
+
+=== STEP 216 ===
+Alive=16, Dead=9, TotalEnergy=1562, Messages=4
+  Group 0: leader=N11(E=296) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=196) members=[7, 8, 5]
+  Group 2: leader=N4(E=96) members=[4, 1, 2]
+  Group 3: leader=N14(E=26) members=[14, 15]
+  Group 4: leader=N18(E=94) members=[18]
+  Group 5: leader=N25(E=34) members=[25]
+
+=== STEP 217 ===
+Alive=16, Dead=9, TotalEnergy=1546, Messages=0
+  Group 0: leader=N11(E=295) members=[11, 21, 20, 13, 19, 10]
+  Group 1: leader=N7(E=195) members=[7, 8, 5]
+  Group 2: leader=N4(E=95) members=[4, 1, 2]
+  Group 3: leader=N14(E=25) members=[14, 15]
+  Group 4: leader=N18(E=93) members=[18]
+  Group 5: leader=N25(E=33) members=[25]
+
+=== STEP 218 ===
+Alive=15, Dead=10, TotalEnergy=1530, Messages=0
+  Group 0: leader=N11(E=294) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=194) members=[7, 8, 5]
+  Group 2: leader=N4(E=94) members=[4, 1, 2]
+  Group 3: leader=N14(E=24) members=[14, 15]
+  Group 4: leader=N18(E=92) members=[18]
+  Group 5: leader=N25(E=32) members=[25]
+  EVENT: Node 10 died (was_leader=False)
+
+=== STEP 219 ===
+Alive=15, Dead=10, TotalEnergy=1515, Messages=0
+  Group 0: leader=N11(E=293) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=193) members=[7, 8, 5]
+  Group 2: leader=N4(E=93) members=[4, 1, 2]
+  Group 3: leader=N14(E=23) members=[14, 15]
+  Group 4: leader=N18(E=91) members=[18]
+  Group 5: leader=N25(E=31) members=[25]
+
+=== STEP 220 ===
+Alive=15, Dead=10, TotalEnergy=1500, Messages=0
+  Group 0: leader=N11(E=292) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=192) members=[7, 8, 5]
+  Group 2: leader=N4(E=92) members=[4, 1, 2]
+  Group 3: leader=N14(E=22) members=[14, 15]
+  Group 4: leader=N18(E=90) members=[18]
+  Group 5: leader=N25(E=30) members=[25]
+
+=== STEP 221 ===
+Alive=15, Dead=10, TotalEnergy=1477, Messages=4
+  Group 0: leader=N11(E=289) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=189) members=[7, 8, 5]
+  Group 2: leader=N4(E=89) members=[4, 1, 2]
+  Group 3: leader=N14(E=19) members=[14, 15]
+  Group 4: leader=N18(E=89) members=[18]
+  Group 5: leader=N25(E=29) members=[25]
+
+=== STEP 222 ===
+Alive=15, Dead=10, TotalEnergy=1462, Messages=0
+  Group 0: leader=N11(E=288) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=188) members=[7, 8, 5]
+  Group 2: leader=N4(E=88) members=[4, 1, 2]
+  Group 3: leader=N14(E=18) members=[14, 15]
+  Group 4: leader=N18(E=88) members=[18]
+  Group 5: leader=N25(E=28) members=[25]
+
+=== STEP 223 ===
+Alive=15, Dead=10, TotalEnergy=1447, Messages=0
+  Group 0: leader=N11(E=287) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=187) members=[7, 8, 5]
+  Group 2: leader=N4(E=87) members=[4, 1, 2]
+  Group 3: leader=N14(E=17) members=[14, 15]
+  Group 4: leader=N18(E=87) members=[18]
+  Group 5: leader=N25(E=27) members=[25]
+
+=== STEP 224 ===
+Alive=15, Dead=10, TotalEnergy=1432, Messages=0
+  Group 0: leader=N11(E=286) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=186) members=[7, 8, 5]
+  Group 2: leader=N4(E=86) members=[4, 1, 2]
+  Group 3: leader=N14(E=16) members=[14, 15]
+  Group 4: leader=N18(E=86) members=[18]
+  Group 5: leader=N25(E=26) members=[25]
+
+=== STEP 225 ===
+Alive=15, Dead=10, TotalEnergy=1417, Messages=0
+  Group 0: leader=N11(E=285) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=185) members=[7, 8, 5]
+  Group 2: leader=N4(E=85) members=[4, 1, 2]
+  Group 3: leader=N14(E=15) members=[14, 15]
+  Group 4: leader=N18(E=85) members=[18]
+  Group 5: leader=N25(E=25) members=[25]
+
+=== STEP 226 ===
+Alive=15, Dead=10, TotalEnergy=1394, Messages=4
+  Group 0: leader=N11(E=282) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=182) members=[7, 8, 5]
+  Group 2: leader=N4(E=82) members=[4, 1, 2]
+  Group 3: leader=N14(E=12) members=[14, 15]
+  Group 4: leader=N18(E=84) members=[18]
+  Group 5: leader=N25(E=24) members=[25]
+
+=== STEP 227 ===
+Alive=15, Dead=10, TotalEnergy=1379, Messages=0
+  Group 0: leader=N11(E=281) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=181) members=[7, 8, 5]
+  Group 2: leader=N4(E=81) members=[4, 1, 2]
+  Group 3: leader=N14(E=11) members=[14, 15]
+  Group 4: leader=N18(E=83) members=[18]
+  Group 5: leader=N25(E=23) members=[25]
+
+=== STEP 228 ===
+Alive=15, Dead=10, TotalEnergy=1364, Messages=0
+  Group 0: leader=N11(E=280) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=180) members=[7, 8, 5]
+  Group 2: leader=N4(E=80) members=[4, 1, 2]
+  Group 3: leader=N14(E=10) members=[14, 15]
+  Group 4: leader=N18(E=82) members=[18]
+  Group 5: leader=N25(E=22) members=[25]
+
+=== STEP 229 ===
+Alive=15, Dead=10, TotalEnergy=1349, Messages=0
+  Group 0: leader=N11(E=279) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=179) members=[7, 8, 5]
+  Group 2: leader=N4(E=79) members=[4, 1, 2]
+  Group 3: leader=N14(E=9) members=[14, 15]
+  Group 4: leader=N18(E=81) members=[18]
+  Group 5: leader=N25(E=21) members=[25]
+
+=== STEP 230 ===
+Alive=15, Dead=10, TotalEnergy=1334, Messages=0
+  Group 0: leader=N11(E=278) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=178) members=[7, 8, 5]
+  Group 2: leader=N4(E=78) members=[4, 1, 2]
+  Group 3: leader=N14(E=8) members=[14, 15]
+  Group 4: leader=N18(E=80) members=[18]
+  Group 5: leader=N25(E=20) members=[25]
+
+=== STEP 231 ===
+Alive=15, Dead=10, TotalEnergy=1311, Messages=4
+  Group 0: leader=N11(E=275) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=175) members=[7, 8, 5]
+  Group 2: leader=N4(E=75) members=[4, 1, 2]
+  Group 3: leader=N14(E=5) members=[14, 15]
+  Group 4: leader=N18(E=79) members=[18]
+  Group 5: leader=N25(E=19) members=[25]
+
+=== STEP 232 ===
+Alive=15, Dead=10, TotalEnergy=1296, Messages=0
+  Group 0: leader=N11(E=274) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=174) members=[7, 8, 5]
+  Group 2: leader=N4(E=74) members=[4, 1, 2]
+  Group 3: leader=N14(E=4) members=[14, 15]
+  Group 4: leader=N18(E=78) members=[18]
+  Group 5: leader=N25(E=18) members=[25]
+
+=== STEP 233 ===
+Alive=15, Dead=10, TotalEnergy=1281, Messages=0
+  Group 0: leader=N11(E=273) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=173) members=[7, 8, 5]
+  Group 2: leader=N4(E=73) members=[4, 1, 2]
+  Group 3: leader=N14(E=3) members=[14, 15]
+  Group 4: leader=N18(E=77) members=[18]
+  Group 5: leader=N25(E=17) members=[25]
+
+=== STEP 234 ===
+Alive=15, Dead=10, TotalEnergy=1266, Messages=0
+  Group 0: leader=N11(E=272) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=172) members=[7, 8, 5]
+  Group 2: leader=N4(E=72) members=[4, 1, 2]
+  Group 3: leader=N14(E=2) members=[14, 15]
+  Group 4: leader=N18(E=76) members=[18]
+  Group 5: leader=N25(E=16) members=[25]
+
+=== STEP 235 ===
+Alive=15, Dead=10, TotalEnergy=1251, Messages=0
+  Group 0: leader=N11(E=271) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=171) members=[7, 8, 5]
+  Group 2: leader=N4(E=71) members=[4, 1, 2]
+  Group 3: leader=N14(E=1) members=[14, 15]
+  Group 4: leader=N18(E=75) members=[18]
+  Group 5: leader=N25(E=15) members=[25]
+
+=== STEP 236 ===
+Alive=14, Dead=11, TotalEnergy=1230, Messages=4
+  Group 0: leader=N11(E=268) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=168) members=[7, 8, 5]
+  Group 2: leader=N4(E=68) members=[4, 1, 2]
+  Group 3: leader=N15(E=22) members=[15]
+  Group 4: leader=N18(E=74) members=[18]
+  Group 5: leader=N25(E=14) members=[25]
+  EVENT: Node 14 died (was_leader=True)
+  EVENT: Election in G3 → new leader N15 (E=22)
+
+=== STEP 237 ===
+Alive=14, Dead=11, TotalEnergy=1216, Messages=0
+  Group 0: leader=N11(E=267) members=[11, 21, 20, 13, 19]
+  Group 1: leader=N7(E=167) members=[7, 8, 5]
+  Group 2: leader=N4(E=67) members=[4, 1, 2]
+  Group 3: leader=N15(E=21) members=[15]
+  Group 4: leader=N18(E=73) members=[18]
+  Group 5: leader=N25(E=13) members=[25]
+
+=== STEP 238 ===
+Alive=13, Dead=12, TotalEnergy=1202, Messages=0
+  Group 0: leader=N11(E=266) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=166) members=[7, 8, 5]
+  Group 2: leader=N4(E=66) members=[4, 1, 2]
+  Group 3: leader=N15(E=20) members=[15]
+  Group 4: leader=N18(E=72) members=[18]
+  Group 5: leader=N25(E=12) members=[25]
+  EVENT: Node 19 died (was_leader=False)
+
+=== STEP 239 ===
+Alive=13, Dead=12, TotalEnergy=1189, Messages=0
+  Group 0: leader=N11(E=265) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=165) members=[7, 8, 5]
+  Group 2: leader=N4(E=65) members=[4, 1, 2]
+  Group 3: leader=N15(E=19) members=[15]
+  Group 4: leader=N18(E=71) members=[18]
+  Group 5: leader=N25(E=11) members=[25]
+
+=== STEP 240 ===
+Alive=13, Dead=12, TotalEnergy=1176, Messages=0
+  Group 0: leader=N11(E=264) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=164) members=[7, 8, 5]
+  Group 2: leader=N4(E=64) members=[4, 1, 2]
+  Group 3: leader=N15(E=18) members=[15]
+  Group 4: leader=N18(E=70) members=[18]
+  Group 5: leader=N25(E=10) members=[25]
+
+=== STEP 241 ===
+Alive=13, Dead=12, TotalEnergy=1157, Messages=3
+  Group 0: leader=N11(E=261) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=161) members=[7, 8, 5]
+  Group 2: leader=N4(E=61) members=[4, 1, 2]
+  Group 3: leader=N15(E=17) members=[15]
+  Group 4: leader=N18(E=69) members=[18]
+  Group 5: leader=N25(E=9) members=[25]
+
+=== STEP 242 ===
+Alive=13, Dead=12, TotalEnergy=1144, Messages=0
+  Group 0: leader=N11(E=260) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=160) members=[7, 8, 5]
+  Group 2: leader=N4(E=60) members=[4, 1, 2]
+  Group 3: leader=N15(E=16) members=[15]
+  Group 4: leader=N18(E=68) members=[18]
+  Group 5: leader=N25(E=8) members=[25]
+
+=== STEP 243 ===
+Alive=13, Dead=12, TotalEnergy=1131, Messages=0
+  Group 0: leader=N11(E=259) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=159) members=[7, 8, 5]
+  Group 2: leader=N4(E=59) members=[4, 1, 2]
+  Group 3: leader=N15(E=15) members=[15]
+  Group 4: leader=N18(E=67) members=[18]
+  Group 5: leader=N25(E=7) members=[25]
+
+=== STEP 244 ===
+Alive=13, Dead=12, TotalEnergy=1118, Messages=0
+  Group 0: leader=N11(E=258) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=158) members=[7, 8, 5]
+  Group 2: leader=N4(E=58) members=[4, 1, 2]
+  Group 3: leader=N15(E=14) members=[15]
+  Group 4: leader=N18(E=66) members=[18]
+  Group 5: leader=N25(E=6) members=[25]
+
+=== STEP 245 ===
+Alive=13, Dead=12, TotalEnergy=1105, Messages=0
+  Group 0: leader=N11(E=257) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=157) members=[7, 8, 5]
+  Group 2: leader=N4(E=57) members=[4, 1, 2]
+  Group 3: leader=N15(E=13) members=[15]
+  Group 4: leader=N18(E=65) members=[18]
+  Group 5: leader=N25(E=5) members=[25]
+
+=== STEP 246 ===
+Alive=13, Dead=12, TotalEnergy=1086, Messages=3
+  Group 0: leader=N11(E=254) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=154) members=[7, 8, 5]
+  Group 2: leader=N4(E=54) members=[4, 1, 2]
+  Group 3: leader=N15(E=12) members=[15]
+  Group 4: leader=N18(E=64) members=[18]
+  Group 5: leader=N25(E=4) members=[25]
+
+=== STEP 247 ===
+Alive=13, Dead=12, TotalEnergy=1073, Messages=0
+  Group 0: leader=N11(E=253) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=153) members=[7, 8, 5]
+  Group 2: leader=N4(E=53) members=[4, 1, 2]
+  Group 3: leader=N15(E=11) members=[15]
+  Group 4: leader=N18(E=63) members=[18]
+  Group 5: leader=N25(E=3) members=[25]
+
+=== STEP 248 ===
+Alive=12, Dead=13, TotalEnergy=1060, Messages=0
+  Group 0: leader=N11(E=252) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=152) members=[7, 8, 5]
+  Group 2: leader=N4(E=52) members=[4, 1]
+  Group 3: leader=N15(E=10) members=[15]
+  Group 4: leader=N18(E=62) members=[18]
+  Group 5: leader=N25(E=2) members=[25]
+  EVENT: Node 2 died (was_leader=False)
+
+=== STEP 249 ===
+Alive=12, Dead=13, TotalEnergy=1048, Messages=0
+  Group 0: leader=N11(E=251) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=151) members=[7, 8, 5]
+  Group 2: leader=N4(E=51) members=[4, 1]
+  Group 3: leader=N15(E=9) members=[15]
+  Group 4: leader=N18(E=61) members=[18]
+  Group 5: leader=N25(E=1) members=[25]
+
+=== STEP 250 ===
+Alive=11, Dead=14, TotalEnergy=1036, Messages=0
+  Group 0: leader=N11(E=250) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=150) members=[7, 8, 5]
+  Group 2: leader=N4(E=50) members=[4, 1]
+  Group 3: leader=N15(E=8) members=[15]
+  Group 4: leader=N18(E=60) members=[18]
+  EVENT: Node 25 died (was_leader=True)
+  EVENT: Group 5 dissolved (no alive members)
+
+=== STEP 251 ===
+Alive=11, Dead=14, TotalEnergy=1019, Messages=3
+  Group 0: leader=N11(E=247) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=147) members=[7, 8, 5]
+  Group 2: leader=N4(E=47) members=[4, 1]
+  Group 3: leader=N15(E=7) members=[15]
+  Group 4: leader=N18(E=59) members=[18]
+
+=== STEP 252 ===
+Alive=11, Dead=14, TotalEnergy=1008, Messages=0
+  Group 0: leader=N11(E=246) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=146) members=[7, 8, 5]
+  Group 2: leader=N4(E=46) members=[4, 1]
+  Group 3: leader=N15(E=6) members=[15]
+  Group 4: leader=N18(E=58) members=[18]
+
+=== STEP 253 ===
+Alive=11, Dead=14, TotalEnergy=997, Messages=0
+  Group 0: leader=N11(E=245) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=145) members=[7, 8, 5]
+  Group 2: leader=N4(E=45) members=[4, 1]
+  Group 3: leader=N15(E=5) members=[15]
+  Group 4: leader=N18(E=57) members=[18]
+
+=== STEP 254 ===
+Alive=11, Dead=14, TotalEnergy=986, Messages=0
+  Group 0: leader=N11(E=244) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=144) members=[7, 8, 5]
+  Group 2: leader=N4(E=44) members=[4, 1]
+  Group 3: leader=N15(E=4) members=[15]
+  Group 4: leader=N18(E=56) members=[18]
+
+=== STEP 255 ===
+Alive=11, Dead=14, TotalEnergy=975, Messages=0
+  Group 0: leader=N11(E=243) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=143) members=[7, 8, 5]
+  Group 2: leader=N4(E=43) members=[4, 1]
+  Group 3: leader=N15(E=3) members=[15]
+  Group 4: leader=N18(E=55) members=[18]
+
+=== STEP 256 ===
+Alive=11, Dead=14, TotalEnergy=958, Messages=3
+  Group 0: leader=N11(E=240) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=140) members=[7, 8, 5]
+  Group 2: leader=N4(E=40) members=[4, 1]
+  Group 3: leader=N15(E=2) members=[15]
+  Group 4: leader=N18(E=54) members=[18]
+
+=== STEP 257 ===
+Alive=11, Dead=14, TotalEnergy=947, Messages=0
+  Group 0: leader=N11(E=239) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=139) members=[7, 8, 5]
+  Group 2: leader=N4(E=39) members=[4, 1]
+  Group 3: leader=N15(E=1) members=[15]
+  Group 4: leader=N18(E=53) members=[18]
+
+=== STEP 258 ===
+Alive=10, Dead=15, TotalEnergy=936, Messages=0
+  Group 0: leader=N11(E=238) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=138) members=[7, 8, 5]
+  Group 2: leader=N4(E=38) members=[4, 1]
+  Group 4: leader=N18(E=52) members=[18]
+  EVENT: Node 15 died (was_leader=True)
+  EVENT: Group 3 dissolved (no alive members)
+
+=== STEP 259 ===
+Alive=10, Dead=15, TotalEnergy=926, Messages=0
+  Group 0: leader=N11(E=237) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=137) members=[7, 8, 5]
+  Group 2: leader=N4(E=37) members=[4, 1]
+  Group 4: leader=N18(E=51) members=[18]
+
+=== STEP 260 ===
+Alive=10, Dead=15, TotalEnergy=916, Messages=0
+  Group 0: leader=N11(E=236) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=136) members=[7, 8, 5]
+  Group 2: leader=N4(E=36) members=[4, 1]
+  Group 4: leader=N18(E=50) members=[18]
+
+=== STEP 261 ===
+Alive=10, Dead=15, TotalEnergy=900, Messages=3
+  Group 0: leader=N11(E=233) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=133) members=[7, 8, 5]
+  Group 2: leader=N4(E=33) members=[4, 1]
+  Group 4: leader=N18(E=49) members=[18]
+
+=== STEP 262 ===
+Alive=10, Dead=15, TotalEnergy=890, Messages=0
+  Group 0: leader=N11(E=232) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=132) members=[7, 8, 5]
+  Group 2: leader=N4(E=32) members=[4, 1]
+  Group 4: leader=N18(E=48) members=[18]
+
+=== STEP 263 ===
+Alive=10, Dead=15, TotalEnergy=880, Messages=0
+  Group 0: leader=N11(E=231) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=131) members=[7, 8, 5]
+  Group 2: leader=N4(E=31) members=[4, 1]
+  Group 4: leader=N18(E=47) members=[18]
+
+=== STEP 264 ===
+Alive=10, Dead=15, TotalEnergy=870, Messages=0
+  Group 0: leader=N11(E=230) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=130) members=[7, 8, 5]
+  Group 2: leader=N4(E=30) members=[4, 1]
+  Group 4: leader=N18(E=46) members=[18]
+
+=== STEP 265 ===
+Alive=10, Dead=15, TotalEnergy=860, Messages=0
+  Group 0: leader=N11(E=229) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=129) members=[7, 8, 5]
+  Group 2: leader=N4(E=29) members=[4, 1]
+  Group 4: leader=N18(E=45) members=[18]
+
+=== STEP 266 ===
+Alive=10, Dead=15, TotalEnergy=844, Messages=3
+  Group 0: leader=N11(E=226) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=126) members=[7, 8, 5]
+  Group 2: leader=N4(E=26) members=[4, 1]
+  Group 4: leader=N18(E=44) members=[18]
+
+=== STEP 267 ===
+Alive=10, Dead=15, TotalEnergy=834, Messages=0
+  Group 0: leader=N11(E=225) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=125) members=[7, 8, 5]
+  Group 2: leader=N4(E=25) members=[4, 1]
+  Group 4: leader=N18(E=43) members=[18]
+
+=== STEP 268 ===
+Alive=10, Dead=15, TotalEnergy=824, Messages=0
+  Group 0: leader=N11(E=224) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=124) members=[7, 8, 5]
+  Group 2: leader=N4(E=24) members=[4, 1]
+  Group 4: leader=N18(E=42) members=[18]
+
+=== STEP 269 ===
+Alive=10, Dead=15, TotalEnergy=814, Messages=0
+  Group 0: leader=N11(E=223) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=123) members=[7, 8, 5]
+  Group 2: leader=N4(E=23) members=[4, 1]
+  Group 4: leader=N18(E=41) members=[18]
+
+=== STEP 270 ===
+Alive=10, Dead=15, TotalEnergy=804, Messages=0
+  Group 0: leader=N11(E=222) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=122) members=[7, 8, 5]
+  Group 2: leader=N4(E=22) members=[4, 1]
+  Group 4: leader=N18(E=40) members=[18]
+
+=== STEP 271 ===
+Alive=10, Dead=15, TotalEnergy=788, Messages=3
+  Group 0: leader=N11(E=219) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=119) members=[7, 8, 5]
+  Group 2: leader=N4(E=19) members=[4, 1]
+  Group 4: leader=N18(E=39) members=[18]
+
+=== STEP 272 ===
+Alive=10, Dead=15, TotalEnergy=778, Messages=0
+  Group 0: leader=N11(E=218) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=118) members=[7, 8, 5]
+  Group 2: leader=N4(E=18) members=[4, 1]
+  Group 4: leader=N18(E=38) members=[18]
+
+=== STEP 273 ===
+Alive=10, Dead=15, TotalEnergy=768, Messages=0
+  Group 0: leader=N11(E=217) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=117) members=[7, 8, 5]
+  Group 2: leader=N4(E=17) members=[4, 1]
+  Group 4: leader=N18(E=37) members=[18]
+
+=== STEP 274 ===
+Alive=10, Dead=15, TotalEnergy=758, Messages=0
+  Group 0: leader=N11(E=216) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=116) members=[7, 8, 5]
+  Group 2: leader=N4(E=16) members=[4, 1]
+  Group 4: leader=N18(E=36) members=[18]
+
+=== STEP 275 ===
+Alive=10, Dead=15, TotalEnergy=748, Messages=0
+  Group 0: leader=N11(E=215) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=115) members=[7, 8, 5]
+  Group 2: leader=N4(E=15) members=[4, 1]
+  Group 4: leader=N18(E=35) members=[18]
+
+=== STEP 276 ===
+Alive=10, Dead=15, TotalEnergy=732, Messages=3
+  Group 0: leader=N11(E=212) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=112) members=[7, 8, 5]
+  Group 2: leader=N4(E=12) members=[4, 1]
+  Group 4: leader=N18(E=34) members=[18]
+
+=== STEP 277 ===
+Alive=10, Dead=15, TotalEnergy=722, Messages=0
+  Group 0: leader=N11(E=211) members=[11, 21, 20, 13]
+  Group 1: leader=N7(E=111) members=[7, 8, 5]
+  Group 2: leader=N4(E=11) members=[4, 1]
+  Group 4: leader=N18(E=33) members=[18]
+
+=== STEP 278 ===
+Alive=9, Dead=16, TotalEnergy=712, Messages=0
+  Group 0: leader=N11(E=210) members=[11, 21, 20]
+  Group 1: leader=N7(E=110) members=[7, 8, 5]
+  Group 2: leader=N4(E=10) members=[4, 1]
+  Group 4: leader=N18(E=32) members=[18]
+  EVENT: Node 13 died (was_leader=False)
+
+=== STEP 279 ===
+Alive=9, Dead=16, TotalEnergy=703, Messages=0
+  Group 0: leader=N11(E=209) members=[11, 21, 20]
+  Group 1: leader=N7(E=109) members=[7, 8, 5]
+  Group 2: leader=N4(E=9) members=[4, 1]
+  Group 4: leader=N18(E=31) members=[18]
+
+=== STEP 280 ===
+Alive=9, Dead=16, TotalEnergy=694, Messages=0
+  Group 0: leader=N11(E=208) members=[11, 21, 20]
+  Group 1: leader=N7(E=108) members=[7, 8, 5]
+  Group 2: leader=N4(E=8) members=[4, 1]
+  Group 4: leader=N18(E=30) members=[18]
+
+=== STEP 281 ===
+Alive=9, Dead=16, TotalEnergy=679, Messages=3
+  Group 0: leader=N11(E=205) members=[11, 21, 20]
+  Group 1: leader=N7(E=105) members=[7, 8, 5]
+  Group 2: leader=N4(E=5) members=[4, 1]
+  Group 4: leader=N18(E=29) members=[18]
+
+=== STEP 282 ===
+Alive=9, Dead=16, TotalEnergy=670, Messages=0
+  Group 0: leader=N11(E=204) members=[11, 21, 20]
+  Group 1: leader=N7(E=104) members=[7, 8, 5]
+  Group 2: leader=N4(E=4) members=[4, 1]
+  Group 4: leader=N18(E=28) members=[18]
+
+=== STEP 283 ===
+Alive=9, Dead=16, TotalEnergy=661, Messages=0
+  Group 0: leader=N11(E=203) members=[11, 21, 20]
+  Group 1: leader=N7(E=103) members=[7, 8, 5]
+  Group 2: leader=N4(E=3) members=[4, 1]
+  Group 4: leader=N18(E=27) members=[18]
+
+=== STEP 284 ===
+Alive=9, Dead=16, TotalEnergy=652, Messages=0
+  Group 0: leader=N11(E=202) members=[11, 21, 20]
+  Group 1: leader=N7(E=102) members=[7, 8, 5]
+  Group 2: leader=N4(E=2) members=[4, 1]
+  Group 4: leader=N18(E=26) members=[18]
+
+=== STEP 285 ===
+Alive=9, Dead=16, TotalEnergy=643, Messages=0
+  Group 0: leader=N11(E=201) members=[11, 21, 20]
+  Group 1: leader=N7(E=101) members=[7, 8, 5]
+  Group 2: leader=N4(E=1) members=[4, 1]
+  Group 4: leader=N18(E=25) members=[18]
+
+=== STEP 286 ===
+Alive=8, Dead=17, TotalEnergy=630, Messages=3
+  Group 0: leader=N11(E=198) members=[11, 21, 20]
+  Group 1: leader=N7(E=98) members=[7, 8, 5]
+  Group 2: leader=N1(E=12) members=[1]
+  Group 4: leader=N18(E=24) members=[18]
+  EVENT: Node 4 died (was_leader=True)
+  EVENT: Election in G2 → new leader N1 (E=12)
+
+=== STEP 287 ===
+Alive=8, Dead=17, TotalEnergy=622, Messages=0
+  Group 0: leader=N11(E=197) members=[11, 21, 20]
+  Group 1: leader=N7(E=97) members=[7, 8, 5]
+  Group 2: leader=N1(E=11) members=[1]
+  Group 4: leader=N18(E=23) members=[18]
+
+=== STEP 288 ===
+Alive=7, Dead=18, TotalEnergy=614, Messages=0
+  Group 0: leader=N11(E=196) members=[11, 21]
+  Group 1: leader=N7(E=96) members=[7, 8, 5]
+  Group 2: leader=N1(E=10) members=[1]
+  Group 4: leader=N18(E=22) members=[18]
+  EVENT: Node 20 died (was_leader=False)
+
+=== STEP 289 ===
+Alive=7, Dead=18, TotalEnergy=607, Messages=0
+  Group 0: leader=N11(E=195) members=[11, 21]
+  Group 1: leader=N7(E=95) members=[7, 8, 5]
+  Group 2: leader=N1(E=9) members=[1]
+  Group 4: leader=N18(E=21) members=[18]
+
+=== STEP 290 ===
+Alive=7, Dead=18, TotalEnergy=600, Messages=0
+  Group 0: leader=N11(E=194) members=[11, 21]
+  Group 1: leader=N7(E=94) members=[7, 8, 5]
+  Group 2: leader=N1(E=8) members=[1]
+  Group 4: leader=N18(E=20) members=[18]
+
+=== STEP 291 ===
+Alive=7, Dead=18, TotalEnergy=589, Messages=2
+  Group 0: leader=N11(E=191) members=[11, 21]
+  Group 1: leader=N7(E=91) members=[7, 8, 5]
+  Group 2: leader=N1(E=7) members=[1]
+  Group 4: leader=N18(E=19) members=[18]
+
+=== STEP 292 ===
+Alive=7, Dead=18, TotalEnergy=582, Messages=0
+  Group 0: leader=N11(E=190) members=[11, 21]
+  Group 1: leader=N7(E=90) members=[7, 8, 5]
+  Group 2: leader=N1(E=6) members=[1]
+  Group 4: leader=N18(E=18) members=[18]
+
+=== STEP 293 ===
+Alive=7, Dead=18, TotalEnergy=575, Messages=0
+  Group 0: leader=N11(E=189) members=[11, 21]
+  Group 1: leader=N7(E=89) members=[7, 8, 5]
+  Group 2: leader=N1(E=5) members=[1]
+  Group 4: leader=N18(E=17) members=[18]
+
+=== STEP 294 ===
+Alive=7, Dead=18, TotalEnergy=568, Messages=0
+  Group 0: leader=N11(E=188) members=[11, 21]
+  Group 1: leader=N7(E=88) members=[7, 8, 5]
+  Group 2: leader=N1(E=4) members=[1]
+  Group 4: leader=N18(E=16) members=[18]
+
+=== STEP 295 ===
+Alive=7, Dead=18, TotalEnergy=561, Messages=0
+  Group 0: leader=N11(E=187) members=[11, 21]
+  Group 1: leader=N7(E=87) members=[7, 8, 5]
+  Group 2: leader=N1(E=3) members=[1]
+  Group 4: leader=N18(E=15) members=[18]
+
+=== STEP 296 ===
+Alive=7, Dead=18, TotalEnergy=550, Messages=2
+  Group 0: leader=N11(E=184) members=[11, 21]
+  Group 1: leader=N7(E=84) members=[7, 8, 5]
+  Group 2: leader=N1(E=2) members=[1]
+  Group 4: leader=N18(E=14) members=[18]
+
+=== STEP 297 ===
+Alive=7, Dead=18, TotalEnergy=543, Messages=0
+  Group 0: leader=N11(E=183) members=[11, 21]
+  Group 1: leader=N7(E=83) members=[7, 8, 5]
+  Group 2: leader=N1(E=1) members=[1]
+  Group 4: leader=N18(E=13) members=[18]
+
+=== STEP 298 ===
+Alive=6, Dead=19, TotalEnergy=536, Messages=0
+  Group 0: leader=N11(E=182) members=[11, 21]
+  Group 1: leader=N7(E=82) members=[7, 8, 5]
+  Group 4: leader=N18(E=12) members=[18]
+  EVENT: Node 1 died (was_leader=True)
+  EVENT: Group 2 dissolved (no alive members)
+
+=== STEP 299 ===
+Alive=6, Dead=19, TotalEnergy=530, Messages=0
+  Group 0: leader=N11(E=181) members=[11, 21]
+  Group 1: leader=N7(E=81) members=[7, 8, 5]
+  Group 4: leader=N18(E=11) members=[18]
+
+=== STEP 300 ===
+Alive=6, Dead=19, TotalEnergy=524, Messages=0
+  Group 0: leader=N11(E=180) members=[11, 21]
+  Group 1: leader=N7(E=80) members=[7, 8, 5]
+  Group 4: leader=N18(E=10) members=[18]
+
+=== STEP 301 ===
+Alive=6, Dead=19, TotalEnergy=514, Messages=2
+  Group 0: leader=N11(E=177) members=[11, 21]
+  Group 1: leader=N7(E=77) members=[7, 8, 5]
+  Group 4: leader=N18(E=9) members=[18]
+
+=== STEP 302 ===
+Alive=6, Dead=19, TotalEnergy=508, Messages=0
+  Group 0: leader=N11(E=176) members=[11, 21]
+  Group 1: leader=N7(E=76) members=[7, 8, 5]
+  Group 4: leader=N18(E=8) members=[18]
+
+=== STEP 303 ===
+Alive=6, Dead=19, TotalEnergy=502, Messages=0
+  Group 0: leader=N11(E=175) members=[11, 21]
+  Group 1: leader=N7(E=75) members=[7, 8, 5]
+  Group 4: leader=N18(E=7) members=[18]
+
+=== STEP 304 ===
+Alive=6, Dead=19, TotalEnergy=496, Messages=0
+  Group 0: leader=N11(E=174) members=[11, 21]
+  Group 1: leader=N7(E=74) members=[7, 8, 5]
+  Group 4: leader=N18(E=6) members=[18]
+
+=== STEP 305 ===
+Alive=6, Dead=19, TotalEnergy=490, Messages=0
+  Group 0: leader=N11(E=173) members=[11, 21]
+  Group 1: leader=N7(E=73) members=[7, 8, 5]
+  Group 4: leader=N18(E=5) members=[18]
+
+=== STEP 306 ===
+Alive=6, Dead=19, TotalEnergy=480, Messages=2
+  Group 0: leader=N11(E=170) members=[11, 21]
+  Group 1: leader=N7(E=70) members=[7, 8, 5]
+  Group 4: leader=N18(E=4) members=[18]
+
+=== STEP 307 ===
+Alive=6, Dead=19, TotalEnergy=474, Messages=0
+  Group 0: leader=N11(E=169) members=[11, 21]
+  Group 1: leader=N7(E=69) members=[7, 8, 5]
+  Group 4: leader=N18(E=3) members=[18]
+
+=== STEP 308 ===
+Alive=6, Dead=19, TotalEnergy=468, Messages=0
+  Group 0: leader=N11(E=168) members=[11, 21]
+  Group 1: leader=N7(E=68) members=[7, 8, 5]
+  Group 4: leader=N18(E=2) members=[18]
+
+=== STEP 309 ===
+Alive=6, Dead=19, TotalEnergy=462, Messages=0
+  Group 0: leader=N11(E=167) members=[11, 21]
+  Group 1: leader=N7(E=67) members=[7, 8, 5]
+  Group 4: leader=N18(E=1) members=[18]
+
+=== STEP 310 ===
+Alive=5, Dead=20, TotalEnergy=456, Messages=0
+  Group 0: leader=N11(E=166) members=[11, 21]
+  Group 1: leader=N7(E=66) members=[7, 8, 5]
+  EVENT: Node 18 died (was_leader=True)
+  EVENT: Group 4 dissolved (no alive members)
+
+=== STEP 311 ===
+Alive=5, Dead=20, TotalEnergy=447, Messages=2
+  Group 0: leader=N11(E=163) members=[11, 21]
+  Group 1: leader=N7(E=63) members=[7, 8, 5]
+
+=== STEP 312 ===
+Alive=5, Dead=20, TotalEnergy=442, Messages=0
+  Group 0: leader=N11(E=162) members=[11, 21]
+  Group 1: leader=N7(E=62) members=[7, 8, 5]
+
+=== STEP 313 ===
+Alive=5, Dead=20, TotalEnergy=437, Messages=0
+  Group 0: leader=N11(E=161) members=[11, 21]
+  Group 1: leader=N7(E=61) members=[7, 8, 5]
+
+=== STEP 314 ===
+Alive=5, Dead=20, TotalEnergy=432, Messages=0
+  Group 0: leader=N11(E=160) members=[11, 21]
+  Group 1: leader=N7(E=60) members=[7, 8, 5]
+
+=== STEP 315 ===
+Alive=5, Dead=20, TotalEnergy=427, Messages=0
+  Group 0: leader=N11(E=159) members=[11, 21]
+  Group 1: leader=N7(E=59) members=[7, 8, 5]
+
+=== STEP 316 ===
+Alive=5, Dead=20, TotalEnergy=418, Messages=2
+  Group 0: leader=N11(E=156) members=[11, 21]
+  Group 1: leader=N7(E=56) members=[7, 8, 5]
+
+=== STEP 317 ===
+Alive=5, Dead=20, TotalEnergy=413, Messages=0
+  Group 0: leader=N11(E=155) members=[11, 21]
+  Group 1: leader=N7(E=55) members=[7, 8, 5]
+
+=== STEP 318 ===
+Alive=5, Dead=20, TotalEnergy=408, Messages=0
+  Group 0: leader=N11(E=154) members=[11, 21]
+  Group 1: leader=N7(E=54) members=[7, 8, 5]
+
+=== STEP 319 ===
+Alive=5, Dead=20, TotalEnergy=403, Messages=0
+  Group 0: leader=N11(E=153) members=[11, 21]
+  Group 1: leader=N7(E=53) members=[7, 8, 5]
+
+=== STEP 320 ===
+Alive=5, Dead=20, TotalEnergy=398, Messages=0
+  Group 0: leader=N11(E=152) members=[11, 21]
+  Group 1: leader=N7(E=52) members=[7, 8, 5]
+
+=== STEP 321 ===
+Alive=5, Dead=20, TotalEnergy=389, Messages=2
+  Group 0: leader=N11(E=149) members=[11, 21]
+  Group 1: leader=N7(E=49) members=[7, 8, 5]
+
+=== STEP 322 ===
+Alive=5, Dead=20, TotalEnergy=384, Messages=0
+  Group 0: leader=N11(E=148) members=[11, 21]
+  Group 1: leader=N7(E=48) members=[7, 8, 5]
+
+=== STEP 323 ===
+Alive=5, Dead=20, TotalEnergy=379, Messages=0
+  Group 0: leader=N11(E=147) members=[11, 21]
+  Group 1: leader=N7(E=47) members=[7, 8, 5]
+
+=== STEP 324 ===
+Alive=5, Dead=20, TotalEnergy=374, Messages=0
+  Group 0: leader=N11(E=146) members=[11, 21]
+  Group 1: leader=N7(E=46) members=[7, 8, 5]
+
+=== STEP 325 ===
+Alive=5, Dead=20, TotalEnergy=369, Messages=0
+  Group 0: leader=N11(E=145) members=[11, 21]
+  Group 1: leader=N7(E=45) members=[7, 8, 5]
+
+=== STEP 326 ===
+Alive=5, Dead=20, TotalEnergy=360, Messages=2
+  Group 0: leader=N11(E=142) members=[11, 21]
+  Group 1: leader=N7(E=42) members=[7, 8, 5]
+
+=== STEP 327 ===
+Alive=5, Dead=20, TotalEnergy=355, Messages=0
+  Group 0: leader=N11(E=141) members=[11, 21]
+  Group 1: leader=N7(E=41) members=[7, 8, 5]
+
+=== STEP 328 ===
+Alive=5, Dead=20, TotalEnergy=350, Messages=0
+  Group 0: leader=N11(E=140) members=[11, 21]
+  Group 1: leader=N7(E=40) members=[7, 8, 5]
+
+=== STEP 329 ===
+Alive=5, Dead=20, TotalEnergy=345, Messages=0
+  Group 0: leader=N11(E=139) members=[11, 21]
+  Group 1: leader=N7(E=39) members=[7, 8, 5]
+
+=== STEP 330 ===
+Alive=5, Dead=20, TotalEnergy=340, Messages=0
+  Group 0: leader=N11(E=138) members=[11, 21]
+  Group 1: leader=N7(E=38) members=[7, 8, 5]
+
+=== STEP 331 ===
+Alive=5, Dead=20, TotalEnergy=331, Messages=2
+  Group 0: leader=N11(E=135) members=[11, 21]
+  Group 1: leader=N7(E=35) members=[7, 8, 5]
+
+=== STEP 332 ===
+Alive=5, Dead=20, TotalEnergy=326, Messages=0
+  Group 0: leader=N11(E=134) members=[11, 21]
+  Group 1: leader=N7(E=34) members=[7, 8, 5]
+
+=== STEP 333 ===
+Alive=5, Dead=20, TotalEnergy=321, Messages=0
+  Group 0: leader=N11(E=133) members=[11, 21]
+  Group 1: leader=N7(E=33) members=[7, 8, 5]
+
+=== STEP 334 ===
+Alive=5, Dead=20, TotalEnergy=316, Messages=0
+  Group 0: leader=N11(E=132) members=[11, 21]
+  Group 1: leader=N7(E=32) members=[7, 8, 5]
+
+=== STEP 335 ===
+Alive=5, Dead=20, TotalEnergy=311, Messages=0
+  Group 0: leader=N11(E=131) members=[11, 21]
+  Group 1: leader=N7(E=31) members=[7, 8, 5]
+
+=== STEP 336 ===
+Alive=5, Dead=20, TotalEnergy=302, Messages=2
+  Group 0: leader=N11(E=128) members=[11, 21]
+  Group 1: leader=N7(E=28) members=[7, 8, 5]
+
+=== STEP 337 ===
+Alive=5, Dead=20, TotalEnergy=297, Messages=0
+  Group 0: leader=N11(E=127) members=[11, 21]
+  Group 1: leader=N7(E=27) members=[7, 8, 5]
+
+=== STEP 338 ===
+Alive=5, Dead=20, TotalEnergy=292, Messages=0
+  Group 0: leader=N11(E=126) members=[11, 21]
+  Group 1: leader=N7(E=26) members=[7, 8, 5]
+
+=== STEP 339 ===
+Alive=5, Dead=20, TotalEnergy=287, Messages=0
+  Group 0: leader=N11(E=125) members=[11, 21]
+  Group 1: leader=N7(E=25) members=[7, 8, 5]
+
+=== STEP 340 ===
+Alive=5, Dead=20, TotalEnergy=282, Messages=0
+  Group 0: leader=N11(E=124) members=[11, 21]
+  Group 1: leader=N7(E=24) members=[7, 8, 5]
+
+=== STEP 341 ===
+Alive=5, Dead=20, TotalEnergy=273, Messages=2
+  Group 0: leader=N11(E=121) members=[11, 21]
+  Group 1: leader=N7(E=21) members=[7, 8, 5]
+
+=== STEP 342 ===
+Alive=5, Dead=20, TotalEnergy=268, Messages=0
+  Group 0: leader=N11(E=120) members=[11, 21]
+  Group 1: leader=N7(E=20) members=[7, 8, 5]
+
+=== STEP 343 ===
+Alive=5, Dead=20, TotalEnergy=263, Messages=0
+  Group 0: leader=N11(E=119) members=[11, 21]
+  Group 1: leader=N7(E=19) members=[7, 8, 5]
+
+=== STEP 344 ===
+Alive=5, Dead=20, TotalEnergy=258, Messages=0
+  Group 0: leader=N11(E=118) members=[11, 21]
+  Group 1: leader=N7(E=18) members=[7, 8, 5]
+
+=== STEP 345 ===
+Alive=5, Dead=20, TotalEnergy=253, Messages=0
+  Group 0: leader=N11(E=117) members=[11, 21]
+  Group 1: leader=N7(E=17) members=[7, 8, 5]
+
+=== STEP 346 ===
+Alive=5, Dead=20, TotalEnergy=244, Messages=2
+  Group 0: leader=N11(E=114) members=[11, 21]
+  Group 1: leader=N7(E=14) members=[7, 8, 5]
+
+=== STEP 347 ===
+Alive=5, Dead=20, TotalEnergy=239, Messages=0
+  Group 0: leader=N11(E=113) members=[11, 21]
+  Group 1: leader=N7(E=13) members=[7, 8, 5]
+
+=== STEP 348 ===
+Alive=4, Dead=21, TotalEnergy=234, Messages=0
+  Group 0: leader=N11(E=112) members=[11, 21]
+  Group 1: leader=N7(E=12) members=[7, 8]
+  EVENT: Node 5 died (was_leader=False)
+
+=== STEP 349 ===
+Alive=4, Dead=21, TotalEnergy=230, Messages=0
+  Group 0: leader=N11(E=111) members=[11, 21]
+  Group 1: leader=N7(E=11) members=[7, 8]
+
+=== STEP 350 ===
+Alive=4, Dead=21, TotalEnergy=226, Messages=0
+  Group 0: leader=N11(E=110) members=[11, 21]
+  Group 1: leader=N7(E=10) members=[7, 8]
+
+=== STEP 351 ===
+Alive=4, Dead=21, TotalEnergy=218, Messages=2
+  Group 0: leader=N11(E=107) members=[11, 21]
+  Group 1: leader=N7(E=7) members=[7, 8]
+
+=== STEP 352 ===
+Alive=4, Dead=21, TotalEnergy=214, Messages=0
+  Group 0: leader=N11(E=106) members=[11, 21]
+  Group 1: leader=N7(E=6) members=[7, 8]
+
+=== STEP 353 ===
+Alive=4, Dead=21, TotalEnergy=210, Messages=0
+  Group 0: leader=N11(E=105) members=[11, 21]
+  Group 1: leader=N7(E=5) members=[7, 8]
+
+=== STEP 354 ===
+Alive=4, Dead=21, TotalEnergy=206, Messages=0
+  Group 0: leader=N11(E=104) members=[11, 21]
+  Group 1: leader=N7(E=4) members=[7, 8]
+
+=== STEP 355 ===
+Alive=4, Dead=21, TotalEnergy=202, Messages=0
+  Group 0: leader=N11(E=103) members=[11, 21]
+  Group 1: leader=N7(E=3) members=[7, 8]
+
+=== STEP 356 ===
+Alive=3, Dead=22, TotalEnergy=194, Messages=2
+  Group 0: leader=N11(E=100) members=[11, 21]
+  Group 1: leader=N8(E=92) members=[8]
+  EVENT: Node 7 died (was_leader=True)
+  EVENT: Election in G1 → new leader N8 (E=92)
+
+=== STEP 357 ===
+Alive=3, Dead=22, TotalEnergy=191, Messages=0
+  Group 0: leader=N11(E=99) members=[11, 21]
+  Group 1: leader=N8(E=91) members=[8]
+
+=== STEP 358 ===
+Alive=2, Dead=23, TotalEnergy=188, Messages=0
+  Group 0: leader=N11(E=98) members=[11]
+  Group 1: leader=N8(E=90) members=[8]
+  EVENT: Node 21 died (was_leader=False)
+
+=== STEP 359 ===
+Alive=2, Dead=23, TotalEnergy=186, Messages=0
+  Group 0: leader=N11(E=97) members=[11]
+  Group 1: leader=N8(E=89) members=[8]
+
+=== STEP 360 ===
+Alive=2, Dead=23, TotalEnergy=184, Messages=0
+  Group 0: leader=N11(E=96) members=[11]
+  Group 1: leader=N8(E=88) members=[8]
+
+=== STEP 361 ===
+Alive=2, Dead=23, TotalEnergy=182, Messages=0
+  Group 0: leader=N11(E=95) members=[11]
+  Group 1: leader=N8(E=87) members=[8]
+
+=== STEP 362 ===
+Alive=2, Dead=23, TotalEnergy=180, Messages=0
+  Group 0: leader=N11(E=94) members=[11]
+  Group 1: leader=N8(E=86) members=[8]
+
+=== STEP 363 ===
+Alive=2, Dead=23, TotalEnergy=178, Messages=0
+  Group 0: leader=N11(E=93) members=[11]
+  Group 1: leader=N8(E=85) members=[8]
+
+=== STEP 364 ===
+Alive=2, Dead=23, TotalEnergy=176, Messages=0
+  Group 0: leader=N11(E=92) members=[11]
+  Group 1: leader=N8(E=84) members=[8]
+
+=== STEP 365 ===
+Alive=2, Dead=23, TotalEnergy=174, Messages=0
+  Group 0: leader=N11(E=91) members=[11]
+  Group 1: leader=N8(E=83) members=[8]
+
+=== STEP 366 ===
+Alive=2, Dead=23, TotalEnergy=172, Messages=0
+  Group 0: leader=N11(E=90) members=[11]
+  Group 1: leader=N8(E=82) members=[8]
+
+=== STEP 367 ===
+Alive=2, Dead=23, TotalEnergy=170, Messages=0
+  Group 0: leader=N11(E=89) members=[11]
+  Group 1: leader=N8(E=81) members=[8]
+
+=== STEP 368 ===
+Alive=2, Dead=23, TotalEnergy=168, Messages=0
+  Group 0: leader=N11(E=88) members=[11]
+  Group 1: leader=N8(E=80) members=[8]
+
+=== STEP 369 ===
+Alive=2, Dead=23, TotalEnergy=166, Messages=0
+  Group 0: leader=N11(E=87) members=[11]
+  Group 1: leader=N8(E=79) members=[8]
+
+=== STEP 370 ===
+Alive=2, Dead=23, TotalEnergy=164, Messages=0
+  Group 0: leader=N11(E=86) members=[11]
+  Group 1: leader=N8(E=78) members=[8]
+
+=== STEP 371 ===
+Alive=2, Dead=23, TotalEnergy=162, Messages=0
+  Group 0: leader=N11(E=85) members=[11]
+  Group 1: leader=N8(E=77) members=[8]
+
+=== STEP 372 ===
+Alive=2, Dead=23, TotalEnergy=160, Messages=0
+  Group 0: leader=N11(E=84) members=[11]
+  Group 1: leader=N8(E=76) members=[8]
+
+=== STEP 373 ===
+Alive=2, Dead=23, TotalEnergy=158, Messages=0
+  Group 0: leader=N11(E=83) members=[11]
+  Group 1: leader=N8(E=75) members=[8]
+
+=== STEP 374 ===
+Alive=2, Dead=23, TotalEnergy=156, Messages=0
+  Group 0: leader=N11(E=82) members=[11]
+  Group 1: leader=N8(E=74) members=[8]
+
+=== STEP 375 ===
+Alive=2, Dead=23, TotalEnergy=154, Messages=0
+  Group 0: leader=N11(E=81) members=[11]
+  Group 1: leader=N8(E=73) members=[8]
+
+=== STEP 376 ===
+Alive=2, Dead=23, TotalEnergy=152, Messages=0
+  Group 0: leader=N11(E=80) members=[11]
+  Group 1: leader=N8(E=72) members=[8]
+
+=== STEP 377 ===
+Alive=2, Dead=23, TotalEnergy=150, Messages=0
+  Group 0: leader=N11(E=79) members=[11]
+  Group 1: leader=N8(E=71) members=[8]
+
+=== STEP 378 ===
+Alive=2, Dead=23, TotalEnergy=148, Messages=0
+  Group 0: leader=N11(E=78) members=[11]
+  Group 1: leader=N8(E=70) members=[8]
+
+=== STEP 379 ===
+Alive=2, Dead=23, TotalEnergy=146, Messages=0
+  Group 0: leader=N11(E=77) members=[11]
+  Group 1: leader=N8(E=69) members=[8]
+
+=== STEP 380 ===
+Alive=2, Dead=23, TotalEnergy=144, Messages=0
+  Group 0: leader=N11(E=76) members=[11]
+  Group 1: leader=N8(E=68) members=[8]
+
+=== STEP 381 ===
+Alive=2, Dead=23, TotalEnergy=142, Messages=0
+  Group 0: leader=N11(E=75) members=[11]
+  Group 1: leader=N8(E=67) members=[8]
+
+=== STEP 382 ===
+Alive=2, Dead=23, TotalEnergy=140, Messages=0
+  Group 0: leader=N11(E=74) members=[11]
+  Group 1: leader=N8(E=66) members=[8]
+
+=== STEP 383 ===
+Alive=2, Dead=23, TotalEnergy=138, Messages=0
+  Group 0: leader=N11(E=73) members=[11]
+  Group 1: leader=N8(E=65) members=[8]
+
+=== STEP 384 ===
+Alive=2, Dead=23, TotalEnergy=136, Messages=0
+  Group 0: leader=N11(E=72) members=[11]
+  Group 1: leader=N8(E=64) members=[8]
+
+=== STEP 385 ===
+Alive=2, Dead=23, TotalEnergy=134, Messages=0
+  Group 0: leader=N11(E=71) members=[11]
+  Group 1: leader=N8(E=63) members=[8]
+
+=== STEP 386 ===
+Alive=2, Dead=23, TotalEnergy=132, Messages=0
+  Group 0: leader=N11(E=70) members=[11]
+  Group 1: leader=N8(E=62) members=[8]
+
+=== STEP 387 ===
+Alive=2, Dead=23, TotalEnergy=130, Messages=0
+  Group 0: leader=N11(E=69) members=[11]
+  Group 1: leader=N8(E=61) members=[8]
+
+=== STEP 388 ===
+Alive=2, Dead=23, TotalEnergy=128, Messages=0
+  Group 0: leader=N11(E=68) members=[11]
+  Group 1: leader=N8(E=60) members=[8]
+
+=== STEP 389 ===
+Alive=2, Dead=23, TotalEnergy=126, Messages=0
+  Group 0: leader=N11(E=67) members=[11]
+  Group 1: leader=N8(E=59) members=[8]
+
+=== STEP 390 ===
+Alive=2, Dead=23, TotalEnergy=124, Messages=0
+  Group 0: leader=N11(E=66) members=[11]
+  Group 1: leader=N8(E=58) members=[8]
+
+=== STEP 391 ===
+Alive=2, Dead=23, TotalEnergy=122, Messages=0
+  Group 0: leader=N11(E=65) members=[11]
+  Group 1: leader=N8(E=57) members=[8]
+
+=== STEP 392 ===
+Alive=2, Dead=23, TotalEnergy=120, Messages=0
+  Group 0: leader=N11(E=64) members=[11]
+  Group 1: leader=N8(E=56) members=[8]
+
+=== STEP 393 ===
+Alive=2, Dead=23, TotalEnergy=118, Messages=0
+  Group 0: leader=N11(E=63) members=[11]
+  Group 1: leader=N8(E=55) members=[8]
+
+=== STEP 394 ===
+Alive=2, Dead=23, TotalEnergy=116, Messages=0
+  Group 0: leader=N11(E=62) members=[11]
+  Group 1: leader=N8(E=54) members=[8]
+
+=== STEP 395 ===
+Alive=2, Dead=23, TotalEnergy=114, Messages=0
+  Group 0: leader=N11(E=61) members=[11]
+  Group 1: leader=N8(E=53) members=[8]
+
+=== STEP 396 ===
+Alive=2, Dead=23, TotalEnergy=112, Messages=0
+  Group 0: leader=N11(E=60) members=[11]
+  Group 1: leader=N8(E=52) members=[8]
+
+=== STEP 397 ===
+Alive=2, Dead=23, TotalEnergy=110, Messages=0
+  Group 0: leader=N11(E=59) members=[11]
+  Group 1: leader=N8(E=51) members=[8]
+
+=== STEP 398 ===
+Alive=2, Dead=23, TotalEnergy=108, Messages=0
+  Group 0: leader=N11(E=58) members=[11]
+  Group 1: leader=N8(E=50) members=[8]
+
+=== STEP 399 ===
+Alive=2, Dead=23, TotalEnergy=106, Messages=0
+  Group 0: leader=N11(E=57) members=[11]
+  Group 1: leader=N8(E=49) members=[8]
+
+=== STEP 400 ===
+Alive=2, Dead=23, TotalEnergy=104, Messages=0
+  Group 0: leader=N11(E=56) members=[11]
+  Group 1: leader=N8(E=48) members=[8]
+
+=== STEP 401 ===
+Alive=2, Dead=23, TotalEnergy=102, Messages=0
+  Group 0: leader=N11(E=55) members=[11]
+  Group 1: leader=N8(E=47) members=[8]
+
+=== STEP 402 ===
+Alive=2, Dead=23, TotalEnergy=100, Messages=0
+  Group 0: leader=N11(E=54) members=[11]
+  Group 1: leader=N8(E=46) members=[8]
+
+=== STEP 403 ===
+Alive=2, Dead=23, TotalEnergy=98, Messages=0
+  Group 0: leader=N11(E=53) members=[11]
+  Group 1: leader=N8(E=45) members=[8]
+
+=== STEP 404 ===
+Alive=2, Dead=23, TotalEnergy=96, Messages=0
+  Group 0: leader=N11(E=52) members=[11]
+  Group 1: leader=N8(E=44) members=[8]
+
+=== STEP 405 ===
+Alive=2, Dead=23, TotalEnergy=94, Messages=0
+  Group 0: leader=N11(E=51) members=[11]
+  Group 1: leader=N8(E=43) members=[8]
+
+=== STEP 406 ===
+Alive=2, Dead=23, TotalEnergy=92, Messages=0
+  Group 0: leader=N11(E=50) members=[11]
+  Group 1: leader=N8(E=42) members=[8]
+
+=== STEP 407 ===
+Alive=2, Dead=23, TotalEnergy=90, Messages=0
+  Group 0: leader=N11(E=49) members=[11]
+  Group 1: leader=N8(E=41) members=[8]
+
+=== STEP 408 ===
+Alive=2, Dead=23, TotalEnergy=88, Messages=0
+  Group 0: leader=N11(E=48) members=[11]
+  Group 1: leader=N8(E=40) members=[8]
+
+=== STEP 409 ===
+Alive=2, Dead=23, TotalEnergy=86, Messages=0
+  Group 0: leader=N11(E=47) members=[11]
+  Group 1: leader=N8(E=39) members=[8]
+
+=== STEP 410 ===
+Alive=2, Dead=23, TotalEnergy=84, Messages=0
+  Group 0: leader=N11(E=46) members=[11]
+  Group 1: leader=N8(E=38) members=[8]
+
+=== STEP 411 ===
+Alive=2, Dead=23, TotalEnergy=82, Messages=0
+  Group 0: leader=N11(E=45) members=[11]
+  Group 1: leader=N8(E=37) members=[8]
+
+=== STEP 412 ===
+Alive=2, Dead=23, TotalEnergy=80, Messages=0
+  Group 0: leader=N11(E=44) members=[11]
+  Group 1: leader=N8(E=36) members=[8]
+
+=== STEP 413 ===
+Alive=2, Dead=23, TotalEnergy=78, Messages=0
+  Group 0: leader=N11(E=43) members=[11]
+  Group 1: leader=N8(E=35) members=[8]
+
+=== STEP 414 ===
+Alive=2, Dead=23, TotalEnergy=76, Messages=0
+  Group 0: leader=N11(E=42) members=[11]
+  Group 1: leader=N8(E=34) members=[8]
+
+=== STEP 415 ===
+Alive=2, Dead=23, TotalEnergy=74, Messages=0
+  Group 0: leader=N11(E=41) members=[11]
+  Group 1: leader=N8(E=33) members=[8]
+
+=== STEP 416 ===
+Alive=2, Dead=23, TotalEnergy=72, Messages=0
+  Group 0: leader=N11(E=40) members=[11]
+  Group 1: leader=N8(E=32) members=[8]
+
+=== STEP 417 ===
+Alive=2, Dead=23, TotalEnergy=70, Messages=0
+  Group 0: leader=N11(E=39) members=[11]
+  Group 1: leader=N8(E=31) members=[8]
+
+=== STEP 418 ===
+Alive=2, Dead=23, TotalEnergy=68, Messages=0
+  Group 0: leader=N11(E=38) members=[11]
+  Group 1: leader=N8(E=30) members=[8]
+
+=== STEP 419 ===
+Alive=2, Dead=23, TotalEnergy=66, Messages=0
+  Group 0: leader=N11(E=37) members=[11]
+  Group 1: leader=N8(E=29) members=[8]
+
+=== STEP 420 ===
+Alive=2, Dead=23, TotalEnergy=64, Messages=0
+  Group 0: leader=N11(E=36) members=[11]
+  Group 1: leader=N8(E=28) members=[8]
+
+=== STEP 421 ===
+Alive=2, Dead=23, TotalEnergy=62, Messages=0
+  Group 0: leader=N11(E=35) members=[11]
+  Group 1: leader=N8(E=27) members=[8]
+
+=== STEP 422 ===
+Alive=2, Dead=23, TotalEnergy=60, Messages=0
+  Group 0: leader=N11(E=34) members=[11]
+  Group 1: leader=N8(E=26) members=[8]
+
+=== STEP 423 ===
+Alive=2, Dead=23, TotalEnergy=58, Messages=0
+  Group 0: leader=N11(E=33) members=[11]
+  Group 1: leader=N8(E=25) members=[8]
+
+=== STEP 424 ===
+Alive=2, Dead=23, TotalEnergy=56, Messages=0
+  Group 0: leader=N11(E=32) members=[11]
+  Group 1: leader=N8(E=24) members=[8]
+
+=== STEP 425 ===
+Alive=2, Dead=23, TotalEnergy=54, Messages=0
+  Group 0: leader=N11(E=31) members=[11]
+  Group 1: leader=N8(E=23) members=[8]
+
+=== STEP 426 ===
+Alive=2, Dead=23, TotalEnergy=52, Messages=0
+  Group 0: leader=N11(E=30) members=[11]
+  Group 1: leader=N8(E=22) members=[8]
+
+=== STEP 427 ===
+Alive=2, Dead=23, TotalEnergy=50, Messages=0
+  Group 0: leader=N11(E=29) members=[11]
+  Group 1: leader=N8(E=21) members=[8]
+
+=== STEP 428 ===
+Alive=2, Dead=23, TotalEnergy=48, Messages=0
+  Group 0: leader=N11(E=28) members=[11]
+  Group 1: leader=N8(E=20) members=[8]
+
+=== STEP 429 ===
+Alive=2, Dead=23, TotalEnergy=46, Messages=0
+  Group 0: leader=N11(E=27) members=[11]
+  Group 1: leader=N8(E=19) members=[8]
+
+=== STEP 430 ===
+Alive=2, Dead=23, TotalEnergy=44, Messages=0
+  Group 0: leader=N11(E=26) members=[11]
+  Group 1: leader=N8(E=18) members=[8]
+
+=== STEP 431 ===
+Alive=2, Dead=23, TotalEnergy=42, Messages=0
+  Group 0: leader=N11(E=25) members=[11]
+  Group 1: leader=N8(E=17) members=[8]
+
+=== STEP 432 ===
+Alive=2, Dead=23, TotalEnergy=40, Messages=0
+  Group 0: leader=N11(E=24) members=[11]
+  Group 1: leader=N8(E=16) members=[8]
+
+=== STEP 433 ===
+Alive=2, Dead=23, TotalEnergy=38, Messages=0
+  Group 0: leader=N11(E=23) members=[11]
+  Group 1: leader=N8(E=15) members=[8]
+
+=== STEP 434 ===
+Alive=2, Dead=23, TotalEnergy=36, Messages=0
+  Group 0: leader=N11(E=22) members=[11]
+  Group 1: leader=N8(E=14) members=[8]
+
+=== STEP 435 ===
+Alive=2, Dead=23, TotalEnergy=34, Messages=0
+  Group 0: leader=N11(E=21) members=[11]
+  Group 1: leader=N8(E=13) members=[8]
+
+=== STEP 436 ===
+Alive=2, Dead=23, TotalEnergy=32, Messages=0
+  Group 0: leader=N11(E=20) members=[11]
+  Group 1: leader=N8(E=12) members=[8]
+
+=== STEP 437 ===
+Alive=2, Dead=23, TotalEnergy=30, Messages=0
+  Group 0: leader=N11(E=19) members=[11]
+  Group 1: leader=N8(E=11) members=[8]
+
+=== STEP 438 ===
+Alive=2, Dead=23, TotalEnergy=28, Messages=0
+  Group 0: leader=N11(E=18) members=[11]
+  Group 1: leader=N8(E=10) members=[8]
+
+=== STEP 439 ===
+Alive=2, Dead=23, TotalEnergy=26, Messages=0
+  Group 0: leader=N11(E=17) members=[11]
+  Group 1: leader=N8(E=9) members=[8]
+
+=== STEP 440 ===
+Alive=2, Dead=23, TotalEnergy=24, Messages=0
+  Group 0: leader=N11(E=16) members=[11]
+  Group 1: leader=N8(E=8) members=[8]
+
+=== STEP 441 ===
+Alive=2, Dead=23, TotalEnergy=22, Messages=0
+  Group 0: leader=N11(E=15) members=[11]
+  Group 1: leader=N8(E=7) members=[8]
+
+=== STEP 442 ===
+Alive=2, Dead=23, TotalEnergy=20, Messages=0
+  Group 0: leader=N11(E=14) members=[11]
+  Group 1: leader=N8(E=6) members=[8]
+
+=== STEP 443 ===
+Alive=2, Dead=23, TotalEnergy=18, Messages=0
+  Group 0: leader=N11(E=13) members=[11]
+  Group 1: leader=N8(E=5) members=[8]
+
+=== STEP 444 ===
+Alive=2, Dead=23, TotalEnergy=16, Messages=0
+  Group 0: leader=N11(E=12) members=[11]
+  Group 1: leader=N8(E=4) members=[8]
+
+=== STEP 445 ===
+Alive=2, Dead=23, TotalEnergy=14, Messages=0
+  Group 0: leader=N11(E=11) members=[11]
+  Group 1: leader=N8(E=3) members=[8]
+
+=== STEP 446 ===
+Alive=2, Dead=23, TotalEnergy=12, Messages=0
+  Group 0: leader=N11(E=10) members=[11]
+  Group 1: leader=N8(E=2) members=[8]
+
+=== STEP 447 ===
+Alive=2, Dead=23, TotalEnergy=10, Messages=0
+  Group 0: leader=N11(E=9) members=[11]
+  Group 1: leader=N8(E=1) members=[8]
+
+=== STEP 448 ===
+Alive=1, Dead=24, TotalEnergy=8, Messages=0
+  Group 0: leader=N11(E=8) members=[11]
+  EVENT: Node 8 died (was_leader=True)
+  EVENT: Group 1 dissolved (no alive members)
+
+=== STEP 449 ===
+Alive=1, Dead=24, TotalEnergy=7, Messages=0
+  Group 0: leader=N11(E=7) members=[11]
+
+=== STEP 450 ===
+Alive=1, Dead=24, TotalEnergy=6, Messages=0
+  Group 0: leader=N11(E=6) members=[11]
+
+=== STEP 451 ===
+Alive=1, Dead=24, TotalEnergy=5, Messages=0
+  Group 0: leader=N11(E=5) members=[11]
+
+=== STEP 452 ===
+Alive=1, Dead=24, TotalEnergy=4, Messages=0
+  Group 0: leader=N11(E=4) members=[11]
+
+=== STEP 453 ===
+Alive=1, Dead=24, TotalEnergy=3, Messages=0
+  Group 0: leader=N11(E=3) members=[11]
+
+=== STEP 454 ===
+Alive=1, Dead=24, TotalEnergy=2, Messages=0
+  Group 0: leader=N11(E=2) members=[11]
+
+=== STEP 455 ===
+Alive=1, Dead=24, TotalEnergy=1, Messages=0
+  Group 0: leader=N11(E=1) members=[11]
+
+=== STEP 456 ===
+Alive=0, Dead=25, TotalEnergy=0, Messages=0
+  EVENT: Node 11 died (was_leader=True)
+  EVENT: Group 0 dissolved (no alive members)
+

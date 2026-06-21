@@ -1,0 +1,401 @@
+=== STEP 1 ===
+Alive=1, Dead=0, TotalEnergy=99, Messages=0
+  Group 0: leader=N1(E=99) members=[1]
+
+=== STEP 2 ===
+Alive=1, Dead=0, TotalEnergy=98, Messages=0
+  Group 0: leader=N1(E=98) members=[1]
+
+=== STEP 3 ===
+Alive=1, Dead=0, TotalEnergy=97, Messages=0
+  Group 0: leader=N1(E=97) members=[1]
+
+=== STEP 4 ===
+Alive=1, Dead=0, TotalEnergy=96, Messages=0
+  Group 0: leader=N1(E=96) members=[1]
+
+=== STEP 5 ===
+Alive=1, Dead=0, TotalEnergy=95, Messages=0
+  Group 0: leader=N1(E=95) members=[1]
+
+=== STEP 6 ===
+Alive=1, Dead=0, TotalEnergy=94, Messages=0
+  Group 0: leader=N1(E=94) members=[1]
+
+=== STEP 7 ===
+Alive=1, Dead=0, TotalEnergy=93, Messages=0
+  Group 0: leader=N1(E=93) members=[1]
+
+=== STEP 8 ===
+Alive=1, Dead=0, TotalEnergy=92, Messages=0
+  Group 0: leader=N1(E=92) members=[1]
+
+=== STEP 9 ===
+Alive=1, Dead=0, TotalEnergy=91, Messages=0
+  Group 0: leader=N1(E=91) members=[1]
+
+=== STEP 10 ===
+Alive=1, Dead=0, TotalEnergy=90, Messages=0
+  Group 0: leader=N1(E=90) members=[1]
+
+=== STEP 11 ===
+Alive=1, Dead=0, TotalEnergy=89, Messages=0
+  Group 0: leader=N1(E=89) members=[1]
+
+=== STEP 12 ===
+Alive=1, Dead=0, TotalEnergy=88, Messages=0
+  Group 0: leader=N1(E=88) members=[1]
+
+=== STEP 13 ===
+Alive=1, Dead=0, TotalEnergy=87, Messages=0
+  Group 0: leader=N1(E=87) members=[1]
+
+=== STEP 14 ===
+Alive=1, Dead=0, TotalEnergy=86, Messages=0
+  Group 0: leader=N1(E=86) members=[1]
+
+=== STEP 15 ===
+Alive=1, Dead=0, TotalEnergy=85, Messages=0
+  Group 0: leader=N1(E=85) members=[1]
+
+=== STEP 16 ===
+Alive=1, Dead=0, TotalEnergy=84, Messages=0
+  Group 0: leader=N1(E=84) members=[1]
+
+=== STEP 17 ===
+Alive=1, Dead=0, TotalEnergy=83, Messages=0
+  Group 0: leader=N1(E=83) members=[1]
+
+=== STEP 18 ===
+Alive=1, Dead=0, TotalEnergy=82, Messages=0
+  Group 0: leader=N1(E=82) members=[1]
+
+=== STEP 19 ===
+Alive=1, Dead=0, TotalEnergy=81, Messages=0
+  Group 0: leader=N1(E=81) members=[1]
+
+=== STEP 20 ===
+Alive=1, Dead=0, TotalEnergy=80, Messages=0
+  Group 0: leader=N1(E=80) members=[1]
+
+=== STEP 21 ===
+Alive=1, Dead=0, TotalEnergy=79, Messages=0
+  Group 0: leader=N1(E=79) members=[1]
+
+=== STEP 22 ===
+Alive=1, Dead=0, TotalEnergy=78, Messages=0
+  Group 0: leader=N1(E=78) members=[1]
+
+=== STEP 23 ===
+Alive=1, Dead=0, TotalEnergy=77, Messages=0
+  Group 0: leader=N1(E=77) members=[1]
+
+=== STEP 24 ===
+Alive=1, Dead=0, TotalEnergy=76, Messages=0
+  Group 0: leader=N1(E=76) members=[1]
+
+=== STEP 25 ===
+Alive=1, Dead=0, TotalEnergy=75, Messages=0
+  Group 0: leader=N1(E=75) members=[1]
+
+=== STEP 26 ===
+Alive=1, Dead=0, TotalEnergy=74, Messages=0
+  Group 0: leader=N1(E=74) members=[1]
+
+=== STEP 27 ===
+Alive=1, Dead=0, TotalEnergy=73, Messages=0
+  Group 0: leader=N1(E=73) members=[1]
+
+=== STEP 28 ===
+Alive=1, Dead=0, TotalEnergy=72, Messages=0
+  Group 0: leader=N1(E=72) members=[1]
+
+=== STEP 29 ===
+Alive=1, Dead=0, TotalEnergy=71, Messages=0
+  Group 0: leader=N1(E=71) members=[1]
+
+=== STEP 30 ===
+Alive=1, Dead=0, TotalEnergy=70, Messages=0
+  Group 0: leader=N1(E=70) members=[1]
+
+=== STEP 31 ===
+Alive=1, Dead=0, TotalEnergy=69, Messages=0
+  Group 0: leader=N1(E=69) members=[1]
+
+=== STEP 32 ===
+Alive=1, Dead=0, TotalEnergy=68, Messages=0
+  Group 0: leader=N1(E=68) members=[1]
+
+=== STEP 33 ===
+Alive=1, Dead=0, TotalEnergy=67, Messages=0
+  Group 0: leader=N1(E=67) members=[1]
+
+=== STEP 34 ===
+Alive=1, Dead=0, TotalEnergy=66, Messages=0
+  Group 0: leader=N1(E=66) members=[1]
+
+=== STEP 35 ===
+Alive=1, Dead=0, TotalEnergy=65, Messages=0
+  Group 0: leader=N1(E=65) members=[1]
+
+=== STEP 36 ===
+Alive=1, Dead=0, TotalEnergy=64, Messages=0
+  Group 0: leader=N1(E=64) members=[1]
+
+=== STEP 37 ===
+Alive=1, Dead=0, TotalEnergy=63, Messages=0
+  Group 0: leader=N1(E=63) members=[1]
+
+=== STEP 38 ===
+Alive=1, Dead=0, TotalEnergy=62, Messages=0
+  Group 0: leader=N1(E=62) members=[1]
+
+=== STEP 39 ===
+Alive=1, Dead=0, TotalEnergy=61, Messages=0
+  Group 0: leader=N1(E=61) members=[1]
+
+=== STEP 40 ===
+Alive=1, Dead=0, TotalEnergy=60, Messages=0
+  Group 0: leader=N1(E=60) members=[1]
+
+=== STEP 41 ===
+Alive=1, Dead=0, TotalEnergy=59, Messages=0
+  Group 0: leader=N1(E=59) members=[1]
+
+=== STEP 42 ===
+Alive=1, Dead=0, TotalEnergy=58, Messages=0
+  Group 0: leader=N1(E=58) members=[1]
+
+=== STEP 43 ===
+Alive=1, Dead=0, TotalEnergy=57, Messages=0
+  Group 0: leader=N1(E=57) members=[1]
+
+=== STEP 44 ===
+Alive=1, Dead=0, TotalEnergy=56, Messages=0
+  Group 0: leader=N1(E=56) members=[1]
+
+=== STEP 45 ===
+Alive=1, Dead=0, TotalEnergy=55, Messages=0
+  Group 0: leader=N1(E=55) members=[1]
+
+=== STEP 46 ===
+Alive=1, Dead=0, TotalEnergy=54, Messages=0
+  Group 0: leader=N1(E=54) members=[1]
+
+=== STEP 47 ===
+Alive=1, Dead=0, TotalEnergy=53, Messages=0
+  Group 0: leader=N1(E=53) members=[1]
+
+=== STEP 48 ===
+Alive=1, Dead=0, TotalEnergy=52, Messages=0
+  Group 0: leader=N1(E=52) members=[1]
+
+=== STEP 49 ===
+Alive=1, Dead=0, TotalEnergy=51, Messages=0
+  Group 0: leader=N1(E=51) members=[1]
+
+=== STEP 50 ===
+Alive=1, Dead=0, TotalEnergy=50, Messages=0
+  Group 0: leader=N1(E=50) members=[1]
+
+=== STEP 51 ===
+Alive=1, Dead=0, TotalEnergy=49, Messages=0
+  Group 0: leader=N1(E=49) members=[1]
+
+=== STEP 52 ===
+Alive=1, Dead=0, TotalEnergy=48, Messages=0
+  Group 0: leader=N1(E=48) members=[1]
+
+=== STEP 53 ===
+Alive=1, Dead=0, TotalEnergy=47, Messages=0
+  Group 0: leader=N1(E=47) members=[1]
+
+=== STEP 54 ===
+Alive=1, Dead=0, TotalEnergy=46, Messages=0
+  Group 0: leader=N1(E=46) members=[1]
+
+=== STEP 55 ===
+Alive=1, Dead=0, TotalEnergy=45, Messages=0
+  Group 0: leader=N1(E=45) members=[1]
+
+=== STEP 56 ===
+Alive=1, Dead=0, TotalEnergy=44, Messages=0
+  Group 0: leader=N1(E=44) members=[1]
+
+=== STEP 57 ===
+Alive=1, Dead=0, TotalEnergy=43, Messages=0
+  Group 0: leader=N1(E=43) members=[1]
+
+=== STEP 58 ===
+Alive=1, Dead=0, TotalEnergy=42, Messages=0
+  Group 0: leader=N1(E=42) members=[1]
+
+=== STEP 59 ===
+Alive=1, Dead=0, TotalEnergy=41, Messages=0
+  Group 0: leader=N1(E=41) members=[1]
+
+=== STEP 60 ===
+Alive=1, Dead=0, TotalEnergy=40, Messages=0
+  Group 0: leader=N1(E=40) members=[1]
+
+=== STEP 61 ===
+Alive=1, Dead=0, TotalEnergy=39, Messages=0
+  Group 0: leader=N1(E=39) members=[1]
+
+=== STEP 62 ===
+Alive=1, Dead=0, TotalEnergy=38, Messages=0
+  Group 0: leader=N1(E=38) members=[1]
+
+=== STEP 63 ===
+Alive=1, Dead=0, TotalEnergy=37, Messages=0
+  Group 0: leader=N1(E=37) members=[1]
+
+=== STEP 64 ===
+Alive=1, Dead=0, TotalEnergy=36, Messages=0
+  Group 0: leader=N1(E=36) members=[1]
+
+=== STEP 65 ===
+Alive=1, Dead=0, TotalEnergy=35, Messages=0
+  Group 0: leader=N1(E=35) members=[1]
+
+=== STEP 66 ===
+Alive=1, Dead=0, TotalEnergy=34, Messages=0
+  Group 0: leader=N1(E=34) members=[1]
+
+=== STEP 67 ===
+Alive=1, Dead=0, TotalEnergy=33, Messages=0
+  Group 0: leader=N1(E=33) members=[1]
+
+=== STEP 68 ===
+Alive=1, Dead=0, TotalEnergy=32, Messages=0
+  Group 0: leader=N1(E=32) members=[1]
+
+=== STEP 69 ===
+Alive=1, Dead=0, TotalEnergy=31, Messages=0
+  Group 0: leader=N1(E=31) members=[1]
+
+=== STEP 70 ===
+Alive=1, Dead=0, TotalEnergy=30, Messages=0
+  Group 0: leader=N1(E=30) members=[1]
+
+=== STEP 71 ===
+Alive=1, Dead=0, TotalEnergy=29, Messages=0
+  Group 0: leader=N1(E=29) members=[1]
+
+=== STEP 72 ===
+Alive=1, Dead=0, TotalEnergy=28, Messages=0
+  Group 0: leader=N1(E=28) members=[1]
+
+=== STEP 73 ===
+Alive=1, Dead=0, TotalEnergy=27, Messages=0
+  Group 0: leader=N1(E=27) members=[1]
+
+=== STEP 74 ===
+Alive=1, Dead=0, TotalEnergy=26, Messages=0
+  Group 0: leader=N1(E=26) members=[1]
+
+=== STEP 75 ===
+Alive=1, Dead=0, TotalEnergy=25, Messages=0
+  Group 0: leader=N1(E=25) members=[1]
+
+=== STEP 76 ===
+Alive=1, Dead=0, TotalEnergy=24, Messages=0
+  Group 0: leader=N1(E=24) members=[1]
+
+=== STEP 77 ===
+Alive=1, Dead=0, TotalEnergy=23, Messages=0
+  Group 0: leader=N1(E=23) members=[1]
+
+=== STEP 78 ===
+Alive=1, Dead=0, TotalEnergy=22, Messages=0
+  Group 0: leader=N1(E=22) members=[1]
+
+=== STEP 79 ===
+Alive=1, Dead=0, TotalEnergy=21, Messages=0
+  Group 0: leader=N1(E=21) members=[1]
+
+=== STEP 80 ===
+Alive=1, Dead=0, TotalEnergy=20, Messages=0
+  Group 0: leader=N1(E=20) members=[1]
+
+=== STEP 81 ===
+Alive=1, Dead=0, TotalEnergy=19, Messages=0
+  Group 0: leader=N1(E=19) members=[1]
+
+=== STEP 82 ===
+Alive=1, Dead=0, TotalEnergy=18, Messages=0
+  Group 0: leader=N1(E=18) members=[1]
+
+=== STEP 83 ===
+Alive=1, Dead=0, TotalEnergy=17, Messages=0
+  Group 0: leader=N1(E=17) members=[1]
+
+=== STEP 84 ===
+Alive=1, Dead=0, TotalEnergy=16, Messages=0
+  Group 0: leader=N1(E=16) members=[1]
+
+=== STEP 85 ===
+Alive=1, Dead=0, TotalEnergy=15, Messages=0
+  Group 0: leader=N1(E=15) members=[1]
+
+=== STEP 86 ===
+Alive=1, Dead=0, TotalEnergy=14, Messages=0
+  Group 0: leader=N1(E=14) members=[1]
+
+=== STEP 87 ===
+Alive=1, Dead=0, TotalEnergy=13, Messages=0
+  Group 0: leader=N1(E=13) members=[1]
+
+=== STEP 88 ===
+Alive=1, Dead=0, TotalEnergy=12, Messages=0
+  Group 0: leader=N1(E=12) members=[1]
+
+=== STEP 89 ===
+Alive=1, Dead=0, TotalEnergy=11, Messages=0
+  Group 0: leader=N1(E=11) members=[1]
+
+=== STEP 90 ===
+Alive=1, Dead=0, TotalEnergy=10, Messages=0
+  Group 0: leader=N1(E=10) members=[1]
+
+=== STEP 91 ===
+Alive=1, Dead=0, TotalEnergy=9, Messages=0
+  Group 0: leader=N1(E=9) members=[1]
+
+=== STEP 92 ===
+Alive=1, Dead=0, TotalEnergy=8, Messages=0
+  Group 0: leader=N1(E=8) members=[1]
+
+=== STEP 93 ===
+Alive=1, Dead=0, TotalEnergy=7, Messages=0
+  Group 0: leader=N1(E=7) members=[1]
+
+=== STEP 94 ===
+Alive=1, Dead=0, TotalEnergy=6, Messages=0
+  Group 0: leader=N1(E=6) members=[1]
+
+=== STEP 95 ===
+Alive=1, Dead=0, TotalEnergy=5, Messages=0
+  Group 0: leader=N1(E=5) members=[1]
+
+=== STEP 96 ===
+Alive=1, Dead=0, TotalEnergy=4, Messages=0
+  Group 0: leader=N1(E=4) members=[1]
+
+=== STEP 97 ===
+Alive=1, Dead=0, TotalEnergy=3, Messages=0
+  Group 0: leader=N1(E=3) members=[1]
+
+=== STEP 98 ===
+Alive=1, Dead=0, TotalEnergy=2, Messages=0
+  Group 0: leader=N1(E=2) members=[1]
+
+=== STEP 99 ===
+Alive=1, Dead=0, TotalEnergy=1, Messages=0
+  Group 0: leader=N1(E=1) members=[1]
+
+=== STEP 100 ===
+Alive=0, Dead=1, TotalEnergy=0, Messages=0
+  EVENT: Node 1 died (was_leader=True)
+  EVENT: Group 0 dissolved (no alive members)
+

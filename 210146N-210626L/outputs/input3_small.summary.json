@@ -1,0 +1,33 @@
+{
+  "base_name": "input3_small",
+  "total_steps": 168,
+  "first_death_step": 142,
+  "last_alive_step": 167,
+  "total_messages": 37,
+  "total_energy_consumed": 540.0,
+  "leader_changes": 1,
+  "deaths": [
+    {
+      "step": 142,
+      "node": 1,
+      "was_leader": true
+    },
+    {
+      "step": 156,
+      "node": 3,
+      "was_leader": false
+    },
+    {
+      "step": 168,
+      "node": 2,
+      "was_leader": true
+    }
+  ],
+  "elections": [
+    {
+      "step": 142,
+      "group": 0,
+      "new_leader": 2
+    }
+  ]
+}
