@@ -115,6 +115,9 @@ export function processSimulation(
     const coordinatorAnnouncedEvents = stepEvents.filter((e) => e.type === 'COORDINATOR_ANNOUNCED');
     const groupDissolvedEvents = stepEvents.filter((e) => e.type === 'GROUP_DISSOLVED');
     const backupAssignedEvents = stepEvents.filter((e) => e.type === 'BACKUP_ASSIGNED');
+    const leaderRotatedEvents = stepEvents.filter((e) => e.type === 'LEADER_ROTATED');
+    const reclusterEvents = stepEvents.filter((e) => e.type === 'RECLUSTER');
+    const orphanEvents = stepEvents.filter((e) => e.type === 'ORPHAN_SELF_PROMOTED');
 
     // Regular messages (ADV, JOIN, HEARTBEAT, DATA, AGG) for this step
     const regularMsgEvents = stepEvents.filter(
@@ -183,6 +186,46 @@ export function processSimulation(
           n.is_backup = (n.id === e.node);
         }
       });
+    });
+
+    // ── Process leader rotation ──
+    leaderRotatedEvents.forEach((e) => {
+      const fromNode = nextNodes[e.from];
+      const toNode = nextNodes[e.to];
+      if (fromNode) fromNode.is_leader = false;
+      if (toNode) toNode.is_leader = true;
+    });
+
+    // ── Process recluster ──
+    reclusterEvents.forEach((e) => {
+      Object.values(nextNodes).forEach((n) => {
+        n.is_leader = false;
+        n.group_id = null;
+        n.is_backup = false;
+      });
+      if (e.leaders) {
+        e.leaders.forEach((lid: number) => {
+          if (nextNodes[lid]) nextNodes[lid].is_leader = true;
+        });
+      }
+      if (e.groups) {
+        Object.keys(e.groups).forEach((gidStr) => {
+          const gid = Number(gidStr);
+          const members: number[] = e.groups[gidStr];
+          members.forEach((mid) => {
+            if (nextNodes[mid]) nextNodes[mid].group_id = gid;
+          });
+        });
+      }
+    });
+
+    // ── Process orphan self promotion ──
+    orphanEvents.forEach((e) => {
+      const node = nextNodes[e.node];
+      if (node) {
+        node.is_leader = true;
+        node.group_id = e.group;
+      }
     });
 
     // ── Check if there's an election sequence at this step ──
