@@ -35,13 +35,13 @@ export default function Visualizer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dataset, setDataset] = useState<string>('input01_provided');
-  const [fastForwardHeartbeats, setFastForwardHeartbeats] = useState(true);
+  const [fastForwardHeartbeats, setFastForwardHeartbeats] = useState(false);
   const [simConfig, setSimConfig] = useState<SimulationConfig>({
     cluster_algo: 'hybrid',
     election_algo: 'backup_first',
     aggregation: 'full',
     agg_factor: 4,
-    data_period: 5,
+    data_period: 0,
     heartbeat: 10,
     rotation_period: 0,
     recluster_period: 0,
@@ -89,27 +89,35 @@ export default function Visualizer() {
   // Fetch predefined dataset
   useEffect(() => {
     if (dataset === 'custom') return;
-    setLoading(true);
-    setError(null);
-    Promise.all([
-      fetch(`/data/${dataset}.txt`).then((r) => { if (!r.ok) throw new Error(`${dataset}.txt not found`); return r.text() }),
-      fetch(`/data/${dataset}.events.jsonl`).then((r) => { if (!r.ok) throw new Error(`NOT_FOUND`); return r.text() }).catch(() => null),
-    ])
-      .then(([inputText, eventsText]) => {
-        if (!eventsText) {
-          setError(`No precomputed results for ${dataset}.txt. Click "Run Simulation" to execute the Pyodide backend!`);
-          setStates([]);
-          setLoading(false);
-          return;
+    
+    let isMounted = true;
+    const initSim = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const req = await fetch(`/data/${dataset}.txt`);
+        if (!req.ok) throw new Error(`${dataset}.txt not found`);
+        const txt = await req.text();
+        const eventsJsonl = await runSimulation(txt, simConfig);
+        if (isMounted) {
+          loadData(txt, eventsJsonl);
         }
-        loadData(inputText, eventsText);
-      })
-      .catch((err) => {
-        console.error('Failed to load simulation files', err);
-        setError(`Load error: ${err.message}`);
-        setLoading(false);
-      });
-  }, [dataset, loadData]);
+      } catch (err: any) {
+        if (isMounted) {
+          console.error('Failed to load or run simulation', err);
+          setError(`Error: ${err.message}`);
+          setLoading(false);
+        }
+      }
+    };
+    
+    initSim();
+    
+    return () => {
+      isMounted = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataset]);
 
 
 
