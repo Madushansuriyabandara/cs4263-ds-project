@@ -1,0 +1,17 @@
+{
+  "base_name": "input2_single",
+  "total_steps": 100,
+  "first_death_step": 100,
+  "last_alive_step": 99,
+  "total_messages": 0,
+  "total_energy_consumed": 100.0,
+  "leader_changes": 0,
+  "deaths": [
+    {
+      "step": 100,
+      "node": 1,
+      "was_leader": true
+    }
+  ],
+  "elections": []
+}

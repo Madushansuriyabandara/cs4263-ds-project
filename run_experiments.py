@@ -114,9 +114,9 @@ def main():
                  markersize=10,label=k) for k,v in colors.items()]
     h2 = [Line2D([0],[0],marker=v,color="black",markerfacecolor="white",
                  markersize=10,label=k) for k,v in markers.items()]
-    lg1 = ax.legend(handles=h1, loc="lower right", title="cluster", fontsize=9)
+    lg1 = ax.legend(handles=h1, loc="upper right", title="cluster", fontsize=9)
     ax.add_artist(lg1)
-    ax.legend(handles=h2, loc="upper left", title="election", fontsize=9)
+    ax.legend(handles=h2, loc="upper right", bbox_to_anchor=(1.0, 0.65), title="election", fontsize=9)
     fig.tight_layout()
     fig.savefig(EXP_DIR / "pareto_comparison.png", dpi=150)
     plt.close(fig)

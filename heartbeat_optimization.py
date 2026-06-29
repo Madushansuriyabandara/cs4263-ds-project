@@ -55,8 +55,8 @@ def main():
     ax2.plot(heartbeats, avg_orphans, color=color, marker='x', label='Orphan Ticks')
     ax2.tick_params(axis='y', labelcolor=color)
     
-    fig.tight_layout()
     plt.title("Heartbeat Optimization: Lifetime vs Responsiveness (Top 4 Combos)")
+    fig.tight_layout()
     plt.savefig("experiments/results/heartbeat_optimization.png", dpi=150)
     print("Wrote experiments/results/heartbeat_optimization.png", flush=True)
 
