@@ -199,26 +199,32 @@ class Simulator:
                                                 recipient_ids=[leader.id],
                                                 msg_type=MessageType.DATA,
                                                 step=self.step))
-                if alive_members:
-                    if self.cfg.aggregation == "full":
+                if self.cfg.aggregation == "full":
+                    self.pending.append(Message(sender_id=leader.id,
+                                                recipient_ids=[0],
+                                                msg_type=MessageType.AGG,
+                                                step=self.step))
+                elif self.cfg.aggregation == "partial":
+                    k = max(1, self.cfg.agg_factor)
+                    # Include the leader's own data in the partial aggregation count
+                    n_out = (len(alive_members) + 1 + k - 1) // k
+                    for _ in range(n_out):
                         self.pending.append(Message(sender_id=leader.id,
                                                     recipient_ids=[0],
                                                     msg_type=MessageType.AGG,
                                                     step=self.step))
-                    elif self.cfg.aggregation == "partial":
-                        k = max(1, self.cfg.agg_factor)
-                        n_out = (len(alive_members) + k - 1) // k
-                        for _ in range(n_out):
-                            self.pending.append(Message(sender_id=leader.id,
-                                                        recipient_ids=[0],
-                                                        msg_type=MessageType.AGG,
-                                                        step=self.step))
-                    elif self.cfg.aggregation == "none":
-                        for _ in alive_members:
-                            self.pending.append(Message(sender_id=leader.id,
-                                                        recipient_ids=[0],
-                                                        msg_type=MessageType.AGG,
-                                                        step=self.step))
+                elif self.cfg.aggregation == "none":
+                    # Send one message for the leader's own data
+                    self.pending.append(Message(sender_id=leader.id,
+                                                recipient_ids=[0],
+                                                msg_type=MessageType.AGG,
+                                                step=self.step))
+                    # Send one message for each member's data
+                    for _ in alive_members:
+                        self.pending.append(Message(sender_id=leader.id,
+                                                    recipient_ids=[0],
+                                                    msg_type=MessageType.AGG,
+                                                    step=self.step))
         if self.cfg.heartbeat > 0 and self.step > 0 \
                 and self.step % self.cfg.heartbeat == 0:
             for g in self.groups.values():
@@ -353,7 +359,8 @@ class Simulator:
         self.groups = self.cluster_fn(self.nodes, radius=self.cfg.radius,
                                       rng=self.rng)
         self.result.events.append({"step": self.step, "type": "RECLUSTER",
-                                   "leaders": [g.leader_id for g in self.groups.values()]})
+                                   "leaders": [g.leader_id for g in self.groups.values()],
+                                   "groups": {g.id: list(g.member_ids) for g in self.groups.values()}})
         for g in self.groups.values():
             if g.backup_id is None:
                 _refresh_backup(g, self.nodes, step=self.step, pending=self.pending)
