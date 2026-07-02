@@ -21,7 +21,7 @@ def main() -> int:
                    choices=sorted(ELECTION_ALGORITHMS.keys()))
     p.add_argument("--radius", type=float, default=20.0)
     p.add_argument("--data-period", type=int, default=5)
-    p.add_argument("--heartbeat", type=int, default=10)
+    p.add_argument("--heartbeat", type=int, default=15)
     p.add_argument("--aggregation", default="full",
                    choices=["full", "partial", "none"])
     p.add_argument("--agg-factor", type=int, default=4)

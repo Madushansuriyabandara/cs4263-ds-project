@@ -35,8 +35,8 @@ def _wrap_groups(leader_to_members: Dict[int, List[int]],
         leader.times_as_leader += 1
         for m in members:
             nodes[m].group_id = gid
-        backup = _pick_backup(leader, members, nodes)
-        groups[gid] = Group(id=gid, leader_id=lid, backup_id=backup,
+        # Backup will be assigned algorithmically by _refresh_backup via messages
+        groups[gid] = Group(id=gid, leader_id=lid, backup_id=None,
                             member_ids=list(members), radius=radius)
     return groups
 
@@ -61,6 +61,9 @@ def cluster_random(nodes, radius=GROUP_RADIUS, rng=None, **_):
             continue
         leader_to_members[n.id] = [n.id]
         assigned.add(n.id)
+    leader_to_members = _merge_close_leaders(leader_to_members, nodes, radius)
+    leader_to_members = _merge_close_leaders(leader_to_members, nodes, radius)
+    leader_to_members = _merge_close_leaders(leader_to_members, nodes, radius)
     return _wrap_groups(leader_to_members, nodes, radius)
 
 
@@ -197,6 +200,7 @@ def cluster_kmedoids_energy(nodes, radius=GROUP_RADIUS, alpha=0.6,
             ms.insert(0, h)
         if not ms:
             del final[h]
+    final = _merge_close_leaders(final, nodes, radius)
     return _wrap_groups(final, nodes, radius)
 
 
@@ -226,6 +230,7 @@ def cluster_leach(nodes, radius=GROUP_RADIUS, p=0.2, rng=None, **_):
             leader_to_members[n.id] = [n.id]
         else:
             leader_to_members[best].append(n.id)
+    leader_to_members = _merge_close_leaders(leader_to_members, nodes, radius)
     return _wrap_groups(leader_to_members, nodes, radius)
 
 
@@ -285,3 +290,45 @@ def reform_for_orphans(nodes, groups, radius=GROUP_RADIUS):
             promoted.append((orphan.id, next_id))
             next_id += 1
     return groups, promoted
+
+
+def _merge_close_leaders(leader_to_members: Dict[int, List[int]],
+                         nodes: Dict[int, Node], radius: float) -> Dict[int, List[int]]:
+    """Merge groups whose leaders are within `radius` of each other.
+
+    Chooses the leader with higher energy (tie-break by lower id) when merging.
+    Repeats until no two leaders are within `radius`.
+    """
+    # Work on a mutable copy
+    groups = {lid: list(members) for lid, members in leader_to_members.items()}
+    while True:
+        lids = list(groups.keys())
+        merged = False
+        n = len(lids)
+        for i in range(n):
+            for j in range(i + 1, n):
+                l1 = lids[i]
+                l2 = lids[j]
+                if nodes[l1].distance_to(nodes[l2]) <= radius:
+                    a = nodes[l1]
+                    b = nodes[l2]
+                    # prefer higher energy, then lower id
+                    if a.energy > b.energy or (a.energy == b.energy and l1 < l2):
+                        new_leader, other = l1, l2
+                    else:
+                        new_leader, other = l2, l1
+                    members = set(groups.get(new_leader, [])) | set(groups.get(other, []))
+                    # ensure leader is in members
+                    members.add(new_leader)
+                    # replace entries
+                    groups.pop(new_leader, None)
+                    groups.pop(other, None)
+                    groups[new_leader] = list(members)
+                    merged = True
+                    break
+            if merged:
+                break
+        if not merged:
+            break
+    return groups
+  

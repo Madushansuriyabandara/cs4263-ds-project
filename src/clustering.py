@@ -35,8 +35,8 @@ def _wrap_groups(leader_to_members: Dict[int, List[int]],
         leader.times_as_leader += 1
         for m in members:
             nodes[m].group_id = gid
-        backup = _pick_backup(leader, members, nodes)
-        groups[gid] = Group(id=gid, leader_id=lid, backup_id=backup,
+        # Backup will be assigned algorithmically by _refresh_backup via messages
+        groups[gid] = Group(id=gid, leader_id=lid, backup_id=None,
                             member_ids=list(members), radius=radius)
     return groups
 

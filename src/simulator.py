@@ -20,18 +20,47 @@ TRIPLET_RE = re.compile(
     r"\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)"
 )
 
+# Also accept plain CSV lines like "2, 4, 560" (no parentheses)
+PLAIN_CSV_RE = re.compile(
+    r"^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$"
+)
+
 
 def parse_input_file(path: str) -> Dict[int, Node]:
+    """Parse input file supporting two formats:
+    1. Parenthesised triplets: (x,y,E),(x,y,E),...  (on one or more lines)
+    2. Plain CSV lines:        x, y, E              (one triplet per line)
+    """
     with open(path, "r", encoding="utf-8") as f:
         text = f.read()
     nodes: Dict[int, Node] = {}
+
+    # Try parenthesised format first
     for idx, m in enumerate(TRIPLET_RE.finditer(text), start=1):
         x, y, e = float(m.group(1)), float(m.group(2)), float(m.group(3))
         if e <= 0:
             raise ValueError(f"Energy must be > 0, got {e} at triplet {idx}")
         nodes[idx] = Node(id=idx, x=x, y=y, energy=e, initial_energy=e)
+
+    # Fallback: try plain CSV lines (one triplet per line, no parentheses)
     if not nodes:
-        raise ValueError(f"No (x,y,E) triplets in {path}")
+        for line in text.strip().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            m = PLAIN_CSV_RE.match(line)
+            if m:
+                idx = len(nodes) + 1
+                x, y, e = float(m.group(1)), float(m.group(2)), float(m.group(3))
+                if e <= 0:
+                    raise ValueError(f"Energy must be > 0, got {e} at line {idx}")
+                nodes[idx] = Node(id=idx, x=x, y=y, energy=e, initial_energy=e)
+
+    if not nodes:
+        raise ValueError(
+            f"No triplets found in {path}. "
+            f"Expected format: (x,y,E),(x,y,E),... or one 'x, y, E' per line."
+        )
     return nodes
 
 
@@ -61,6 +90,8 @@ class StepSnapshot:
     total_energy: float
     n_groups: int
     messages: int
+    node_energies: Dict[int, int] = field(default_factory=dict)
+    groups_info: List[Dict] = field(default_factory=list)
 
 
 @dataclass
@@ -100,7 +131,7 @@ def _refresh_backup(group: Group, nodes: Dict[int, Node], step: int = 0, pending
     if pending is not None:
         # Honest backup election: leader broadcasts request, members reply
         pending.append(Message(sender_id=leader.id, recipient_ids=[c.id for c in cands],
-                               msg_type=MessageType.HEARTBEAT, step=step))
+                               msg_type=MessageType.ELECTION, step=step))
         for c in cands:
             pending.append(Message(sender_id=c.id, recipient_ids=[leader.id],
                                    msg_type=MessageType.VOTE, step=step))
@@ -366,10 +397,26 @@ class Simulator:
                     self.result.total_orphan_ticks += 1
                     
         alive = sum(1 for n in self.nodes.values() if n.is_alive())
-        total_e = sum(n.energy for n in self.nodes.values() if n.is_alive())
+        total_energy = sum(n.energy for n in self.nodes.values() if n.is_alive())
+
+        node_energies = {
+            n.id: int(round(n.energy))
+            for n in sorted(self.nodes.values(), key=lambda x: x.id)
+            if n.is_alive()
+        }
+        groups_info = []
+        for gid, g in sorted(self.groups.items()):
+            groups_info.append({
+                "id": gid,
+                "leader": g.leader_id,
+                "backup": g.backup_id,
+                "members": sorted(list(g.member_ids))
+            })
+
         self.result.history.append(StepSnapshot(
-            step=self.step, alive=alive, total_energy=total_e,
+            step=self.step, alive=alive, total_energy=total_energy,
             n_groups=len(self.groups), messages=n_msgs,
+            node_energies=node_energies, groups_info=groups_info
         ))
         return alive
 

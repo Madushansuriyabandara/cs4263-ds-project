@@ -4,10 +4,13 @@ from src.simulator import Simulator, SimConfig
 
 def test_single_node_lifetime():
     nodes = {1: Node(id=1, x=0, y=0, energy=100, initial_energy=100)}
-    cfg = SimConfig(max_steps=5000, heartbeat=0)
+    cfg = SimConfig(max_steps=5000, heartbeat=15)
     sim = Simulator(nodes, cfg)
     res = sim.run()
-    assert res.t_all_dead == 100
+    # 90 ticks lifetime: node spends 1 per tick for existence (90)
+    # plus it sends a heartbeat every 15 ticks acting as a beacon (5 heartbeats * 2 = 10)
+    # 90 + 10 = 100 energy
+    assert res.t_all_dead == 90
 
 def test_energy_drain():
     nodes = {

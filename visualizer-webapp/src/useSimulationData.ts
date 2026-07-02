@@ -176,39 +176,30 @@ export function processSimulation(
       });
     });
 
-    // ── Process backup assignments ──
-    backupAssignedEvents.forEach((e) => {
-      Object.values(nextNodes).forEach((n) => {
-        if (n.group_id === e.group) {
-          n.is_backup = (n.id === e.node);
-        }
-      });
-    });
+    // ── DO NOT process backup assignments here (moved to after election sub-frames) ──
 
     // ── Check if there's an election sequence at this step ──
-    const hasElection = coordinatorAnnouncedEvents.length > 0;
+    const hasElection = coordinatorAnnouncedEvents.length > 0 || backupAssignedEvents.length > 0;
 
-    // ── Check if election messages exist at the NEXT step ──
-    const nextStepEvents = eventsByStep[s + 1] || [];
-    const nextStepElectionMsgs = nextStepEvents.filter(
-      (e) => e.type === 'MESSAGE_SENT' &&
-        ['ELECTION', 'OK', 'COORDINATOR', 'VOTE', 'TOKEN'].includes(e.msg_type)
-    );
+    // ── Check if election messages exist at the CURRENT step ──
+    const nextStepElectionMsgs = electionMsgEvents;
 
     if (hasElection && nextStepElectionMsgs.length > 0) {
       // ══════════════════════════════════════════════════════════════
       // ELECTION SEQUENCE: Generate multiple animation sub-frames
       // ══════════════════════════════════════════════════════════════
 
-      const electionGroup = coordinatorAnnouncedEvents[0].group;
-      const newLeaderId = coordinatorAnnouncedEvents[0].new_leader;
+      const electionGroups = new Set([
+        ...coordinatorAnnouncedEvents.map(e => e.group),
+        ...backupAssignedEvents.map(e => e.group)
+      ]);
 
       // Separate next-step election messages by type
       const electionMsgs = nextStepElectionMsgs.filter((e) => ['ELECTION', 'VOTE', 'TOKEN'].includes(e.msg_type));
       const okMsgs = nextStepElectionMsgs.filter((e) => e.msg_type === 'OK');
       const coordinatorMsgs = nextStepElectionMsgs.filter((e) => e.msg_type === 'COORDINATOR');
 
-      // ── Sub-frame 1: Death happens + regular messages (before election) ──
+      // ── Sub-frame 1: Death happens + regular messages ──
       states.push({
         step: s,
         label: `Step ${s}: Node death detected`,
@@ -219,13 +210,13 @@ export function processSimulation(
       // ── Sub-frame 2: Election starts — nodes turn orange ──
       const electionNodes = cloneNodes(nextNodes);
       Object.values(electionNodes).forEach((n) => {
-        if (n.group_id === electionGroup && n.status === 'ACTIVE') {
+        if (electionGroups.has(n.group_id) && n.status === 'ACTIVE') {
           n.election_in_progress = true;
         }
       });
       states.push({
         step: s,
-        label: `Step ${s}: Election started in Group ${electionGroup}`,
+        label: `Step ${s}: Election started`,
         nodes: cloneNodes(electionNodes),
         messages: [],
       });
@@ -285,23 +276,36 @@ export function processSimulation(
       if (coordArrows.length > 0) {
         states.push({
           step: s,
-          label: `Step ${s}: COORDINATOR announced by Node ${newLeaderId}`,
+          label: `Step ${s}: COORDINATOR announced`,
           nodes: cloneNodes(electionNodes),
           messages: coordArrows,
         });
       }
 
-      // ── Sub-frame 6: Election resolved — new leader is pink ──
+      // ── Sub-frame 6: Election resolved — new leaders/backups assigned ──
       const resolvedNodes = cloneNodes(electionNodes);
-      Object.values(resolvedNodes).forEach((n) => {
-        if (n.group_id === electionGroup) {
-          n.election_in_progress = false;
-          n.is_leader = (n.id === newLeaderId);
-        }
+      
+      coordinatorAnnouncedEvents.forEach((e) => {
+        Object.values(resolvedNodes).forEach((n) => {
+          if (n.group_id === e.group) {
+            n.election_in_progress = false;
+            n.is_leader = (n.id === e.new_leader);
+          }
+        });
       });
+
+      backupAssignedEvents.forEach((e) => {
+        Object.values(resolvedNodes).forEach((n) => {
+          if (n.group_id === e.group) {
+            n.election_in_progress = false;
+            n.is_backup = (n.id === e.node);
+          }
+        });
+      });
+
       states.push({
         step: s,
-        label: `Step ${s}: Node ${newLeaderId} is new leader of Group ${electionGroup}`,
+        label: `Step ${s}: Election resolved`,
         nodes: resolvedNodes,
         messages: [],
       });
@@ -309,51 +313,31 @@ export function processSimulation(
       // Update currentNodes, and mark the next step's election messages as consumed
       currentNodes = resolvedNodes;
 
-      // Remove election messages from next step so they don't get double-processed
-      eventsByStep[s + 1] = nextStepEvents.filter(
-        (e) => !(e.type === 'MESSAGE_SENT' && ['ELECTION', 'OK', 'COORDINATOR', 'VOTE', 'TOKEN'].includes(e.msg_type))
-      );
-
     } else if (hasElection && nextStepElectionMsgs.length === 0) {
       // Election with no messages (single-member election, e.g. step 211)
-      const electionGroup = coordinatorAnnouncedEvents[0].group;
-      const newLeaderId = coordinatorAnnouncedEvents[0].new_leader;
+      const resolvedNodes = cloneNodes(nextNodes);
+      
+      coordinatorAnnouncedEvents.forEach((e) => {
+        Object.values(resolvedNodes).forEach((n) => {
+          if (n.group_id === e.group) {
+            n.is_leader = (n.id === e.new_leader);
+          }
+        });
+      });
 
-      // Sub-frame 1: Death + regular messages
+      backupAssignedEvents.forEach((e) => {
+        Object.values(resolvedNodes).forEach((n) => {
+          if (n.group_id === e.group) {
+            n.is_backup = (n.id === e.node);
+          }
+        });
+      });
+
       states.push({
         step: s,
-        label: `Step ${s}: Node death detected`,
-        nodes: cloneNodes(nextNodes),
+        label: `Step ${s}: Election resolved trivially (no messages)`,
+        nodes: cloneNodes(resolvedNodes),
         messages: regularMessages,
-      });
-
-      // Sub-frame 2: Election starts
-      const electionNodes = cloneNodes(nextNodes);
-      Object.values(electionNodes).forEach((n) => {
-        if (n.group_id === electionGroup && n.status === 'ACTIVE') {
-          n.election_in_progress = true;
-        }
-      });
-      states.push({
-        step: s,
-        label: `Step ${s}: Election in Group ${electionGroup} (sole survivor)`,
-        nodes: cloneNodes(electionNodes),
-        messages: [],
-      });
-
-      // Sub-frame 3: Resolved immediately
-      const resolvedNodes = cloneNodes(electionNodes);
-      Object.values(resolvedNodes).forEach((n) => {
-        if (n.group_id === electionGroup) {
-          n.election_in_progress = false;
-          n.is_leader = (n.id === newLeaderId);
-        }
-      });
-      states.push({
-        step: s,
-        label: `Step ${s}: Node ${newLeaderId} auto-elected leader of Group ${electionGroup}`,
-        nodes: resolvedNodes,
-        messages: [],
       });
 
       currentNodes = resolvedNodes;

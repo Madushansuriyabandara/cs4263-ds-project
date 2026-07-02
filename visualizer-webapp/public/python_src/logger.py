@@ -27,8 +27,47 @@ def write_outputs(out_dir: str, base: str,
         for h in result.history:
             f.write(f"=== STEP {h.step} ===\n")
             f.write(f"Alive={h.alive}, Groups={h.n_groups}, "
-                    f"TotalEnergy={h.total_energy:.1f}, "
+                    f"TotalEnergy={int(h.total_energy)}, "
                     f"Messages={h.messages}\n")
+            
+            step_events = [ev for ev in result.events if ev.get("step") == h.step]
+            f.write("  Actions:\n")
+            actions_found = False
+            for ev in step_events:
+                if ev.get("type") == "MESSAGE_SENT":
+                    actions_found = True
+                    msg_type = ev.get("msg_type")
+                    sender = ev.get("sender")
+                    recipients = ev.get("recipients", [])
+                    if msg_type == "AGG":
+                        target = "sink"
+                    elif len(recipients) == 1:
+                        target = str(recipients[0])
+                    elif len(recipients) > 1:
+                        target = "broadcast"
+                    else:
+                        target = "broadcast"
+                    f.write(f"    {msg_type:5s} {sender}->{target}\n")
+            if not actions_found:
+                f.write("    (none)\n")
+            
+            f.write("  Energy levels:\n    ")
+            if h.node_energies:
+                energy_strs = [f"N{nid}={e}" for nid, e in h.node_energies.items()]
+                f.write(" ".join(energy_strs) + "\n")
+            else:
+                f.write("(all dead)\n")
+
+            f.write("  Groups:\n")
+            if h.groups_info:
+                for idx, g in enumerate(h.groups_info):
+                    leader = g["leader"]
+                    backup = g["backup"]
+                    members = g["members"]
+                    backup_str = f"  backup={backup}" if backup is not None else ""
+                    f.write(f"    G{idx}: leader={leader}*{backup_str}  members={members}\n")
+            else:
+                f.write("    (none)\n")
         f.write("\n# Deaths:\n")
         for (s, nid, wl) in result.deaths:
             f.write(f"  step {s}: node {nid} died (was_leader={wl})\n")
